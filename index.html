@@ -44,6 +44,36 @@
   .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--heading); }
 
+  /* Hamburger */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--heading); transition: all 0.3s; border-radius: 2px; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Mobile menu overlay */
+  .mobile-menu {
+    display: none; position: fixed; inset: 0; top: 60px;
+    background: rgba(247,243,239,0.98); backdrop-filter: blur(20px);
+    z-index: 99; flex-direction: column; align-items: center; justify-content: center;
+    gap: 0;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    display: block; width: 100%; text-align: center;
+    padding: 22px 24px; text-decoration: none;
+    font-size: 1.1rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--heading);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s, color 0.2s;
+  }
+  .mobile-menu a:hover { background: rgba(168,25,46,0.05); color: var(--crimson); }
+
+  @media (max-width: 900px) {
+    .hamburger { display: flex; }
+    .nav-links { display: none !important; }
+  }
+
   /* HERO */
   .hero {
     display: grid; grid-template-columns: 1fr 1fr;
@@ -274,6 +304,104 @@
   .footer-logo span { color: var(--crimson); }
   .footer-copy { font-size: 0.78rem; color: var(--muted); }
 
+
+  /* MEDICAL-LEGAL */
+  #legal { background: #1a1208; }
+  #legal .tag { color: #c8a96e; }
+  #legal .tag::before { background: #c8a96e; }
+  #legal .section-h { color: #f5f0e8; }
+  .legal-intro { text-align: center; max-width: 780px; margin: 0 auto 72px; }
+  .legal-lead { font-size: 1.05rem; line-height: 1.85; color: rgba(245,240,232,0.7); margin-top: 20px; }
+  .legal-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.06); margin-bottom: 56px;
+  }
+  .legal-card {
+    background: #221c10; padding: 40px 32px;
+    position: relative; overflow: hidden; transition: background 0.3s;
+  }
+  .legal-card.featured { background: #2a1f0e; }
+  .legal-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: #c8a96e; transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+  }
+  .legal-card:hover { background: #2e2510; }
+  .legal-card:hover::after { transform: scaleX(1); }
+  .legal-card-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+  .legal-card-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #f5f0e8; margin-bottom: 10px; }
+  .legal-card-desc { font-size: 0.87rem; line-height: 1.75; color: rgba(245,240,232,0.6); }
+  .legal-cases { margin-bottom: 56px; }
+  .legal-cases-title { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #c8a96e; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .case-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .case-tag { padding: 8px 18px; background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.2); font-size: 0.78rem; font-weight: 500; color: rgba(245,240,232,0.8); letter-spacing: 0.04em; transition: all 0.2s; }
+  .case-tag:hover { background: rgba(200,169,110,0.18); border-color: rgba(200,169,110,0.4); }
+  .legal-cta-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(200,169,110,0.08); border: 1px solid rgba(200,169,110,0.2);
+    padding: 36px 44px; gap: 40px; flex-wrap: wrap;
+  }
+  .legal-cta-heading { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #f5f0e8; margin-bottom: 6px; }
+  .legal-cta-sub { font-size: 0.88rem; color: rgba(245,240,232,0.6); }
+  #legal .btn-primary { background: #c8a96e; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%); white-space: nowrap; }
+  #legal .btn-primary:hover { background: #b8944e; box-shadow: 0 10px 30px rgba(200,169,110,0.25); }
+  @media (max-width: 900px) {
+    .legal-grid { grid-template-columns: 1fr; }
+    .legal-cta-bar { flex-direction: column; align-items: flex-start; padding: 28px; }
+  }
+
+
+  /* RESEARCH & DEVICE CONSULTING */
+  #research { background: #f0f4f8; }
+  #research .tag { color: #1d4e89; }
+  #research .tag::before { background: #1d4e89; }
+  #research .section-h { color: #0f2a4a; }
+  .research-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; margin-bottom: 72px; }
+  .research-text p { font-size: 1rem; line-height: 1.85; color: rgba(15,42,74,0.72); margin-bottom: 18px; }
+  .research-text strong { color: #0f2a4a; font-weight: 600; }
+  .research-services { list-style: none; margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .research-services li { display: flex; align-items: center; gap: 8px; font-size: 0.86rem; color: rgba(15,42,74,0.8); }
+  .research-services li::before { content: "→"; color: #1d4e89; font-weight: 700; flex-shrink: 0; }
+  .research-cards { display: flex; flex-direction: column; gap: 14px; }
+  .research-card {
+    background: #fff; border: 1px solid rgba(29,78,137,0.12);
+    border-left: 3px solid #1d4e89;
+    padding: 24px 28px; transition: all 0.3s;
+  }
+  .research-card:hover { transform: translateX(5px); border-color: rgba(29,78,137,0.3); box-shadow: 0 4px 20px rgba(29,78,137,0.08); }
+  .research-card-title { font-size: 0.92rem; font-weight: 700; color: #0f2a4a; margin-bottom: 6px; }
+  .research-card-desc { font-size: 0.84rem; line-height: 1.7; color: rgba(15,42,74,0.65); }
+  .device-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: rgba(29,78,137,0.1);
+    border: 1px solid rgba(29,78,137,0.1); margin-bottom: 56px;
+  }
+  .device-item { background: #fff; padding: 32px 24px; text-align: center; transition: background 0.3s; }
+  .device-item:hover { background: #e8f0f8; }
+  .device-item-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+  .device-item-title { font-size: 0.82rem; font-weight: 700; color: #0f2a4a; margin-bottom: 6px; letter-spacing: 0.02em; }
+  .device-item-desc { font-size: 0.76rem; color: rgba(15,42,74,0.6); line-height: 1.6; }
+  .research-cta-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    background: #1d4e89; padding: 36px 44px; gap: 40px; flex-wrap: wrap;
+  }
+  .research-cta-heading { font-family: "Playfair Display", serif; font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .research-cta-sub { font-size: 0.88rem; color: rgba(255,255,255,0.7); }
+  #research .btn-primary { background: #fff; color: #1d4e89; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%); white-space: nowrap; }
+  #research .btn-primary:hover { background: #e8f0f8; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+  .eng-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(29,78,137,0.08); border: 1px solid rgba(29,78,137,0.18);
+    padding: 6px 14px; font-size: 0.74rem; font-weight: 600;
+    color: #1d4e89; letter-spacing: 0.06em; margin-bottom: 20px;
+  }
+  @media (max-width: 900px) {
+    .research-layout { grid-template-columns: 1fr; gap: 40px; }
+    .device-strip { grid-template-columns: 1fr 1fr; }
+    .research-cta-bar { flex-direction: column; align-items: flex-start; padding: 28px; }
+    .research-services { grid-template-columns: 1fr; }
+  }
+
   /* Animations */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -289,10 +417,25 @@
     <li><a href="#about">About</a></li>
     <li><a href="#expertise">Expertise</a></li>
     <li><a href="#content">Content</a></li>
+    <li><a href="#legal">Medical-Legal</a></li>
+    <li><a href="#research">Research</a></li>
     <li><a href="#credentials">CV</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#expertise" onclick="closeMenu()">Expertise</a>
+  <a href="#content" onclick="closeMenu()">Content</a>
+  <a href="#legal" onclick="closeMenu()">Medical-Legal</a>
+  <a href="#research" onclick="closeMenu()">Research</a>
+  <a href="#credentials" onclick="closeMenu()">CV</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -419,6 +562,168 @@
   </div>
 </section>
 
+
+<!-- MEDICAL-LEGAL EXPERT -->
+<section id="legal">
+  <div class="inner">
+    <div class="legal-intro reveal">
+      <div class="tag">Medical-Legal Services</div>
+      <h2 class="section-h">Cardiology Expert Witness &<br>Medical-Legal Consultant</h2>
+      <p class="legal-lead">Dr. Bharmal provides rigorous, objective medical-legal consulting and expert witness services to attorneys, insurance carriers, and legal teams across Orange County and Southern California — bringing the same analytical precision he applies in the cath lab to every case review.</p>
+    </div>
+
+    <div class="legal-grid reveal">
+      <div class="legal-card featured">
+        <div class="legal-card-icon">⚖️</div>
+        <div class="legal-card-title">Expert Witness Testimony</div>
+        <div class="legal-card-desc">Board-certified, actively practicing interventional cardiologist available for deposition and trial testimony. Provides clear, authoritative opinions on cardiac standard of care, causation, and clinical decision-making for both plaintiff and defense.</div>
+      </div>
+      <div class="legal-card">
+        <div class="legal-card-icon">📋</div>
+        <div class="legal-card-title">Standard of Care Review</div>
+        <div class="legal-card-desc">Thorough review of medical records, imaging, and clinical data to assess whether cardiovascular care met the accepted standard. Detailed written reports suitable for litigation, arbitration, or settlement.</div>
+      </div>
+      <div class="legal-card">
+        <div class="legal-card-icon">🔍</div>
+        <div class="legal-card-title">Independent Medical Examination (IME)</div>
+        <div class="legal-card-desc">Objective, unbiased cardiac evaluations for workers' compensation, personal injury, and disability cases. Comprehensive IME reports delivered with fast turnaround.</div>
+      </div>
+      <div class="legal-card">
+        <div class="legal-card-icon">📊</div>
+        <div class="legal-card-title">Causation Analysis</div>
+        <div class="legal-card-desc">Evidence-based analysis linking cardiac events — including heart attacks, arrhythmias, heart failure, and cardiac arrest — to alleged negligence, injury, or occupational exposure.</div>
+      </div>
+      <div class="legal-card">
+        <div class="legal-card-icon">📝</div>
+        <div class="legal-card-title">Affidavit of Merit</div>
+        <div class="legal-card-desc">Timely preparation of affidavits of merit for cardiology malpractice cases, with meticulous attention to the clinical facts and applicable standard of care.</div>
+      </div>
+      <div class="legal-card">
+        <div class="legal-card-icon">🤝</div>
+        <div class="legal-card-title">Case Consultation</div>
+        <div class="legal-card-desc">Early-stage case evaluation to assess merit and liability. Complimentary initial consultation to determine case fit. Available to plaintiff and defense counsel throughout Orange County and Southern California.</div>
+      </div>
+    </div>
+
+    <div class="legal-cases reveal">
+      <div class="legal-cases-title">Case Types &amp; Conditions</div>
+      <div class="case-tags">
+        <span class="case-tag">Acute Myocardial Infarction</span>
+        <span class="case-tag">Cardiac Arrest</span>
+        <span class="case-tag">Coronary Artery Disease</span>
+        <span class="case-tag">Stent Complications</span>
+        <span class="case-tag">Missed Diagnosis</span>
+        <span class="case-tag">Delayed Treatment</span>
+        <span class="case-tag">Heart Failure</span>
+        <span class="case-tag">Arrhythmia</span>
+        <span class="case-tag">Hypertension</span>
+        <span class="case-tag">Pericarditis / Myocarditis</span>
+        <span class="case-tag">Cardiac Catheterization Complications</span>
+        <span class="case-tag">Angioplasty & Stent Malpractice</span>
+        <span class="case-tag">Drug-Induced Cardiac Injury</span>
+        <span class="case-tag">Wrongful Death</span>
+        <span class="case-tag">Workers' Compensation</span>
+        <span class="case-tag">Personal Injury</span>
+      </div>
+    </div>
+
+    <div class="legal-cta-bar reveal">
+      <div class="legal-cta-text">
+        <div class="legal-cta-heading">Retain Dr. Bharmal for Your Case</div>
+        <div class="legal-cta-sub">Serving attorneys across Orange County, Los Angeles, Riverside, and San Bernardino counties. Fast turnaround. Plaintiff &amp; defense.</div>
+      </div>
+      <a href="#contact" class="btn-primary">Request a Consultation ↗</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- RESEARCH & DEVICE CONSULTING -->
+<section id="research">
+  <div class="inner">
+    <div class="reveal" style="text-align:center;margin-bottom:72px;max-width:800px;margin-left:auto;margin-right:auto;">
+      <div class="eng-badge">🔬 Biomedical Engineering · BS UC San Diego · R&amp;D Abbott Vascular</div>
+      <div class="tag">Research &amp; Device Consulting</div>
+      <h2 class="section-h">Where Clinical Cardiology Meets<br>Engineering Innovation</h2>
+      <p style="font-size:1.05rem;line-height:1.85;color:rgba(15,42,74,0.72);margin-top:20px;">Dr. Bharmal is uniquely positioned at the intersection of biomedical engineering and interventional cardiology — with formal engineering training from UC San Diego, hands-on R&amp;D experience at Abbott Vascular, and over a decade of clinical use of the very devices he once helped develop.</p>
+    </div>
+
+    <div class="research-layout reveal">
+      <div class="research-text">
+        <div class="tag">Consulting Services</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#0f2a4a;margin-bottom:20px;line-height:1.2;">Clinical Insight for Device Developers &amp; Research Teams</h3>
+        <p>Before earning his MD, Dr. Bharmal worked as an <strong>R&amp;D engineer at Abbott Vascular</strong> — one of the world's leading cardiac device companies — developing and refining coronary intervention technologies. He then spent over a decade as a clinician actually deploying these devices in patients.</p>
+        <p>This rare dual perspective — engineer and interventionalist — makes Dr. Bharmal an invaluable consultant for medical device companies, biotech startups, research institutions, and academic centers seeking real-world clinical input on cardiovascular technology development.</p>
+        <ul class="research-services">
+          <li>Cardiac device clinical evaluation</li>
+          <li>Coronary intervention device design</li>
+          <li>Clinical trial design & protocol</li>
+          <li>Physician advisory board</li>
+          <li>FDA regulatory input & IND support</li>
+          <li>Market research & clinical needs</li>
+          <li>Device usability & human factors</li>
+          <li>Post-market clinical follow-up</li>
+          <li>Peer-reviewed research collaboration</li>
+          <li>Academic research partnerships</li>
+          <li>Grant writing & research strategy</li>
+          <li>Startup & investor consulting</li>
+        </ul>
+      </div>
+      <div class="research-cards">
+        <div class="research-card">
+          <div class="research-card-title">🏭 Medical Device Industry</div>
+          <div class="research-card-desc">Consulting for cardiac device manufacturers on clinical relevance, physician feedback, product iteration, and real-world performance of coronary and cardiovascular devices. Former R&amp;D engineer at Abbott Vascular.</div>
+        </div>
+        <div class="research-card">
+          <div class="research-card-title">🧪 Clinical Research & Trials</div>
+          <div class="research-card-desc">Expert input on cardiovascular clinical trial design, endpoint selection, patient population, protocol development, and IRB considerations. Published researcher in Catheterization &amp; Cardiovascular Interventions and Personalized Medicine.</div>
+        </div>
+        <div class="research-card">
+          <div class="research-card-title">🚀 Biotech & Startup Advisory</div>
+          <div class="research-card-desc">Physician advisory services for cardiovascular startups and biotech companies seeking clinical validation, investor pitch support, and go-to-market strategy grounded in real interventional cardiology practice.</div>
+        </div>
+        <div class="research-card">
+          <div class="research-card-title">🎓 Academic Research Collaboration</div>
+          <div class="research-card-desc">Active research collaborator with expertise in coronary hemodynamics, nanosensor technology, digital health, and extracorporeal resuscitation. Open to collaborative research projects with universities and research institutions.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="device-strip reveal">
+      <div class="device-item">
+        <span class="device-item-icon">🫀</span>
+        <div class="device-item-title">Coronary Stents & Angioplasty</div>
+        <div class="device-item-desc">Design, evaluation & clinical performance of coronary intervention devices</div>
+      </div>
+      <div class="device-item">
+        <span class="device-item-icon">📡</span>
+        <div class="device-item-title">Nanosensor & Digital Health</div>
+        <div class="device-item-desc">Published expertise in nanosensor technology and digital transformation of cardiology</div>
+      </div>
+      <div class="device-item">
+        <span class="device-item-icon">🩺</span>
+        <div class="device-item-title">FFR & Hemodynamic Devices</div>
+        <div class="device-item-desc">Deep clinical expertise in pressure wire, OCT, and coronary physiology platforms</div>
+      </div>
+      <div class="device-item">
+        <span class="device-item-icon">⚡</span>
+        <div class="device-item-title">ECPR & Resuscitation Tech</div>
+        <div class="device-item-desc">Research in extracorporeal CPR systems and cardiac arrest technology optimization</div>
+      </div>
+    </div>
+
+    <div class="research-cta-bar reveal">
+      <div>
+        <div class="research-cta-heading">Partner with Dr. Bharmal on Your Next Project</div>
+        <div class="research-cta-sub">Available for device consulting, research collaboration, advisory boards, and clinical trial support across Southern California and nationally.</div>
+      </div>
+      <a href="#contact" class="btn-primary">Start a Conversation ↗</a>
+    </div>
+
+  </div>
+</section>
+
 <!-- CV -->
 <section id="credentials">
   <div class="inner">
@@ -520,6 +825,20 @@
 </footer>
 
 <script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
