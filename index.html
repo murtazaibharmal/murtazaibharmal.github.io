@@ -523,6 +523,103 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
   img, svg, video, canvas { max-width: 100%; height: auto; }
   /* Inputs/selects stay within their parent on zoom */
   input, select, textarea { max-width: 100%; }
+
+  /* ============ BLOG / CLINICAL PEARLS ============ */
+  #blog { background: var(--bg); }
+  .blog-intro { max-width: 680px; margin-bottom: 56px; }
+  .blog-intro p { font-size: 1rem; line-height: 1.85; color: rgba(42,32,24,0.7); margin-top: 12px; }
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 0; }
+
+  /* Featured first post spans full width */
+  .blog-card { background: var(--bg2); border: 1px solid var(--border); overflow: hidden; transition: all 0.3s; position: relative; }
+  .blog-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.09); border-color: rgba(168,25,46,0.2); }
+  .blog-card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; }
+  .blog-card-img {
+    background: linear-gradient(135deg, #1a1208 0%, #3a1a14 100%);
+    min-height: 220px; display: flex; align-items: center; justify-content: center;
+    font-size: 4rem; position: relative; overflow: hidden;
+  }
+  .blog-card.featured .blog-card-img { min-height: 320px; font-size: 5rem; }
+  .blog-card-img::after {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 60%, rgba(168,25,46,0.25), transparent 60%);
+  }
+  .blog-card-body { padding: 32px 28px; display: flex; flex-direction: column; justify-content: space-between; }
+  .blog-card.featured .blog-card-body { padding: 40px 36px; }
+  .blog-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+  .blog-cat { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--crimson); }
+  .blog-date { font-size: 0.7rem; color: var(--muted); }
+  .blog-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--head); line-height: 1.3; margin-bottom: 12px; }
+  .blog-card.featured .blog-title { font-size: 1.7rem; }
+  .blog-excerpt { font-size: 0.88rem; line-height: 1.75; color: rgba(42,32,24,0.68); margin-bottom: 20px; flex-grow: 1; }
+  .blog-read { display: inline-flex; align-items: center; gap: 6px; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--crimson); text-decoration: none; transition: gap 0.2s; cursor: pointer; background: none; border: none; padding: 0; }
+  .blog-read:hover { gap: 10px; }
+
+  /* Modal overlay */
+  .article-overlay {
+    display: none; position: fixed; inset: 0; z-index: 500;
+    background: rgba(10,6,2,0.7); backdrop-filter: blur(6px);
+    overflow-y: auto; padding: 40px 20px;
+  }
+  .article-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+  .article-modal {
+    background: var(--bg); max-width: 760px; width: 100%;
+    border: 1px solid var(--border); position: relative;
+    animation: modalIn 0.3s ease;
+  }
+  @keyframes modalIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .article-modal-header {
+    background: linear-gradient(135deg, #1a1208, #3a1a14);
+    padding: 48px 48px 40px; position: relative;
+  }
+  .article-close {
+    position: absolute; top: 20px; right: 20px;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+    color: #fff; width: 36px; height: 36px; font-size: 1.1rem;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .article-close:hover { background: rgba(255,255,255,0.2); }
+  .article-cat { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .article-title { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 900; color: #f5f0e8; line-height: 1.2; margin-bottom: 16px; }
+  .article-byline { font-size: 0.78rem; color: rgba(245,240,232,0.6); }
+  .article-body { padding: 44px 48px; }
+  .article-body h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--head); margin: 32px 0 10px; }
+  .article-body h3:first-child { margin-top: 0; }
+  .article-body p { font-size: 0.97rem; line-height: 1.9; color: rgba(42,32,24,0.8); margin-bottom: 14px; }
+  .article-body ul { margin: 0 0 16px 20px; }
+  .article-body ul li { font-size: 0.95rem; line-height: 1.85; color: rgba(42,32,24,0.8); margin-bottom: 6px; }
+  .article-body strong { color: var(--head); font-weight: 600; }
+  .article-callout {
+    background: rgba(168,25,46,0.06); border: 1px solid rgba(168,25,46,0.15);
+    border-left: 3px solid var(--crimson); padding: 18px 22px;
+    margin: 24px 0; font-size: 0.95rem; font-style: italic;
+    color: rgba(42,32,24,0.82); line-height: 1.7;
+  }
+  .article-refs { margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border); }
+  .article-refs-title { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .article-refs ol { margin-left: 18px; }
+  .article-refs li { font-size: 0.78rem; line-height: 1.65; color: var(--muted); margin-bottom: 6px; }
+  .article-refs a { color: var(--crimson); text-decoration: none; }
+  .article-refs a:hover { text-decoration: underline; }
+  .article-disclaimer {
+    margin-top: 28px; padding: 14px 18px;
+    background: rgba(60,40,30,0.05); border: 1px solid var(--border);
+    font-size: 0.76rem; color: var(--muted); line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .blog-grid { grid-template-columns: 1fr; }
+    .blog-card.featured { grid-column: auto; display: block; }
+    .blog-card.featured .blog-card-img { min-height: 200px; }
+    .blog-card.featured .blog-card-body { padding: 28px 22px; }
+    .blog-card.featured .blog-title { font-size: 1.3rem; }
+  }
+  @media (max-width: 600px) {
+    .article-modal-header { padding: 32px 22px 28px; }
+    .article-body { padding: 28px 22px; }
+  }
+
 </style>
 </head>
 <body>
@@ -537,6 +634,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
     <li><a href="#legal">Medical-Legal</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#credentials">CV</a></li>
+    <li><a href="#blog">Pearls</a></li>
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -550,6 +648,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
   <a href="#legal" onclick="closeMob()">Medical-Legal</a>
   <a href="#research" onclick="closeMob()">Research</a>
   <a href="#credentials" onclick="closeMob()">CV</a>
+  <a href="#blog" onclick="closeMob()">Pearls</a>
   <a href="#reviews" onclick="closeMob()">Reviews</a>
   <a href="#contact" onclick="closeMob()">Contact</a>
   <div class="mob-menu-cta">
@@ -662,6 +761,72 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
     </div>
   </div>
 </section>
+
+
+<!-- CLINICAL PEARLS / BLOG -->
+<section id="blog">
+  <div class="inner sec-pad">
+    <div class="blog-intro reveal">
+      <div class="tag">Clinical Pearls</div>
+      <h2 class="section-h">Heart Health, Straight from the Cath Lab</h2>
+      <p>Evidence-based insights on nutrition, lifestyle, supplements, and cardiovascular wellness — written for patients and professionals alike. New articles every few days.</p>
+    </div>
+
+    <div class="blog-grid">
+
+      <!-- POST 1 — FEATURED -->
+      <div class="blog-card featured reveal">
+        <div class="blog-card-img">💊</div>
+        <div class="blog-card-body">
+          <div>
+            <div class="blog-meta">
+              <span class="blog-cat">Medications</span>
+              <span class="blog-date">February 21, 2026</span>
+            </div>
+            <div class="blog-title">The Truth About Statins — Separating Myth from Evidence</div>
+            <p class="blog-excerpt">Statins are among the most prescribed medications in the world — and among the most misunderstood. From muscle pain fears to memory concerns, Dr. Bharmal breaks down what the science actually says and what every patient should know before stopping their medication.</p>
+          </div>
+          <button class="blog-read" onclick="openArticle('statins')">Read Article →</button>
+        </div>
+      </div>
+
+      <!-- PLACEHOLDER CARDS — future posts -->
+      <div class="blog-card reveal" style="opacity:0.5;pointer-events:none;">
+        <div class="blog-card-img" style="min-height:160px;font-size:2.5rem;">🥑</div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="blog-cat">Nutrition</span><span class="blog-date">Coming Soon</span></div>
+          <div class="blog-title">Omega-3s & Your Heart — What the Evidence Actually Says</div>
+          <p class="blog-excerpt">Not all fish oil is created equal. A deep dive into the clinical trials and what dose, form, and source actually matters for cardiovascular outcomes.</p>
+          <span class="blog-read" style="color:var(--muted);">Coming Soon</span>
+        </div>
+      </div>
+
+      <div class="blog-card reveal" style="opacity:0.5;pointer-events:none;">
+        <div class="blog-card-img" style="min-height:160px;font-size:2.5rem;">🏃</div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span class="blog-cat">Lifestyle</span><span class="blog-date">Coming Soon</span></div>
+          <div class="blog-title">Exercise as Medicine — How Much Is Enough for Heart Health?</div>
+          <p class="blog-excerpt">The latest guidelines on exercise intensity, frequency, and type for cardiovascular disease prevention — and how to actually fit it into a busy life.</p>
+          <span class="blog-read" style="color:var(--muted);">Coming Soon</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE MODAL -->
+<div class="article-overlay" id="articleOverlay" onclick="closeArticleOutside(event)">
+  <div class="article-modal" id="articleModal">
+    <div class="article-modal-header">
+      <button class="article-close" onclick="closeArticle()">✕</button>
+      <div class="article-cat" id="articleCat"></div>
+      <div class="article-title" id="articleTitle"></div>
+      <div class="article-byline" id="articleByline"></div>
+    </div>
+    <div class="article-body" id="articleBody"></div>
+  </div>
+</div>
 
 <!-- MEDICAL-LEGAL -->
 <section id="legal">
@@ -918,6 +1083,78 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
       else throw new Error();
     } catch { err.style.display = 'block'; ok.style.display = 'none'; btn.textContent = 'Send Message →'; btn.disabled = false; }
   });
+
+  // ── ARTICLE DATA ──────────────────────────────────────────
+  const articles = {
+    statins: {
+      cat: 'Medications · Cardiology',
+      title: 'The Truth About Statins — Separating Myth from Evidence',
+      byline: 'By Murtaza Bharmal, MD · Interventional Cardiologist · February 21, 2026',
+      body: `
+        <h3>Why This Matters</h3>
+        <p>Every week I see patients who have stopped their statin — or are afraid to start one — because of something they read online or heard from a friend. Statins are among the most studied medications in history, with decades of large randomized trials behind them. Yet misinformation persists. Let me address the most common concerns directly.</p>
+
+        <div class="article-callout">"Stopping a statin without talking to your doctor is one of the most common — and most preventable — reasons I see patients return to the hospital."</div>
+
+        <h3>Myth #1: "Statins cause muscle damage"</h3>
+        <p>Muscle aches (<em>myalgia</em>) do occur in a small percentage of patients — roughly 5–10% in real-world settings, though clinical trials suggest it may be lower. True muscle breakdown (<em>rhabdomyolysis</em>) is rare, occurring in fewer than 1 in 10,000 patients. Importantly, if you experience muscle pain on a statin, <strong>tell your doctor before stopping</strong>. Often a dose adjustment, switch to a different statin, or alternate-day dosing resolves the issue entirely.</p>
+
+        <h3>Myth #2: "Statins cause memory loss or dementia"</h3>
+        <p>This concern gained traction after anecdotal reports in the early 2000s. However, large population studies — including a 2016 meta-analysis of over 50,000 patients — found <strong>no causal link</strong> between statins and cognitive decline. In fact, some data suggest statins may be protective against vascular dementia by reducing stroke risk.</p>
+
+        <h3>Myth #3: "Statins are just a money-making scheme — lifestyle is enough"</h3>
+        <p>Lifestyle absolutely matters — diet, exercise, and weight management are foundational. But for patients with established cardiovascular disease or high LDL driven by genetics (familial hypercholesterolemia), lifestyle alone is often insufficient. Statins reduce the risk of heart attack and stroke by 25–35% in high-risk individuals. That is a meaningful, proven benefit.</p>
+
+        <h3>Myth #4: "Once you start, you're on them forever"</h3>
+        <p>Not necessarily. The decision to continue, adjust, or stop a statin should be revisited regularly with your cardiologist based on your current risk profile, LDL levels, and any side effects. Some patients achieve sufficient LDL reduction through aggressive lifestyle changes and can reduce their dose. Others may transition to newer agents like PCSK9 inhibitors if statins are not tolerated.</p>
+
+        <h3>What I Tell My Own Patients</h3>
+        <p>If you have been prescribed a statin, there is almost certainly a specific clinical reason — whether it is your LDL level, a prior cardiac event, diabetes, or a strong family history. Before stopping, have a direct conversation with your doctor. The risk of an undertreated lipid panel is real and measurable. The risk of a well-monitored statin, in most patients, is very low.</p>
+
+        <div class="article-callout">"The best medication is the one you actually take — and understand why you're taking it."</div>
+
+        <div class="article-refs">
+          <div class="article-refs-title">References</div>
+          <ol>
+            <li>Cholesterol Treatment Trialists' (CTT) Collaboration. <em>Lancet.</em> 2010;376(9753):1670–1681. Efficacy and safety of more intensive lowering of LDL cholesterol.</li>
+            <li>Sathasivam S. <em>Expert Opin Drug Saf.</em> 2012;11(4):559–572. Statin-induced myotoxicity: mechanisms and clinical implications.</li>
+            <li>Richardson K, et al. <em>BMJ.</em> 2022;376:e067462. Statins and cognitive function: a systematic review.</li>
+            <li>Stone NJ, et al. <em>J Am Coll Cardiol.</em> 2014;63(25 Pt B):2889–2934. 2013 ACC/AHA guideline on the treatment of blood cholesterol.</li>
+            <li>Grundy SM, et al. <em>Circulation.</em> 2019;139(25):e1082–e1143. 2018 AHA/ACC Guideline on the Management of Blood Cholesterol.</li>
+          </ol>
+        </div>
+
+        <div class="article-disclaimer">
+          <strong>Disclaimer:</strong> This article is intended for general educational purposes only and does not constitute medical advice. Please consult your physician before making any changes to your medications or treatment plan.
+        </div>
+      `
+    }
+  };
+
+  function openArticle(id) {
+    const a = articles[id];
+    if (!a) return;
+    document.getElementById('articleCat').textContent = a.cat;
+    document.getElementById('articleTitle').textContent = a.title;
+    document.getElementById('articleByline').textContent = a.byline;
+    document.getElementById('articleBody').innerHTML = a.body;
+    document.getElementById('articleOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('articleModal').scrollTop = 0;
+  }
+
+  function closeArticle() {
+    document.getElementById('articleOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeArticleOutside(e) {
+    if (e.target === document.getElementById('articleOverlay')) closeArticle();
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeArticle(); });
+  // ── END ARTICLE DATA ───────────────────────────────────────
+
 </script>
 </body>
 </html>
