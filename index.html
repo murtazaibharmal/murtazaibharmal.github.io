@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="google-site-verification" content="u89qnBGZJYPIE2kiKKfX45wQpJmF6QhZJdusjyPn6bE" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <title>Murtaza Bharmal, MD | Interventional Cardiologist & Cardiology Expert | Fullerton, CA</title>
 <meta name="description" content="Dr. Murtaza Bharmal, MD — board-certified Interventional Cardiologist, medical-legal expert witness, and biomedical engineering research consultant in Orange County, CA. Cardiology expert witness testimony, IME, standard of care reviews, cardiac device development, and cardiology content creation.">
 <meta name="keywords" content="Murtaza Bharmal MD, interventional cardiologist expert witness Orange County, cardiology expert witness Southern California, medical legal expert cardiologist, cardiology IME Orange County, cardiac standard of care expert, medical malpractice cardiology California, cardiologist Fullerton CA, biomedical engineering consultant cardiology, cardiac device development consultant, cardiovascular device consultant Southern California, cardiology research consultant Orange County, coronary device development, cardiology content expert">
@@ -467,6 +467,62 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
   .legal-grid { grid-template-columns: 1fr; }
   .stat-num { font-size: 1.7rem; }
 }
+
+  /* ============ REVIEWS ============ */
+  #reviews { background: var(--bg2); overflow: hidden; }
+  .reviews-header { text-align: center; margin-bottom: 52px; }
+  .reviews-score {
+    display: inline-flex; align-items: center; gap: 20px;
+    background: #fff; border: 1px solid var(--border);
+    padding: 20px 36px; margin-bottom: 32px; flex-wrap: wrap; justify-content: center;
+  }
+  .reviews-num { font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 900; color: var(--head); line-height: 1; }
+  .reviews-stars { display: flex; flex-direction: column; gap: 4px; }
+  .stars { color: #f59e0b; font-size: 1.3rem; letter-spacing: 2px; }
+  .reviews-count { font-size: 0.78rem; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .reviews-source { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+  .reviews-subtitle { font-size: 0.97rem; color: rgba(42,32,24,0.68); max-width: 540px; margin: 0 auto; line-height: 1.7; }
+
+  /* Marquee carousel */
+  .reviews-track-wrap { position: relative; margin: 0 -20px; }
+  .reviews-track-wrap::before, .reviews-track-wrap::after {
+    content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
+  }
+  .reviews-track-wrap::before { left: 0; background: linear-gradient(to right, var(--bg2), transparent); }
+  .reviews-track-wrap::after { right: 0; background: linear-gradient(to left, var(--bg2), transparent); }
+  .reviews-track { display: flex; gap: 16px; width: max-content; animation: marquee 40s linear infinite; padding: 8px 20px; }
+  .reviews-track:hover { animation-play-state: paused; }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .review-card {
+    background: #fff; border: 1px solid var(--border); padding: 24px 26px;
+    width: 300px; flex-shrink: 0; position: relative;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+  .review-card:hover { border-color: rgba(168,25,46,0.22); box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+  .review-stars { color: #f59e0b; font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 10px; }
+  .review-text { font-size: 0.88rem; line-height: 1.7; color: rgba(42,32,24,0.82); margin-bottom: 14px; font-style: italic; }
+  .review-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .review-author { font-size: 0.74rem; font-weight: 700; color: var(--head); letter-spacing: 0.04em; }
+  .review-source { font-size: 0.68rem; color: var(--muted); }
+  .reviews-cta { text-align: center; margin-top: 44px; }
+  .reviews-cta-note { font-size: 0.82rem; color: var(--muted); margin-top: 14px; }
+
+  @media (max-width: 600px) {
+    .reviews-score { padding: 16px 20px; gap: 14px; }
+    .reviews-num { font-size: 2.6rem; }
+    .review-card { width: 260px; padding: 20px; }
+    .reviews-track-wrap::before, .reviews-track-wrap::after { width: 40px; }
+  }
+
+  /* ============ ZOOM STABILITY ============ */
+  /* Prevent any element from causing horizontal scroll when zoomed */
+  html, body { max-width: 100%; overflow-x: hidden; }
+  /* Ensure text never overflows its container */
+  * { word-break: break-word; min-width: 0; }
+  /* Prevent fixed-width elements from breaking layout */
+  img, svg, video, canvas { max-width: 100%; height: auto; }
+  /* Inputs/selects stay within their parent on zoom */
+  input, select, textarea { max-width: 100%; }
 </style>
 </head>
 <body>
@@ -481,6 +537,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
     <li><a href="#legal">Medical-Legal</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#credentials">CV</a></li>
+    <li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -493,6 +550,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
   <a href="#legal" onclick="closeMob()">Medical-Legal</a>
   <a href="#research" onclick="closeMob()">Research</a>
   <a href="#credentials" onclick="closeMob()">CV</a>
+  <a href="#reviews" onclick="closeMob()">Reviews</a>
   <a href="#contact" onclick="closeMob()">Contact</a>
   <div class="mob-menu-cta">
     <a href="#contact" onclick="closeMob()" class="btn btn-red">Get in Touch ↗</a>
@@ -527,9 +585,9 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
 <!-- STATS -->
 <div class="stats">
   <div class="stat"><div class="stat-num">10+</div><div class="stat-lbl">Years in Practice</div></div>
+  <div class="stat"><div class="stat-num">4.9★</div><div class="stat-lbl">Patient Rating</div></div>
+  <div class="stat"><div class="stat-num">190+</div><div class="stat-lbl">Patient Reviews</div></div>
   <div class="stat"><div class="stat-num">15+</div><div class="stat-lbl">Published Works</div></div>
-  <div class="stat"><div class="stat-num">3</div><div class="stat-lbl">Major Institutions</div></div>
-  <div class="stat"><div class="stat-num">2</div><div class="stat-lbl">Board Certifications</div></div>
 </div>
 
 <!-- ABOUT -->
@@ -767,6 +825,55 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
   </div>
 </section>
 
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="inner sec-pad">
+    <div class="reviews-header reveal">
+      <div class="tag">Patient Reviews</div>
+      <h2 class="section-h">What Patients Are Saying</h2>
+      <div class="reviews-score">
+        <div class="reviews-num">4.9</div>
+        <div class="reviews-stars">
+          <div class="stars">★★★★★</div>
+          <div class="reviews-count">190+ Ratings</div>
+          <div class="reviews-source">Providence Health System</div>
+        </div>
+      </div>
+      <p class="reviews-subtitle">Verified patient reviews from Providence Health System — reflecting Dr. Bharmal's commitment to compassionate, patient-centered cardiovascular care.</p>
+    </div>
+  </div>
+
+  <div class="reviews-track-wrap">
+    <div class="reviews-track" id="reviewsTrack">
+      <!-- Row 1 — will be duplicated by JS for infinite scroll -->
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Dr. Bharmal is thoroughly professional and up to date on my health history. He spends time with me explaining options and listens attentively. I never feel rushed or like I am just a 'number'. His manner is both compassionate and reassuring. He is a real jewel!!!"</p><div class="review-meta"><span class="review-author">Providence Patient</span><span class="review-source">Apr 2025</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Dr. Bharmal has been exemplary in handling my cardiac care. His manner and care is outstanding and his ease in explaining things makes me very comfortable."</p><div class="review-meta"><span class="review-author">Providence Patient</span><span class="review-source">Feb 2026</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Dr. Bharmal spends time teaching. I left with a good understanding of my current condition. He is so kind and I felt he cares."</p><div class="review-meta"><span class="review-author">Providence Patient</span><span class="review-source">Jun 2025</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Dr.Bharmal was thorough, professional and listened to my concerns. I feel like I am his only patient when I see him — never rushed or hurried! He has a refreshing approach to patients."</p><div class="review-meta"><span class="review-author">Providence Patient</span><span class="review-source">Sep 2025</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Outstanding Dr. I was referred to him for a heart issue, and he immediately acted with urgency, easing my fears and ordering the appropriate tests."</p><div class="review-meta"><span class="review-author">Providence Patient</span><span class="review-source">Jan 2026</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Dr Bharmal is wonderful along with his assistant Maggie Ventura. They always make me feel seen, heard and go the extra mile. Feel so blessed to be in their care."</p><div class="review-meta"><span class="review-author">Providence Patient</span><span class="review-source">Aug 2025</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Caring and easy to talk to. Good listener and I didn't feel rushed. He showed he genuinely cares about me."</p><div class="review-meta"><span class="review-author">Providence Patient</span><span class="review-source">Jan 2026</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Dr. Bharmal is great. Explains everything in detail and answers all my questions. Very caring, listens to my questions and answers respectfully."</p><div class="review-meta"><span class="review-author">Providence Patient</span><span class="review-source">May 2025</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"I am very satisfied with Dr. Bharmal. He is competent, caring, friendly and very easy to talk to."</p><div class="review-meta"><span class="review-author">Providence Patient</span><span class="review-source">May 2025</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Excellent. Listens to us. Very caring. Gives info. Works well with older adults. Kind and caring. Very knowledgeable."</p><div class="review-meta"><span class="review-author">Providence Patient</span><span class="review-source">May 2025</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Dr. Bharmal is one of the nicest, most thorough doctors I've ever had. Extraordinarily good care. Warm, friendly and involved."</p><div class="review-meta"><span class="review-author">Providence Patient</span><span class="review-source">Dec 2025</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"My provider was friendly, knowledgeable and focused on my health. He was not rushed."</p><div class="review-meta"><span class="review-author">Providence Patient</span><span class="review-source">Jan 2026</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Dr. Bharmal and Dr Pachon are two of the best Doctors I've ever had. Professional, Courteous, Attentive, and great listeners. They explain things so it's easy to understand."</p><div class="review-meta"><span class="review-author">Providence Patient</span><span class="review-source">Nov 2025</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Best doctor/patient experience I have is with this doctor. The appointment was great — open, informative and very easy to understand. Top level care from the entire staff."</p><div class="review-meta"><span class="review-author">Providence Patient</span><span class="review-source">Dec 2025</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Dr Bharmal is outstanding in his care and manner. Very thorough and answered all questions. Genuinely interested in my health and how my conditions affect my heart."</p><div class="review-meta"><span class="review-author">Providence Patient</span><span class="review-source">May 2025</span></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"I felt heard by the doctor and his staff and that they truly cared. Great care — generous with time, complete and simple explanations."</p><div class="review-meta"><span class="review-author">Providence Patient</span><span class="review-source">Oct 2025</span></div></div>
+    </div>
+  </div>
+
+  <div class="inner">
+    <div class="reviews-cta reveal">
+      <a href="https://www.providence.org/doctors/interventional-cardiology/ca/fullerton/murtaza-bharmal-1164951307#reviews-section" target="_blank" rel="noopener" class="btn btn-red">Read All 190+ Reviews ↗</a>
+      <p class="reviews-cta-note">Verified patient reviews from Providence Health System</p>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-logo">Murtaza <span>Bharmal</span>, MD</div>
   <div class="footer-copy">© 2026 · Interventional Cardiologist · Fullerton, CA</div>
@@ -785,6 +892,13 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
     mob.classList.remove('open');
     hbg.classList.remove('open');
     document.body.style.overflow = '';
+  }
+
+  // Duplicate review cards for seamless infinite scroll
+  const track = document.getElementById('reviewsTrack');
+  if (track) {
+    const clone = track.innerHTML;
+    track.innerHTML = clone + clone;
   }
 
   // Scroll reveal
