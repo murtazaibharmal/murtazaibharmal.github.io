@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Murtaza Bharmal, MD</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #a8192e;
+    --crimson-dark: #7d1223;
+    --dark: #eee9e3;
+    --card: #e8e2da;
+    --border: rgba(100,75,65,0.14);
+    --text: #2a2018;
+    --muted: #7a6a60;
+    --heading: #1a1208;
+    --bg: #f7f3ef;
+    --bg2: #f2ece4;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: linear-gradient(160deg, var(--bg) 0%, var(--bg2) 100%);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(247,243,239,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--heading); }
+  .nav-logo span { color: var(--crimson); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--heading); }
+
+  /* HERO */
+  .hero {
+    display: grid; grid-template-columns: 1fr 1fr;
+    min-height: 90vh;
+    background: linear-gradient(135deg, var(--bg) 60%, #f5e8e0 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 48px 80px 64px;
+    z-index: 2;
+  }
+  .hero-eyebrow {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--crimson); margin-bottom: 20px;
+    animation: fadeUp 0.8s 0.1s both;
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 4.5vw, 4.8rem);
+    font-weight: 900; line-height: 1.06; color: var(--heading);
+    margin-bottom: 6px;
+    animation: fadeUp 0.8s 0.25s both;
+  }
+  .hero-name em { font-style: normal; color: var(--crimson); }
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; font-weight: 400; color: var(--muted);
+    margin-bottom: 32px;
+    animation: fadeUp 0.8s 0.4s both;
+  }
+  .hero-desc {
+    font-size: 0.97rem; line-height: 1.85;
+    color: rgba(42,32,24,0.7); max-width: 460px; margin-bottom: 44px;
+    animation: fadeUp 0.8s 0.55s both;
+  }
+  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp 0.8s 0.7s both; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 32px; background: var(--crimson); color: #fff;
+    text-decoration: none; font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    transition: all 0.3s;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  }
+  .btn-primary:hover { background: var(--crimson-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(168,25,46,0.22); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 32px; border: 1px solid var(--border); color: var(--text);
+    text-decoration: none; font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.3s;
+  }
+  .btn-secondary:hover { border-color: rgba(100,75,65,0.3); background: rgba(60,40,30,0.04); }
+
+  .hero-right {
+    position: relative; display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-right::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 55% 50%, rgba(168,25,46,0.08) 0%, transparent 68%);
+  }
+  .hero-bg-word {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 18vw; font-weight: 900;
+    color: rgba(60,40,30,0.04); white-space: nowrap;
+    pointer-events: none; letter-spacing: -0.04em;
+  }
+  .ecg-wrap {
+    position: absolute; bottom: 60px; left: 0; right: 0; padding: 0 32px;
+    animation: fadeIn 1s 1.1s both;
+  }
+  .ecg-svg { width: 100%; height: 70px; }
+  .ecg-path {
+    fill: none; stroke: var(--crimson); stroke-width: 2;
+    stroke-dasharray: 900; stroke-dashoffset: 900;
+    animation: drawECG 2.2s 1.3s ease forwards;
+  }
+  @keyframes drawECG { to { stroke-dashoffset: 0; } }
+
+  /* STATS */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    background: var(--dark);
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  }
+  .stat {
+    padding: 40px 32px; border-right: 1px solid var(--border);
+    animation: fadeUp 0.7s both;
+  }
+  .stat:nth-child(1){animation-delay:0.05s} .stat:nth-child(2){animation-delay:0.15s}
+  .stat:nth-child(3){animation-delay:0.25s} .stat:nth-child(4){animation-delay:0.35s;border-right:none}
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; color: var(--crimson); line-height: 1; margin-bottom: 6px; }
+  .stat-lbl { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+  /* SECTIONS */
+  section { position: relative; }
+  .inner { max-width: 1160px; margin: 0 auto; padding: 100px 48px; }
+  .tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--crimson); margin-bottom: 16px;
+  }
+  .tag::before { content: ''; display: block; width: 28px; height: 1.5px; background: var(--crimson); }
+  .section-h {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 3vw, 3rem); font-weight: 700;
+    color: var(--heading); line-height: 1.15; margin-bottom: 20px;
+  }
+
+  /* ABOUT */
+  #about { background: var(--dark); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+  .about-text p { font-size: 1rem; line-height: 1.9; color: rgba(42,32,24,0.74); margin-bottom: 18px; }
+  .about-text strong { color: var(--heading); font-weight: 600; }
+  .pullquote {
+    background: linear-gradient(135deg, rgba(168,25,46,0.07), rgba(168,25,46,0.02));
+    border: 1px solid rgba(168,25,46,0.18); border-left: 3px solid var(--crimson);
+    padding: 24px 28px; margin-top: 28px;
+    font-size: 1rem; font-style: italic; color: rgba(42,32,24,0.82); line-height: 1.7;
+  }
+  .cred-list { display: flex; flex-direction: column; gap: 14px; padding-top: 10px; }
+  .cred-item {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 22px 26px; position: relative; transition: border-color 0.3s; overflow: hidden;
+  }
+  .cred-item::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--crimson); transform: scaleY(0); transform-origin: bottom; transition: transform 0.3s;
+  }
+  .cred-item:hover { border-color: rgba(168,25,46,0.22); }
+  .cred-item:hover::before { transform: scaleY(1); }
+  .cred-yr { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--crimson); margin-bottom: 4px; }
+  .cred-tl { font-size: 0.92rem; font-weight: 600; color: var(--heading); margin-bottom: 2px; }
+  .cred-inst { font-size: 0.82rem; color: var(--muted); }
+
+  /* EXPERTISE */
+  #expertise { background: var(--bg); }
+  .exp-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; margin-bottom: 64px; align-items: end; }
+  .exp-intro p { font-size: 0.97rem; line-height: 1.85; color: rgba(42,32,24,0.7); }
+  .exp-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--border); border: 1px solid var(--border);
+  }
+  .exp-card {
+    background: var(--dark); padding: 40px 32px;
+    position: relative; overflow: hidden; transition: background 0.3s;
+  }
+  .exp-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: var(--crimson); transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+  }
+  .exp-card:hover { background: #dbd5cd; }
+  .exp-card:hover::after { transform: scaleX(1); }
+  .exp-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+  .exp-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--heading); margin-bottom: 10px; }
+  .exp-desc { font-size: 0.87rem; line-height: 1.75; color: var(--muted); }
+
+  /* CONTENT */
+  #content { background: var(--dark); }
+  .content-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 72px; align-items: center; }
+  .content-text p { font-size: 0.97rem; line-height: 1.85; color: rgba(42,32,24,0.74); margin-bottom: 18px; }
+  .services {
+    list-style: none; margin-top: 28px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  }
+  .services li { display: flex; align-items: center; gap: 8px; font-size: 0.86rem; color: rgba(42,32,24,0.8); }
+  .services li::before { content: '→'; color: var(--crimson); font-weight: 700; flex-shrink: 0; }
+  .pub-stack { display: flex; flex-direction: column; gap: 14px; }
+  .pub-item {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 20px 24px; transition: all 0.3s;
+  }
+  .pub-item:hover { border-color: rgba(168,25,46,0.2); transform: translateX(5px); }
+  .pub-jrnl { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--crimson); margin-bottom: 6px; }
+  .pub-ttl { font-size: 0.87rem; font-weight: 500; color: var(--heading); line-height: 1.5; }
+
+  /* CV */
+  #credentials { background: var(--bg); }
+  .cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .cv-sec-ttl {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--crimson); margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+  }
+  .tl-item { display: grid; grid-template-columns: 82px 1fr; gap: 16px; margin-bottom: 28px; }
+  .tl-yr { font-size: 0.75rem; font-weight: 600; color: var(--muted); padding-top: 2px; letter-spacing: 0.04em; }
+  .tl-role { font-size: 0.9rem; font-weight: 600; color: var(--heading); margin-bottom: 3px; }
+  .tl-org { font-size: 0.82rem; color: var(--muted); }
+  .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+  .badge {
+    padding: 7px 16px; background: rgba(168,25,46,0.07);
+    border: 1px solid rgba(168,25,46,0.18);
+    font-size: 0.74rem; font-weight: 600; letter-spacing: 0.06em; color: rgba(42,32,24,0.82);
+  }
+  .deco-line { width: 52px; height: 3px; background: var(--crimson); margin-bottom: 40px; }
+
+  /* CONTACT */
+  #contact { background: var(--dark); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+  .contact-text p { font-size: 0.97rem; line-height: 1.85; color: rgba(42,32,24,0.72); margin-bottom: 36px; }
+  .info-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .info-list li { display: flex; align-items: center; gap: 14px; font-size: 0.9rem; color: rgba(42,32,24,0.8); }
+  .info-icon {
+    width: 40px; height: 40px; background: rgba(168,25,46,0.07);
+    border: 1px solid rgba(168,25,46,0.15);
+    display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;
+  }
+  .contact-form { background: var(--card); border: 1px solid var(--border); padding: 44px; }
+  .form-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--heading); margin-bottom: 28px; }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .field input, .field textarea, .field select {
+    width: 100%; background: rgba(60,40,30,0.05); border: 1px solid var(--border);
+    color: var(--text); padding: 12px 16px; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.3s;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--crimson); }
+  .field textarea { height: 110px; resize: vertical; }
+  .field select option { background: var(--dark); }
+
+  footer {
+    background: var(--bg); border-top: 1px solid var(--border);
+    padding: 36px 64px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--heading); }
+  .footer-logo span { color: var(--crimson); }
+  .footer-copy { font-size: 0.78rem; color: var(--muted); }
+
+  /* Animations */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Murtaza <span>Bharmal</span>, MD</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#content">Content</a></li>
+    <li><a href="#credentials">CV</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Board-Certified Interventional Cardiologist</div>
+    <h1 class="hero-name">Murtaza<br><em>Bharmal</em></h1>
+    <div class="hero-subtitle">MD &nbsp;·&nbsp; Cardiology Content Expert</div>
+    <p class="hero-desc">Interventional cardiologist, published researcher, and cardiology content expert based in Fullerton, California — bringing clinical precision and scientific rigor to every patient interaction, publication, and educational initiative.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Get in Touch ↗</a>
+      <a href="#expertise" class="btn-secondary">Explore Expertise</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-bg-word">MD</div>
+    <svg viewBox="0 0 400 400" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:440px;height:440px;opacity:0.07;" fill="none">
+      <path d="M200 340 C200 340 60 240 60 140 C60 90 100 60 140 60 C170 60 195 80 200 100 C205 80 230 60 260 60 C300 60 340 90 340 140 C340 240 200 340 200 340Z" fill="#a8192e"/>
+    </svg>
+    <div class="ecg-wrap">
+      <svg class="ecg-svg" viewBox="0 0 600 70" preserveAspectRatio="none">
+        <path class="ecg-path" d="M0,35 L55,35 L75,35 L85,8 L96,65 L110,3 L124,65 L134,35 L190,35 L208,35 L218,8 L229,65 L243,3 L257,65 L267,35 L340,35 L354,35 L364,8 L375,65 L389,3 L403,65 L413,35 L600,35"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">10+</div><div class="stat-lbl">Years in Practice</div></div>
+  <div class="stat"><div class="stat-num">15+</div><div class="stat-lbl">Published Works</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-lbl">Major Institutions</div></div>
+  <div class="stat"><div class="stat-num">2</div><div class="stat-lbl">Board Certifications</div></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="inner">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="tag">About</div>
+        <h2 class="section-h">Where Engineering Precision Meets Clinical Excellence</h2>
+        <p><strong>Dr. Murtaza Bharmal</strong> is a board-certified Interventional Cardiologist practicing in Fullerton, California, affiliated with Providence St. Jude Medical Center and UC Irvine Medical Center. His career is defined by a rare combination of engineering rigor, academic excellence, and unwavering patient-centered care.</p>
+        <p>Before medicine, Dr. Bharmal earned a BS in Biomedical Engineering with honors from UC San Diego and worked as an R&D engineer at Abbott Vascular — giving him a distinctive foundation in the technology that drives modern cardiology.</p>
+        <p>He earned his MD from the University of Vermont College of Medicine, where he was elected Class President of the prestigious Alpha Omega Alpha (AOA) Honor Society. He completed Internal Medicine residency at the University of Chicago and his Fellowship at UC Irvine, where he served as <strong>Chief Fellow</strong>.</p>
+        <div class="pullquote">"A compassionate advocate for patient-centered care — Dr. Bharmal combines deep clinical knowledge with a commitment to education, communication, and collaborative decision-making."</div>
+      </div>
+      <div class="cred-list reveal">
+        <div class="cred-item">
+          <div class="cred-yr">2007–2011</div>
+          <div class="cred-tl">BS, Biomedical Engineering (Honors)</div>
+          <div class="cred-inst">University of California, San Diego</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-yr">Class of 2017</div>
+          <div class="cred-tl">Doctor of Medicine (MD)</div>
+          <div class="cred-inst">University of Vermont · AOA Class President</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-yr">2017–2020</div>
+          <div class="cred-tl">Residency, Internal Medicine</div>
+          <div class="cred-inst">University of Chicago Medical Center</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-yr">2020–2023</div>
+          <div class="cred-tl">Fellowship, Cardiovascular Disease & Interventional Cardiology</div>
+          <div class="cred-inst">UC Irvine / Long Beach Memorial · Chief Fellow</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="inner">
+    <div class="exp-intro">
+      <div class="reveal">
+        <div class="tag">Clinical Expertise</div>
+        <h2 class="section-h">A Full Spectrum of Cardiovascular Mastery</h2>
+      </div>
+      <div class="reveal">
+        <p>From complex coronary interventions to preventive cardiology, Dr. Bharmal's expertise covers the full breadth of cardiovascular medicine — with a focus on minimally invasive techniques and outcomes-driven research.</p>
+      </div>
+    </div>
+    <div class="exp-grid reveal">
+      <div class="exp-card"><span class="exp-icon">🫀</span><div class="exp-title">Interventional Cardiology</div><div class="exp-desc">Minimally invasive coronary and peripheral interventions, complex multi-vessel disease, FFR, and OCT-guided procedures.</div></div>
+      <div class="exp-card"><span class="exp-icon">💊</span><div class="exp-title">Preventive Cardiology</div><div class="exp-desc">Comprehensive risk assessment, lipid management, hypertension, and evidence-based strategies to reduce coronary artery disease burden.</div></div>
+      <div class="exp-card"><span class="exp-icon">🔬</span><div class="exp-title">Coronary Hemodynamics</div><div class="exp-desc">Deep expertise in coronary physiology, intracoronary imaging, and hemodynamic assessment for optimized patient outcomes.</div></div>
+      <div class="exp-card"><span class="exp-icon">🚑</span><div class="exp-title">Cardiac Emergency & ECPR</div><div class="exp-desc">Research expertise in COVID-19's impact on cardiac arrest, extracorporeal CPR, and emergency cardiovascular care optimization.</div></div>
+      <div class="exp-card"><span class="exp-icon">🤝</span><div class="exp-title">Inpatient & Outpatient Care</div><div class="exp-desc">Comprehensive management from acute hospitalized patients to long-term outpatient cardiovascular care across top regional institutions.</div></div>
+      <div class="exp-card"><span class="exp-icon">📡</span><div class="exp-title">Digital Health & Nanotechnology</div><div class="exp-desc">Published researcher on nanosensor technologies and digital transformation of healthcare — bridging engineering innovation and clinical care.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT EXPERT -->
+<section id="content">
+  <div class="inner">
+    <div class="content-grid">
+      <div class="content-text reveal">
+        <div class="tag">Content Expertise</div>
+        <h2 class="section-h">Cardiology Content You Can Trust</h2>
+        <p>Dr. Bharmal brings the same clinical precision to medical content creation that he applies in the cath lab. With over a decade of academic publishing, conference presentations, and patient education experience, he translates complex cardiovascular science into clear, accurate, and compelling content.</p>
+        <p>His work has appeared in leading journals including <em>Catheterization and Cardiovascular Interventions</em>, <em>Cardiology Clinics</em>, <em>Heart Failure Clinics</em>, <em>Resuscitation</em>, and <em>Personalized Medicine</em>.</p>
+        <ul class="services">
+          <li>Peer-reviewed research articles</li>
+          <li>CME content & medical education</li>
+          <li>Clinical review articles</li>
+          <li>Patient education materials</li>
+          <li>Conference presentations</li>
+          <li>Digital health content</li>
+          <li>Medical device commentary</li>
+          <li>Case reports & case series</li>
+        </ul>
+      </div>
+      <div class="pub-stack reveal">
+        <div class="pub-item"><div class="pub-jrnl">Cardiology Clinics · 2024</div><div class="pub-ttl">Impact of Coronavirus Disease 2019 Pandemic on Cardiac Arrest and Emergency Care</div></div>
+        <div class="pub-item"><div class="pub-jrnl">Personalized Medicine · 2023</div><div class="pub-ttl">Nanosensor Technologies and the Digital Transformation of Healthcare</div></div>
+        <div class="pub-item"><div class="pub-jrnl">Catheterization & Cardiovascular Interventions</div><div class="pub-ttl">Physiologic Lesion Assessment to Optimize Multivessel Disease</div></div>
+        <div class="pub-item"><div class="pub-jrnl">ACC Scientific Session · 2019</div><div class="pub-ttl">Vessel Preparation Improves DES Expansion vs. Direct Stenting (OCT)</div></div>
+        <div class="pub-item"><div class="pub-jrnl">Resuscitation</div><div class="pub-ttl">Coronary Hemodynamic Responses to IV Adenosine: FFR Implications</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CV -->
+<section id="credentials">
+  <div class="inner">
+    <div class="tag reveal">Credentials</div>
+    <h2 class="section-h reveal">Curriculum Vitae</h2>
+    <div class="deco-line reveal"></div>
+    <div class="cv-grid">
+      <div class="reveal">
+        <div class="cv-sec-ttl">Education & Training</div>
+        <div class="tl-item"><div class="tl-yr">2007–2011</div><div><div class="tl-role">BS, Biomedical Engineering — Honors</div><div class="tl-org">University of California, San Diego</div></div></div>
+        <div class="tl-item"><div class="tl-yr">2011–2013</div><div><div class="tl-role">R&D Engineer</div><div class="tl-org">Abbott Vascular</div></div></div>
+        <div class="tl-item"><div class="tl-yr">2013–2017</div><div><div class="tl-role">Doctor of Medicine (MD)</div><div class="tl-org">University of Vermont College of Medicine · AOA Class President</div></div></div>
+        <div class="tl-item"><div class="tl-yr">2017–2020</div><div><div class="tl-role">Residency — Internal Medicine</div><div class="tl-org">University of Chicago Medical Center</div></div></div>
+        <div class="tl-item"><div class="tl-yr">2020–2023</div><div><div class="tl-role">Fellowship — CV Disease & Interventional Cardiology · Chief Fellow</div><div class="tl-org">UC Irvine / Long Beach Memorial Medical Center</div></div></div>
+        <div class="cv-sec-ttl" style="margin-top:44px">Hospital Affiliations</div>
+        <div class="tl-item"><div class="tl-yr">Current</div><div><div class="tl-role">Providence St. Jude Medical Center</div><div class="tl-org">Fullerton, CA · St. Jude Heritage Medical Group</div></div></div>
+        <div class="tl-item"><div class="tl-yr">Current</div><div><div class="tl-role">UC Irvine Medical Center</div><div class="tl-org">Orange, CA</div></div></div>
+        <div class="tl-item"><div class="tl-yr">Current</div><div><div class="tl-role">Community Hospital Long Beach</div><div class="tl-org">Long Beach, CA</div></div></div>
+      </div>
+      <div class="reveal">
+        <div class="cv-sec-ttl">Board Certifications & Honors</div>
+        <div class="badges">
+          <div class="badge">Cardiovascular Disease</div>
+          <div class="badge">Internal Medicine</div>
+          <div class="badge">Interventional Cardiology</div>
+          <div class="badge">AOA Honor Society</div>
+          <div class="badge">Chief Fellow</div>
+          <div class="badge">2025 Mission Physicians Leadership Award</div>
+        </div>
+        <div class="cv-sec-ttl">Select Publications</div>
+        <div class="tl-item"><div class="tl-yr">2024</div><div><div class="tl-role">COVID-19 Impact on Cardiac Arrest & Emergency Care</div><div class="tl-org">Cardiology Clinics</div></div></div>
+        <div class="tl-item"><div class="tl-yr">2023</div><div><div class="tl-role">Nanosensor Technologies & Digital Healthcare</div><div class="tl-org">Personalized Medicine</div></div></div>
+        <div class="tl-item"><div class="tl-yr">2022</div><div><div class="tl-role">Physiologic Lesion Assessment — Multivessel Disease</div><div class="tl-org">Catheterization & Cardiovascular Interventions</div></div></div>
+        <div class="tl-item"><div class="tl-yr">2022</div><div><div class="tl-role">Coronary Hemodynamics & FFR: IV Adenosine Implications</div><div class="tl-org">Catheterization & Cardiovascular Interventions</div></div></div>
+        <div class="cv-sec-ttl" style="margin-top:44px">Conferences</div>
+        <div class="tl-item"><div class="tl-yr">2025</div><div><div class="tl-role">CRT 2025 — Faculty Speaker</div><div class="tl-org">Coronary hemodynamics, complex coronary, preventive cardiology</div></div></div>
+        <div class="tl-item"><div class="tl-yr">2024</div><div><div class="tl-role">CICT 2024 — UC Irvine Interventional Cardiology</div><div class="tl-org">Coronary physiology, Pasadena, CA</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="inner">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="tag">Contact</div>
+        <h2 class="section-h">Let's Work Together</h2>
+        <p>Whether you're seeking a cardiology content expert, clinical consultant, or experienced speaker for educational initiatives — Dr. Bharmal welcomes the conversation.</p>
+        <ul class="info-list">
+          <li><div class="info-icon">📍</div><span>100 E Valencia Mesa Dr, Suite 206<br>Fullerton, CA 92835</span></li>
+          <li><div class="info-icon">📞</div><span>(714) 446-5050</span></li>
+          <li><div class="info-icon">🏥</div><span>Providence St. Jude Medical Center<br>UC Irvine Medical Center</span></li>
+        </ul>
+      </div>
+      <div class="contact-form reveal">
+        <div class="form-title">Send a Message</div>
+        <div class="field"><label>Full Name</label><input type="text" placeholder="Your name"></div>
+        <div class="field"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+        <div class="field">
+          <label>Inquiry Type</label>
+          <select>
+            <option>Content / Editorial Collaboration</option>
+            <option>Speaking Engagement</option>
+            <option>Patient Appointment</option>
+            <option>Research Partnership</option>
+            <option>Media / Press</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label>Message</label><textarea placeholder="Tell Dr. Bharmal about your project or inquiry..."></textarea></div>
+        <button class="btn-primary" style="width:100%;justify-content:center;border:none;cursor:pointer;">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Murtaza <span>Bharmal</span>, MD</div>
+  <div class="footer-copy">© 2026 · Interventional Cardiologist · Fullerton, CA</div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
