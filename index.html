@@ -630,6 +630,21 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
     .article-body { padding: 28px 22px; }
   }
 
+
+  /* ============ HERO PHOTO ============ */
+  .hero-photo-wrap {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 80px;
+    display: flex; align-items: flex-end; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-photo {
+    width: 78%; max-width: 420px; height: 100%;
+    object-fit: cover; object-position: top center;
+    display: block;
+    mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  }
+
 </style>
 </head>
 <body>
@@ -679,10 +694,9 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-bgword">MD</div>
-    <svg viewBox="0 0 400 400" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:420px;height:420px;opacity:0.07;" fill="none">
-      <path d="M200 340 C200 340 60 240 60 140 C60 90 100 60 140 60 C170 60 195 80 200 100 C205 80 230 60 260 60 C300 60 340 90 340 140 C340 240 200 340 200 340Z" fill="#a8192e"/>
-    </svg>
+    <div class="hero-photo-wrap">
+      <img src="headshot.jpg" alt="Dr. Murtaza Bharmal, MD — Interventional Cardiologist" class="hero-photo">
+    </div>
     <div class="ecg-wrap">
       <svg class="ecg-svg" viewBox="0 0 600 64" preserveAspectRatio="none">
         <path class="ecg-path" d="M0,32 L55,32 L75,32 L85,7 L96,60 L110,2 L124,60 L134,32 L190,32 L208,32 L218,7 L229,60 L243,2 L257,60 L267,32 L340,32 L354,32 L364,7 L375,60 L389,2 L403,60 L413,32 L600,32"/>
