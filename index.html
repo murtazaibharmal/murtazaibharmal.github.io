@@ -344,10 +344,20 @@ section { position: relative; }
 .form-error { display: none; margin-top: 14px; padding: 14px 16px; background: rgba(168,25,46,0.07); border: 1px solid rgba(168,25,46,0.18); font-size: 0.86rem; color: var(--crimson); }
 
 /* ============ FOOTER ============ */
-footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32px 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32px 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
 .footer-logo { font-family: 'Playfair Display', serif; font-size: 0.92rem; color: var(--head); }
 .footer-logo span { color: var(--crimson); }
 .footer-copy { font-size: 0.76rem; color: var(--muted); }
+.footer-social { display: flex; align-items: center; gap: 12px; }
+.footer-social a {
+  display: flex; align-items: center; gap: 7px;
+  padding: 8px 16px; font-size: 0.74rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+  color: #0077b5; border: 1.5px solid rgba(0,119,181,0.3);
+  transition: all 0.2s; background: rgba(0,119,181,0.04);
+}
+.footer-social a:hover { background: rgba(0,119,181,0.1); border-color: rgba(0,119,181,0.6); transform: translateY(-1px); }
+.footer-social a svg { width: 16px; height: 16px; fill: #0077b5; flex-shrink: 0; }
 
 /* ============ ANIMATIONS ============ */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
@@ -455,7 +465,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
   .contact-form { padding: 24px 16px; }
 
   /* Footer */
-  footer { flex-direction: column; text-align: center; padding: 24px 16px; }
+  footer { flex-direction: column; text-align: center; padding: 24px 16px; align-items: center; }
 }
 
 /* ============================================================
@@ -952,6 +962,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
           <li><div class="info-icon">📍</div><span>100 E Valencia Mesa Dr, Suite 206<br>Fullerton, CA 92835</span></li>
           <li><div class="info-icon">📞</div><span>(714) 446-5050</span></li>
           <li><div class="info-icon">🏥</div><span>Providence St. Jude Medical Center</span></li>
+          <li><div class="info-icon">💼</div><span><a href="https://www.linkedin.com/in/murtaza-bharmal-0822344b/" target="_blank" rel="noopener" style="color:var(--crimson);text-decoration:none;font-weight:600;">linkedin.com/in/murtaza-bharmal</a></span></li>
         </ul>
       </div>
       <div class="contact-form reveal">
@@ -1033,6 +1044,12 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
 
 <footer>
   <div class="footer-logo">Murtaza <span>Bharmal</span>, MD</div>
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/murtaza-bharmal-0822344b/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      Connect on LinkedIn
+    </a>
+  </div>
   <div class="footer-copy">© 2026 · Interventional Cardiologist · Fullerton, CA</div>
 </footer>
 
