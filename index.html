@@ -77,10 +77,10 @@ h1,h2,h3 { font-family: 'Playfair Display', serif; color: var(--head); line-heig
 .tag {
   display: inline-flex; align-items: center; gap: 10px;
   font-size: 0.68rem; font-weight: 700; letter-spacing: 0.28em;
-  text-transform: uppercase; color: var(--crimson); margin-bottom: 14px;
+  text-transform: uppercase; color: var(--crimson); margin-bottom: 16px;
 }
 .tag::before { content: ''; display: block; width: 24px; height: 1.5px; background: currentColor; flex-shrink: 0; }
-.section-h { font-size: clamp(1.6rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 16px; }
+.section-h { font-size: clamp(1.6rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 20px; margin-top: 8px; }
 .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.65s ease, transform 0.65s ease; }
 .reveal.visible { opacity: 1; transform: none; }
 .btn {
@@ -191,19 +191,19 @@ body { padding-top: 62px; }
   display: grid; grid-template-columns: repeat(4,1fr);
   background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
 }
-.stat { padding: 36px 24px; border-right: 1px solid var(--border); }
+.stat { padding: 40px 28px; border-right: 1px solid var(--border); }
 .stat:last-child { border-right: none; }
 .stat-num { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 900; color: var(--crimson); line-height: 1; margin-bottom: 4px; }
 .stat-lbl { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 
 /* ============ SECTIONS ============ */
 section { position: relative; }
-.sec-pad { padding: 80px 0; }
+.sec-pad { padding: 96px 0; }
 
 /* ============ ABOUT ============ */
 #about { background: var(--bg2); }
 .about-grid { display: grid; grid-template-columns: 1fr; max-width: 760px; }
-.about-p { font-size: 1rem; line-height: 1.9; color: rgba(42,32,24,0.74); margin-bottom: 16px; }
+.about-p { font-size: 1rem; line-height: 1.9; color: rgba(42,32,24,0.74); margin-bottom: 20px; }
 .about-p strong { color: var(--head); font-weight: 600; }
 .pullquote {
   background: linear-gradient(135deg, rgba(168,25,46,0.07), rgba(168,25,46,0.02));
@@ -230,7 +230,7 @@ section { position: relative; }
 #expertise { background: var(--bg); }
 .exp-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 52px; align-items: end; }
 .exp-intro p { font-size: 0.97rem; line-height: 1.85; color: rgba(42,32,24,0.7); }
-.exp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.exp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 8px; }
 .exp-card { background: var(--bg2); padding: 36px 28px; position: relative; overflow: hidden; transition: background 0.3s; }
 .exp-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--crimson); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
 .exp-card:hover { background: #dbd5cd; }
@@ -312,10 +312,10 @@ section { position: relative; }
 
 /* ============ CV ============ */
 #credentials { background: var(--bg); }
-.deco-line { width: 48px; height: 3px; background: var(--crimson); margin-bottom: 48px; }
+.deco-line { width: 48px; height: 3px; background: var(--crimson); margin-bottom: 60px; }
 .cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; }
-.cv-sec-ttl { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--crimson); margin-bottom: 24px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
-.tl-item { display: grid; grid-template-columns: 80px 1fr; gap: 14px; margin-bottom: 24px; }
+.cv-sec-ttl { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--crimson); margin-bottom: 28px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.tl-item { display: grid; grid-template-columns: 80px 1fr; gap: 14px; margin-bottom: 28px; }
 .tl-yr { font-size: 0.74rem; font-weight: 600; color: var(--muted); padding-top: 2px; }
 .tl-role { font-size: 0.9rem; font-weight: 600; color: var(--head); margin-bottom: 2px; line-height: 1.35; }
 .tl-org { font-size: 0.8rem; color: var(--muted); }
@@ -389,7 +389,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
   .stat-num { font-size: 2.2rem; }
 
   /* Sections */
-  .sec-pad { padding: 60px 0; }
+  .sec-pad { padding: 72px 0; }
 
   /* About */
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -691,7 +691,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
     <div class="hero-eyebrow">Board-Certified Interventional Cardiologist</div>
     <h1 class="hero-name">Murtaza<br><em>Bharmal</em></h1>
     <div class="hero-sub">MD &nbsp;·&nbsp; Cardiology Content Expert</div>
-    <p class="hero-desc">Interventional cardiologist, published researcher, and cardiology content expert based in Fullerton, California — bringing clinical precision and scientific rigor to every patient interaction, publication, and educational initiative.</p>
+    <p class="hero-desc">Interventional cardiologist and published researcher based in Fullerton, CA — bringing clinical precision to patient care, medical education, and cardiovascular innovation.</p>
     <div class="hero-btns">
       <a href="#contact" class="btn btn-red">Get in Touch ↗</a>
       <a href="#expertise" class="btn btn-outline">Explore Expertise</a>
@@ -724,8 +724,8 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
       <div class="reveal">
         <div class="tag">About</div>
         <h2 class="section-h">Cardiology Rooted in Curiosity & Care</h2>
-        <p class="about-p">Dr. Murtaza Bharmal is a board-certified Interventional Cardiologist practicing in Fullerton, California. What sets his approach apart is a background that began not in medicine, but in engineering — giving him a perspective that is both analytically rigorous and deeply human.</p>
-        <p class="about-p">He is committed to making patients feel heard, understood, and never rushed. Whether in the cath lab or clinic, his goal is the same: to provide the most thoughtful, evidence-based care possible — and to explain it in a way that makes sense.</p>
+        <p class="about-p">Dr. Murtaza Bharmal is a board-certified Interventional Cardiologist in Fullerton, CA. His background began in engineering — giving him a perspective that is both analytically rigorous and deeply human.</p>
+        <p class="about-p">He is committed to making patients feel heard and never rushed — providing evidence-based care and explaining it in a way that makes sense.</p>
         <div class="pullquote">"I became a doctor because I wanted to actually help people — not just treat a condition, but understand the person behind it."</div>
       </div>
 
@@ -741,7 +741,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
         <div class="tag">Clinical Expertise</div>
         <h2 class="section-h">A Full Spectrum of Cardiovascular Mastery</h2>
       </div>
-      <div class="reveal"><p>From complex coronary interventions to preventive cardiology, Dr. Bharmal's expertise covers the full breadth of cardiovascular medicine — with a focus on minimally invasive techniques and outcomes-driven research.</p></div>
+      <div class="reveal"><p>From complex coronary interventions to preventive cardiology — with a focus on minimally invasive techniques and outcomes-driven care.</p></div>
     </div>
     <div class="exp-grid reveal">
       <div class="exp-card"><span class="exp-icon">🫀</span><div class="exp-title">Interventional Cardiology</div><div class="exp-desc">Minimally invasive coronary and peripheral interventions, complex multi-vessel disease, FFR, and OCT-guided procedures.</div></div>
@@ -761,8 +761,8 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
       <div class="reveal">
         <div class="tag">Content Expertise</div>
         <h2 class="section-h">Cardiology Content You Can Trust</h2>
-        <p class="content-p">Dr. Bharmal brings the same clinical precision to medical content creation that he applies in the cath lab. With over a decade of academic publishing, conference presentations, and patient education experience, he translates complex cardiovascular science into clear, accurate, and compelling content.</p>
-        <p class="content-p">His work has appeared in leading journals including <em>Catheterization and Cardiovascular Interventions</em>, <em>Cardiology Clinics</em>, <em>Heart Failure Clinics</em>, <em>Resuscitation</em>, and <em>Personalized Medicine</em>.</p>
+        <p class="content-p">Dr. Bharmal translates complex cardiovascular science into clear, accurate content — drawing on a decade of academic publishing, conference presentations, and patient education.</p>
+        <p class="content-p">Published in <em>Catheterization and Cardiovascular Interventions</em>, <em>Cardiology Clinics</em>, <em>Resuscitation</em>, and <em>Personalized Medicine</em>.</p>
         <ul class="svc-list">
           <li>Peer-reviewed research articles</li>
           <li>CME content & medical education</li>
@@ -792,7 +792,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
     <div class="blog-intro reveal">
       <div class="tag">Clinical Pearls</div>
       <h2 class="section-h">Heart Health, Straight from the Cath Lab</h2>
-      <p>Evidence-based insights on nutrition, lifestyle, supplements, and cardiovascular wellness — written for patients and professionals alike. New articles every few days.</p>
+      <p>Evidence-based insights on nutrition, lifestyle, and cardiovascular wellness — for patients and professionals. New articles every few days.</p>
     </div>
 
     <div class="blog-grid">
@@ -804,7 +804,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
           <div>
             <div class="blog-meta">
               <span class="blog-cat">Medications</span>
-              <span class="blog-date">February 21, 2026</span>
+              <span class="blog-date">February 3, 2026</span>
             </div>
             <div class="blog-title">The Truth About Statins — Separating Myth from Evidence</div>
             <p class="blog-excerpt">Statins are among the most prescribed medications in the world — and among the most misunderstood. From muscle pain fears to memory concerns, Dr. Bharmal breaks down what the science actually says and what every patient should know before stopping their medication.</p>
@@ -817,20 +817,20 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
       <div class="blog-card reveal">
         <div class="blog-card-img" style="min-height:160px;font-size:2.5rem;">🐟</div>
         <div class="blog-card-body">
-          <div class="blog-meta"><span class="blog-cat">Nutrition</span><span class="blog-date">February 25, 2026</span></div>
+          <div class="blog-meta"><span class="blog-cat">Nutrition</span><span class="blog-date">February 7, 2026</span></div>
           <div class="blog-title">Omega-3s & Your Heart — What the Evidence Actually Says</div>
           <p class="blog-excerpt">Not all fish oil is created equal. A deep dive into the clinical trials, what dose and form actually matters, and what I tell my own patients about omega-3 supplementation.</p>
           <button class="blog-read" onclick="openArticle('omega3')">Read Article →</button>
         </div>
       </div>
 
-      <div class="blog-card reveal" style="opacity:0.5;pointer-events:none;">
+      <div class="blog-card reveal">
         <div class="blog-card-img" style="min-height:160px;font-size:2.5rem;">🏃</div>
         <div class="blog-card-body">
-          <div class="blog-meta"><span class="blog-cat">Lifestyle</span><span class="blog-date">Coming Soon</span></div>
+          <div class="blog-meta"><span class="blog-cat">Lifestyle</span><span class="blog-date">February 11, 2026</span></div>
           <div class="blog-title">Exercise as Medicine — How Much Is Enough for Heart Health?</div>
           <p class="blog-excerpt">The latest guidelines on exercise intensity, frequency, and type for cardiovascular disease prevention — and how to actually fit it into a busy life.</p>
-          <span class="blog-read" style="color:var(--muted);">Coming Soon</span>
+          <button class="blog-read" onclick="openArticle('exercise')">Read Article →</button>
         </div>
       </div>
 
@@ -857,22 +857,22 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
     <div class="legal-intro reveal">
       <div class="tag">Medical-Legal Services</div>
       <h2 class="section-h">Cardiology Expert Witness &amp; Medical-Legal Consultant</h2>
-      <p class="legal-lead">Dr. Bharmal provides rigorous, objective medical-legal consulting and expert witness services to attorneys, insurance carriers, and legal teams across Orange County and Southern California.</p>
+      <p class="legal-lead">Rigorous, objective expert witness and medical-legal consulting for attorneys and legal teams across Orange County and Southern California.</p>
     </div>
     <div class="legal-grid reveal">
-      <div class="legal-card"><div class="legal-card-icon">⚖️</div><div class="legal-card-title">Expert Witness Testimony</div><div class="legal-card-desc">Board-certified, actively practicing interventional cardiologist available for deposition and trial testimony for both plaintiff and defense.</div></div>
-      <div class="legal-card"><div class="legal-card-icon">📋</div><div class="legal-card-title">Standard of Care Review</div><div class="legal-card-desc">Thorough review of medical records and clinical data to assess whether cardiovascular care met the accepted standard. Detailed written reports.</div></div>
-      <div class="legal-card"><div class="legal-card-icon">🔍</div><div class="legal-card-title">Independent Medical Exam</div><div class="legal-card-desc">Objective cardiac evaluations for workers' compensation, personal injury, and disability cases. Fast turnaround.</div></div>
-      <div class="legal-card"><div class="legal-card-icon">📊</div><div class="legal-card-title">Causation Analysis</div><div class="legal-card-desc">Evidence-based analysis linking cardiac events to alleged negligence, injury, or occupational exposure.</div></div>
-      <div class="legal-card"><div class="legal-card-icon">📝</div><div class="legal-card-title">Affidavit of Merit</div><div class="legal-card-desc">Timely preparation of affidavits of merit for cardiology malpractice cases with meticulous attention to the standard of care.</div></div>
-      <div class="legal-card"><div class="legal-card-icon">🤝</div><div class="legal-card-title">Case Consultation</div><div class="legal-card-desc">Early-stage case evaluation to assess merit and liability. Complimentary initial consultation. Plaintiff &amp; defense throughout Southern California.</div></div>
+      <div class="legal-card"><div class="legal-card-icon">⚖️</div><div class="legal-card-title">Expert Witness Testimony</div><div class="legal-card-desc">Available for deposition and trial testimony. Plaintiff and defense. Actively practicing interventional cardiologist.</div></div>
+      <div class="legal-card"><div class="legal-card-icon">📋</div><div class="legal-card-title">Standard of Care Review</div><div class="legal-card-desc">Review of medical records and clinical data to assess whether care met the accepted standard. Detailed written reports.</div></div>
+      <div class="legal-card"><div class="legal-card-icon">🔍</div><div class="legal-card-title">Independent Medical Exam</div><div class="legal-card-desc">Objective cardiac evaluations for workers' comp, personal injury, and disability cases. Fast turnaround.</div></div>
+      <div class="legal-card"><div class="legal-card-icon">📊</div><div class="legal-card-title">Causation Analysis</div><div class="legal-card-desc">Linking cardiac events to alleged negligence, injury, or occupational exposure through evidence-based analysis.</div></div>
+      <div class="legal-card"><div class="legal-card-icon">📝</div><div class="legal-card-title">Affidavit of Merit</div><div class="legal-card-desc">Timely affidavits of merit for cardiology malpractice cases, with careful attention to the standard of care.</div></div>
+      <div class="legal-card"><div class="legal-card-icon">🤝</div><div class="legal-card-title">Case Consultation</div><div class="legal-card-desc">Early-stage merit and liability evaluation. Complimentary initial consultation. Plaintiff &amp; defense.</div></div>
     </div>
     <div class="legal-cases-ttl reveal">Case Types &amp; Conditions</div>
     <div class="case-tags reveal">
       <span class="case-tag">Acute Myocardial Infarction</span><span class="case-tag">Cardiac Arrest</span><span class="case-tag">Coronary Artery Disease</span><span class="case-tag">Stent Complications</span><span class="case-tag">Missed Diagnosis</span><span class="case-tag">Delayed Treatment</span><span class="case-tag">Heart Failure</span><span class="case-tag">Arrhythmia</span><span class="case-tag">Hypertension</span><span class="case-tag">Pericarditis / Myocarditis</span><span class="case-tag">Cardiac Catheterization Complications</span><span class="case-tag">Angioplasty &amp; Stent Malpractice</span><span class="case-tag">Drug-Induced Cardiac Injury</span><span class="case-tag">Wrongful Death</span><span class="case-tag">Workers' Compensation</span><span class="case-tag">Personal Injury</span>
     </div>
     <div class="cta-bar legal-cta-bar reveal">
-      <div><div class="cta-heading">Retain Dr. Bharmal for Your Case</div><div class="cta-sub">Serving attorneys across Orange County, Los Angeles, Riverside, and San Bernardino counties. Fast turnaround. Plaintiff &amp; defense.</div></div>
+      <div><div class="cta-heading">Retain Dr. Bharmal for Your Case</div><div class="cta-sub">Orange County · Los Angeles · Riverside · San Bernardino. Fast turnaround. Plaintiff &amp; defense.</div></div>
       <a href="#contact" class="btn btn-gold">Request a Consultation ↗</a>
     </div>
   </div>
@@ -882,17 +882,16 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
 <section id="research">
   <div class="inner sec-pad">
     <div class="research-intro reveal">
-      <div class="eng-badge">🔬 Biomedical Engineering · BS UC San Diego · R&amp;D Abbott Vascular</div>
       <div class="tag">Research &amp; Device Consulting</div>
       <h2 class="section-h">Where Clinical Cardiology Meets Engineering Innovation</h2>
-      <p>Dr. Bharmal is uniquely positioned at the intersection of biomedical engineering and interventional cardiology — with formal engineering training from UC San Diego, hands-on R&amp;D experience at Abbott Vascular, and over a decade of clinical use of the very devices he once helped develop.</p>
+      <p>Uniquely positioned at the intersection of biomedical engineering and interventional cardiology — with engineering training from UC San Diego, R&amp;D experience at Abbott Vascular, and a decade of clinical use of the devices he once helped build.</p>
     </div>
     <div class="research-layout reveal">
       <div>
         <div class="tag">Consulting Services</div>
         <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#0f2a4a;margin-bottom:16px;line-height:1.2;">Clinical Insight for Device Developers &amp; Research Teams</h3>
-        <p class="research-p">Before earning his MD, Dr. Bharmal worked as an <strong>R&amp;D engineer at Abbott Vascular</strong> — one of the world's leading cardiac device companies — developing and refining coronary intervention technologies. He then spent over a decade as a clinician deploying these devices in patients.</p>
-        <p class="research-p">This rare dual perspective — engineer and interventionalist — makes Dr. Bharmal an invaluable consultant for medical device companies, biotech startups, and research institutions.</p>
+        <p class="research-p">Before medicine, Dr. Bharmal was an <strong>R&amp;D engineer at Abbott Vascular</strong>, developing coronary intervention technologies. He then spent a decade as a clinician using those same devices in patients.</p>
+        <p class="research-p">This dual perspective — engineer and interventionalist — makes him a uniquely credible consultant for device companies, biotech startups, and research institutions.</p>
         <ul class="research-svc">
           <li>Cardiac device clinical evaluation</li>
           <li>Coronary intervention device design</li>
@@ -922,7 +921,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
       <div class="device-item"><span class="device-icon">⚡</span><div class="device-title">ECPR & Resuscitation Tech</div><div class="device-desc">Research in extracorporeal CPR systems and cardiac arrest technology optimization</div></div>
     </div>
     <div class="cta-bar research-cta-bar reveal">
-      <div><div class="cta-heading">Partner on Your Next Project</div><div class="cta-sub">Available for device consulting, research collaboration, advisory boards, and clinical trial support — Southern California and nationally.</div></div>
+      <div><div class="cta-heading">Partner on Your Next Project</div><div class="cta-sub">Device consulting · Advisory boards · Clinical trials · Research collaboration. Southern California and nationally.</div></div>
       <a href="#contact" class="btn btn-white">Start a Conversation ↗</a>
     </div>
   </div>
@@ -941,7 +940,8 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
         <div class="tl-item"><div class="tl-yr">2011–2013</div><div><div class="tl-role">R&D Engineer</div><div class="tl-org">Abbott Vascular</div></div></div>
         <div class="tl-item"><div class="tl-yr">2013–2017</div><div><div class="tl-role">Doctor of Medicine (MD)</div><div class="tl-org">University of Vermont College of Medicine · AOA Class President</div></div></div>
         <div class="tl-item"><div class="tl-yr">2017–2020</div><div><div class="tl-role">Residency — Internal Medicine</div><div class="tl-org">University of Chicago Medical Center</div></div></div>
-        <div class="tl-item"><div class="tl-yr">2020–2023</div><div><div class="tl-role">Fellowship — CV Disease & Interventional Cardiology · Chief Fellow</div><div class="tl-org">UC Irvine / Long Beach Memorial Medical Center</div></div></div>
+        <div class="tl-item"><div class="tl-yr">2020–2023</div><div><div class="tl-role">Fellowship — CV Disease & Interventional Cardiology · Chief Fellow</div><div class="tl-org">UC Irvine · Long Beach Memorial Medical Center</div></div></div>
+        <div class="tl-item"><div class="tl-yr">2023–2024</div><div><div class="tl-role">Interventional Cardiology</div><div class="tl-org">UC Irvine · Long Beach Memorial Medical Center</div></div></div>
         <div class="cv-sec-ttl" style="margin-top:40px">Hospital Affiliations</div>
         <div class="tl-item"><div class="tl-yr">Current</div><div><div class="tl-role">Providence St. Jude Medical Center</div><div class="tl-org">Fullerton, CA · St. Jude Heritage Medical Group</div></div></div>
       </div>
@@ -975,7 +975,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
       <div class="reveal">
         <div class="tag">Contact</div>
         <h2 class="section-h">Let's Work Together</h2>
-        <p class="contact-p">Whether you're seeking a cardiology content expert, medical-legal consultant, device research partner, or clinical specialist — Dr. Bharmal welcomes the conversation.</p>
+        <p class="contact-p">Whether you're seeking a content expert, medical-legal consultant, device advisor, or clinical specialist — Dr. Bharmal welcomes the conversation.</p>
         <ul class="info-list">
           <li><div class="info-icon">📍</div><span>100 E Valencia Mesa Dr, Suite 206<br>Fullerton, CA 92835</span></li>
           <li><div class="info-icon">📞</div><span>(714) 446-5050</span></li>
@@ -1026,7 +1026,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
           <div class="reviews-source">Providence Health System</div>
         </div>
       </div>
-      <p class="reviews-subtitle">Verified patient reviews from Providence Health System — reflecting Dr. Bharmal's commitment to compassionate, patient-centered cardiovascular care.</p>
+      <p class="reviews-subtitle">Verified reviews from Providence Health System.</p>
     </div>
   </div>
 
@@ -1119,7 +1119,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
     statins: {
       cat: 'Medications · Cardiology',
       title: 'The Truth About Statins — Separating Myth from Evidence',
-      byline: 'By Murtaza Bharmal, MD · Interventional Cardiologist · February 21, 2026',
+      byline: 'By Murtaza Bharmal, MD · Interventional Cardiologist · February 3, 2026',
       body: `
         <h3>Why This Matters</h3>
         <p>Every week I see patients who have stopped their statin — or are afraid to start one — because of something they read online or heard from a friend. Statins are among the most studied medications in history, with decades of large randomized trials behind them. Yet misinformation persists. Let me address the most common concerns directly.</p>
@@ -1163,7 +1163,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
     omega3: {
       cat: 'Nutrition · Cardiovascular Health',
       title: 'Omega-3s & Your Heart — What the Evidence Actually Says',
-      byline: 'By Murtaza Bharmal, MD · Interventional Cardiologist · February 25, 2026',
+      byline: 'By Murtaza Bharmal, MD · Interventional Cardiologist · February 7, 2026',
       body: `
         <h3>Why Everyone Is Talking About Omega-3s</h3>
         <p>Walk into any pharmacy and the fish oil aisle is overwhelming — dozens of brands, wildly different doses, capsules, liquids, prescription formulations. Patients ask me about omega-3s almost every week. The honest answer is more nuanced than most supplement marketing would have you believe. Here is what the science actually shows.</p>
@@ -1208,6 +1208,67 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
 
         <div class="article-disclaimer">
           <strong>Disclaimer:</strong> This article is intended for general educational purposes only and does not constitute medical advice. Please consult your physician before starting any new supplement or making changes to your treatment plan.
+        </div>
+      `
+    }
+    ,
+    exercise: {
+      cat: 'Lifestyle · Cardiovascular Health',
+      title: 'Exercise as Medicine — How Much Is Enough for Heart Health?',
+      byline: 'By Murtaza Bharmal, MD · Interventional Cardiologist · February 11, 2026',
+      body: `
+        <h3>The Most Underused Prescription in Cardiology</h3>
+        <p>If exercise could be packaged into a pill, it would be the most widely prescribed medication in history. The evidence for physical activity in cardiovascular disease prevention is as strong as almost anything we have in medicine — yet the majority of American adults still don't meet basic activity guidelines. As a cardiologist, I think about exercise as a clinical intervention, not just a lifestyle suggestion. Here is what the science says and how I counsel my patients.</p>
+
+        <div class="article-callout">"Exercise is the closest thing we have to a polypill — it lowers blood pressure, improves cholesterol, reduces blood sugar, decreases inflammation, and strengthens the heart. And it's free."</div>
+
+        <h3>What the Guidelines Actually Say</h3>
+        <p>The 2018 Physical Activity Guidelines for Americans, endorsed by the American Heart Association, recommend:</p>
+        <ul>
+          <li><strong>At least 150 minutes per week</strong> of moderate-intensity aerobic activity (brisk walking, cycling, swimming), OR</li>
+          <li><strong>75 minutes per week</strong> of vigorous-intensity activity (running, HIIT, fast cycling), OR</li>
+          <li>An equivalent combination of both</li>
+          <li><strong>Muscle-strengthening activities</strong> (resistance training) on 2 or more days per week</li>
+        </ul>
+        <p>That breaks down to just 22 minutes of moderate exercise per day — far less daunting than most people assume.</p>
+
+        <h3>More Is Better — Up to a Point</h3>
+        <p>A landmark analysis of over 650,000 adults published in <em>JAMA Internal Medicine</em> found that meeting the minimum guidelines reduced mortality risk by 31% compared to being inactive. Those who exercised 3–5 times the minimum had a 39% reduction. Beyond that, additional benefit plateaus — but importantly, very high volumes of exercise (marathon training, ultra-endurance athletics) do not appear to be harmful for most people either.</p>
+        <p>The key message: <strong>any amount of movement is better than none</strong>, and the biggest gains come from going from sedentary to minimally active.</p>
+
+        <h3>Aerobic vs. Resistance Training — Do You Need Both?</h3>
+        <p>Yes, and they do different things. Aerobic exercise primarily improves cardiovascular fitness (VO2 max), lowers resting heart rate, reduces blood pressure, and improves lipid profiles. Resistance training builds muscle mass, improves insulin sensitivity, strengthens bones, and reduces all-cause mortality independently of aerobic fitness. A 2022 study in the <em>British Journal of Sports Medicine</em> found that combining both types reduced cardiovascular mortality risk by 46% — more than either alone.</p>
+
+        <h3>What About High-Intensity Interval Training (HIIT)?</h3>
+        <p>HIIT — alternating short bursts of intense effort with recovery periods — has gained popularity for good reason. Studies show it produces comparable or superior cardiovascular adaptations to moderate continuous exercise in significantly less time. For my busy patients, a 20-minute HIIT session 3 times a week can meet guidelines efficiently. However, for patients with established coronary artery disease or recent cardiac events, HIIT should only be started under physician guidance.</p>
+
+        <div class="article-callout">"I tell my patients: you don't need a gym membership or an hour a day. A 25-minute brisk walk most days of the week is genuinely, meaningfully good for your heart."</div>
+
+        <h3>Exercise After a Cardiac Event</h3>
+        <p>Cardiac rehabilitation — supervised exercise following a heart attack, bypass surgery, or stent placement — reduces cardiovascular mortality by 20–25% and hospital readmission rates significantly. Yet fewer than 25% of eligible patients complete cardiac rehab. If you or a family member has had a cardiac event, please ask your cardiologist for a formal cardiac rehab referral. It is one of the highest-value interventions we have.</p>
+
+        <h3>Practical Starting Points</h3>
+        <ul>
+          <li><strong>Start where you are.</strong> If you are currently sedentary, even 10-minute walks are beneficial and a realistic starting point.</li>
+          <li><strong>Consistency beats intensity.</strong> Showing up 5 days a week at moderate effort beats heroic weekend sessions followed by inactivity.</li>
+          <li><strong>Find something you enjoy.</strong> The best exercise is the one you will actually do — whether that is pickleball, dancing, swimming, or hiking.</li>
+          <li><strong>Track it simply.</strong> A step goal of 7,000–10,000 steps per day correlates strongly with reduced cardiovascular events in multiple large studies.</li>
+          <li><strong>Talk to your doctor first</strong> if you have known heart disease, recent cardiac symptoms, or multiple risk factors before starting a new vigorous exercise program.</li>
+        </ul>
+
+        <div class="article-refs">
+          <div class="article-refs-title">References</div>
+          <ol>
+            <li>Arem H, et al. Leisure Time Physical Activity and Mortality. <em>JAMA Intern Med.</em> 2015;175(6):959–967.</li>
+            <li>2018 Physical Activity Guidelines Advisory Committee. <em>Physical Activity Guidelines for Americans, 2nd edition.</em> US Dept of Health and Human Services, 2018.</li>
+            <li>Momma H, et al. Muscle-strengthening activities are associated with lower risk and mortality in major non-communicable diseases. <em>Br J Sports Med.</em> 2022;56(13):755–763.</li>
+            <li>Anderson L, et al. Exercise-Based Cardiac Rehabilitation for Coronary Heart Disease. <em>Cochrane Database Syst Rev.</em> 2016;1:CD001800.</li>
+            <li>Paluch AE, et al. Daily steps and all-cause mortality. <em>Lancet Public Health.</em> 2022;7(3):e219–e228.</li>
+          </ol>
+        </div>
+
+        <div class="article-disclaimer">
+          <strong>Disclaimer:</strong> This article is intended for general educational purposes only and does not constitute medical advice. Always consult your physician before beginning a new exercise program, especially if you have known cardiovascular disease or risk factors.
         </div>
       `
     }
