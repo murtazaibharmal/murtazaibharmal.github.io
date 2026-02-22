@@ -931,11 +931,13 @@ function openArticle(key) {
     document.getElementById('articleBody').innerHTML = a.body;
     document.getElementById('articleOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
+    history.replaceState(null, '', '#' + key);
   }
 
   function closeArticle() {
     document.getElementById('articleOverlay').classList.remove('open');
     document.body.style.overflow = '';
+    history.replaceState(null, '', window.location.pathname);
   }
 
   function closeArticleOutside(e) {
@@ -943,6 +945,20 @@ function openArticle(key) {
   }
 
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeArticle(); });
+
+  // Deep-link: open article from URL hash e.g. drbharmal.com/pearls#ramadan
+  function checkHash() {
+    const hash = window.location.hash.replace('#', '');
+    if (hash && articles[hash]) openArticle(hash);
+  }
+  // Wait for articles.json to load, then check hash
+  const _origRender = renderCards;
+  renderCards = function() {
+    _origRender();
+    checkHash();
+  };
+  // Also handle back/forward browser navigation
+  window.addEventListener('hashchange', checkHash);
 
   // Mobile menu
   const hbg = document.getElementById('hbg');
