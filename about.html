@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>CV & About — Murtaza Bharmal, MD | Interventional Cardiologist</title>
+<meta name="description" content="Curriculum vitae, training, board certifications, publications, and conference presentations of Dr. Murtaza Bharmal, MD — Interventional Cardiologist in Fullerton, CA.">
+<link rel="canonical" href="https://drbharmal.com/about.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============ DESIGN TOKENS — identical to index.html ============ */
+:root {
+  --crimson: #a8192e;
+  --crimson-dk: #7d1223;
+  --gold: #c8a96e;
+  --navy: #1d4e89;
+  --navy-dk: #0f2a4a;
+  --bg: #f7f3ef;
+  --bg2: #eee9e3;
+  --card: #e8e2da;
+  --border: rgba(100,75,65,0.13);
+  --text: #2a2018;
+  --muted: #7a6a60;
+  --head: #1a1208;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+h1,h2,h3 { font-family: 'Playfair Display', serif; color: var(--head); line-height: 1.15; }
+
+.inner { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+.tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--crimson); margin-bottom: 16px;
+}
+.tag::before { content: ''; display: block; width: 24px; height: 1.5px; background: currentColor; flex-shrink: 0; }
+.section-h { font-size: clamp(1.6rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 20px; margin-top: 8px; }
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px 28px; font-size: 0.82rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  transition: all 0.25s; white-space: nowrap; cursor: pointer; border: none;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+.btn-red { background: var(--crimson); color: #fff; }
+.btn-red:hover { background: var(--crimson-dk); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(168,25,46,0.28); }
+.btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border); clip-path: none; }
+.btn-outline:hover { border-color: rgba(100,75,65,0.3); background: rgba(60,40,30,0.04); }
+.btn-gold { background: var(--gold); color: #fff; }
+.btn-gold:hover { background: #b89450; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,169,110,0.3); }
+
+/* ============ NAV — identical to index.html ============ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px; height: 62px;
+  background: rgba(247,243,239,0.97); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+body { padding-top: 62px; }
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--head); white-space: nowrap; }
+.nav-logo span { color: var(--crimson); }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--muted); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; padding: 4px 0; }
+.nav-links a:hover, .nav-links a.active { color: var(--head); }
+.hbg { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; cursor: pointer; background: none; border: none; padding: 4px; flex-shrink: 0; }
+.hbg span { display: block; width: 22px; height: 2px; background: var(--head); border-radius: 2px; transition: all 0.28s; }
+.hbg.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hbg.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hbg.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mob-menu {
+  position: fixed; top: 62px; left: 0; right: 0; bottom: 0;
+  background: rgba(247,243,239,0.98); backdrop-filter: blur(20px);
+  z-index: 199; display: flex; flex-direction: column;
+  transform: translateY(-100%); opacity: 0;
+  transition: transform 0.32s ease, opacity 0.32s ease;
+  pointer-events: none; overflow-y: auto;
+}
+.mob-menu.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+.mob-menu a {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 28px; text-decoration: none; font-size: 1rem;
+  font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--head); border-bottom: 1px solid var(--border);
+  transition: background 0.15s, color 0.15s;
+}
+.mob-menu a::after { content: '→'; color: var(--crimson); font-size: 1rem; }
+.mob-menu a:hover { background: rgba(168,25,46,0.05); color: var(--crimson); }
+.mob-menu-cta { padding: 24px 28px; margin-top: auto; }
+.mob-menu-cta .btn { width: 100%; font-size: 0.85rem; }
+
+/* ============ PAGE HERO ============ */
+.page-hero {
+  background: linear-gradient(135deg, var(--head) 0%, #2e1e10 100%);
+  padding: 72px 0 64px;
+}
+.page-hero .tag { color: var(--gold); }
+.page-hero .tag::before { background: var(--gold); }
+.page-hero-h { font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 900; color: #f5f0e8; line-height: 1.08; margin-bottom: 16px; margin-top: 8px; }
+.page-hero-sub { font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(245,240,232,0.65); }
+
+/* ============ SECTIONS ============ */
+section { position: relative; }
+.sec-pad { padding: 96px 0; }
+
+/* ============ CV STYLES — from index.html ============ */
+#credentials { background: var(--bg); }
+.deco-line { width: 48px; height: 3px; background: var(--crimson); margin-bottom: 60px; }
+.cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; }
+.cv-sec-ttl { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--crimson); margin-bottom: 28px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.tl-item { display: grid; grid-template-columns: 80px 1fr; gap: 14px; margin-bottom: 28px; }
+.tl-yr { font-size: 0.74rem; font-weight: 600; color: var(--muted); padding-top: 2px; }
+.tl-role { font-size: 0.9rem; font-weight: 600; color: var(--head); margin-bottom: 2px; line-height: 1.35; }
+.tl-org { font-size: 0.8rem; color: var(--muted); }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+.badge { padding: 7px 14px; background: rgba(168,25,46,0.07); border: 1px solid rgba(168,25,46,0.18); font-size: 0.74rem; font-weight: 600; color: rgba(42,32,24,0.82); }
+
+/* ============ CONTACT STRIP — dark, matching index.html legal section bg ============ */
+.contact-strip {
+  background: #1a1208;
+  padding: 72px 0;
+}
+.contact-strip-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 36px; flex-wrap: wrap;
+}
+.contact-strip h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: #f5f0e8; margin-bottom: 8px; }
+.contact-strip p { font-size: 0.97rem; color: rgba(245,240,232,0.6); line-height: 1.7; max-width: 480px; }
+.contact-strip-actions { display: flex; gap: 12px; flex-shrink: 0; flex-wrap: wrap; }
+
+/* ============ FOOTER — identical to index.html ============ */
+footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32px 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.footer-logo { font-family: 'Playfair Display', serif; font-size: 0.92rem; color: var(--head); }
+.footer-logo span { color: var(--crimson); }
+.footer-copy { font-size: 0.76rem; color: var(--muted); }
+.footer-social { display: flex; align-items: center; gap: 12px; }
+.footer-social a {
+  display: flex; align-items: center; gap: 7px;
+  padding: 8px 16px; font-size: 0.74rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+  color: #0077b5; border: 1.5px solid rgba(0,119,181,0.3);
+  transition: all 0.2s; background: rgba(0,119,181,0.04);
+}
+.footer-social a:hover { background: rgba(0,119,181,0.1); border-color: rgba(0,119,181,0.6); transform: translateY(-1px); }
+.footer-social a svg { width: 16px; height: 16px; fill: #0077b5; flex-shrink: 0; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+html, body { max-width: 100%; overflow-x: hidden; }
+* { word-break: break-word; min-width: 0; }
+img, svg, video, canvas { max-width: 100%; height: auto; }
+
+/* ============ RESPONSIVE — TABLET ============ */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hbg { display: flex; }
+  nav { padding: 0 20px; }
+  .sec-pad { padding: 72px 0; }
+  .cv-grid { grid-template-columns: 1fr; gap: 40px; }
+  .tl-item { grid-template-columns: 68px 1fr; gap: 10px; }
+  .contact-strip-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
+  .contact-strip-actions { width: 100%; }
+  .contact-strip-actions .btn { flex: 1; justify-content: center; }
+}
+
+/* ============ RESPONSIVE — MOBILE ============ */
+@media (max-width: 600px) {
+  .sec-pad { padding: 48px 0; }
+  .inner { padding: 0 16px; }
+  .section-h { font-size: 1.5rem; }
+  .tl-item { grid-template-columns: 1fr; gap: 2px; }
+  .tl-yr { font-size: 0.7rem; color: var(--crimson); }
+  .badge { font-size: 0.7rem; padding: 5px 10px; }
+  footer { flex-direction: column; text-align: center; padding: 24px 16px; align-items: center; }
+  .contact-strip { padding: 48px 0; }
+  .page-hero { padding: 52px 0 44px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Murtaza <span>Bharmal</span>, MD</div>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#expertise">Expertise</a></li>
+    <li><a href="index.html#content">Content</a></li>
+    <li><a href="index.html#legal">Medical-Legal</a></li>
+    <li><a href="index.html#research">Research</a></li>
+    <li><a href="about.html" class="active">CV</a></li>
+    <li><a href="pearls.html">Pearls</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html#about" onclick="closeMob()">About</a>
+  <a href="index.html#expertise" onclick="closeMob()">Expertise</a>
+  <a href="index.html#content" onclick="closeMob()">Content</a>
+  <a href="index.html#legal" onclick="closeMob()">Medical-Legal</a>
+  <a href="index.html#research" onclick="closeMob()">Research</a>
+  <a href="about.html" onclick="closeMob()">CV</a>
+  <a href="pearls.html" onclick="closeMob()">Pearls</a>
+  <a href="index.html#reviews" onclick="closeMob()">Reviews</a>
+  <a href="index.html#contact" onclick="closeMob()">Contact</a>
+  <div class="mob-menu-cta">
+    <a href="index.html#contact" onclick="closeMob()" class="btn btn-red">Get in Touch ↗</a>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="inner">
+    <div class="tag" style="animation: fadeUp 0.7s 0.1s both;">Credentials</div>
+    <h1 class="page-hero-h" style="animation: fadeUp 0.7s 0.22s both;">Curriculum Vitae</h1>
+    <p class="page-hero-sub" style="animation: fadeUp 0.7s 0.34s both;">Murtaza Bharmal, MD &nbsp;·&nbsp; Interventional Cardiologist &nbsp;·&nbsp; Fullerton, CA</p>
+  </div>
+</section>
+
+<!-- CV -->
+<section id="credentials">
+  <div class="inner sec-pad">
+    <div class="deco-line reveal"></div>
+    <div class="cv-grid">
+      <div class="reveal">
+        <div class="cv-sec-ttl">Education &amp; Training</div>
+        <div class="tl-item">
+          <div class="tl-yr">2007–2011</div>
+          <div><div class="tl-role">BS, Biomedical Engineering — Honors</div><div class="tl-org">University of California, San Diego</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-yr">2011–2013</div>
+          <div><div class="tl-role">R&amp;D Engineer</div><div class="tl-org">Abbott Vascular</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-yr">2013–2017</div>
+          <div><div class="tl-role">Doctor of Medicine (MD)</div><div class="tl-org">University of Vermont College of Medicine · AOA Class President</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-yr">2017–2020</div>
+          <div><div class="tl-role">Residency — Internal Medicine</div><div class="tl-org">University of Chicago Medical Center</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-yr">2020–2023</div>
+          <div><div class="tl-role">Fellowship — CV Disease &amp; Interventional Cardiology · Chief Fellow</div><div class="tl-org">UC Irvine · Long Beach Memorial Medical Center</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-yr">2023–2024</div>
+          <div><div class="tl-role">Interventional Cardiology Fellowship</div><div class="tl-org">UC Irvine · Long Beach Memorial Medical Center</div></div>
+        </div>
+
+        <div class="cv-sec-ttl" style="margin-top:40px">Hospital Affiliations</div>
+        <div class="tl-item">
+          <div class="tl-yr">Current</div>
+          <div><div class="tl-role">Providence St. Jude Medical Center</div><div class="tl-org">Fullerton, CA · St. Jude Heritage Medical Group</div></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="cv-sec-ttl">Board Certifications &amp; Honors</div>
+        <div class="badges">
+          <div class="badge">Cardiovascular Disease</div>
+          <div class="badge">Internal Medicine</div>
+          <div class="badge">Interventional Cardiology</div>
+          <div class="badge">AOA Honor Society</div>
+          <div class="badge">Chief Fellow</div>
+          <div class="badge">2025 Mission Physicians Leadership Award</div>
+        </div>
+
+        <div class="cv-sec-ttl">Select Publications</div>
+        <div class="tl-item">
+          <div class="tl-yr">2024</div>
+          <div><div class="tl-role">COVID-19 Impact on Cardiac Arrest &amp; Emergency Care</div><div class="tl-org">Cardiology Clinics</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-yr">2023</div>
+          <div><div class="tl-role">Nanosensor Technologies &amp; Digital Healthcare</div><div class="tl-org">Personalized Medicine</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-yr">2022</div>
+          <div><div class="tl-role">Physiologic Lesion Assessment — Multivessel Disease</div><div class="tl-org">Catheterization &amp; Cardiovascular Interventions</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-yr">2022</div>
+          <div><div class="tl-role">Coronary Hemodynamics &amp; FFR: IV Adenosine Implications</div><div class="tl-org">Catheterization &amp; Cardiovascular Interventions</div></div>
+        </div>
+
+        <div class="cv-sec-ttl" style="margin-top:40px">Conferences</div>
+        <div class="tl-item">
+          <div class="tl-yr">2025</div>
+          <div><div class="tl-role">CRT 2025 — Faculty Speaker</div><div class="tl-org">Coronary hemodynamics, complex coronary, preventive cardiology</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-yr">2024</div>
+          <div><div class="tl-role">CICT 2024 — UC Irvine Interventional Cardiology</div><div class="tl-org">Coronary physiology, Pasadena, CA</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section class="contact-strip">
+  <div class="inner">
+    <div class="contact-strip-inner reveal">
+      <div>
+        <h2>Get in Touch</h2>
+        <p>For clinical referrals, medical-legal inquiries, speaking engagements, research partnerships, or media requests.</p>
+      </div>
+      <div class="contact-strip-actions">
+        <a href="index.html#contact" class="btn btn-gold">Send a Message ↗</a>
+        <a href="https://www.linkedin.com/in/murtaza-bharmal-0822344b/" target="_blank" rel="noopener" class="btn btn-outline" style="color:#f5f0e8;border-color:rgba(245,240,232,0.25);">LinkedIn ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Murtaza <span>Bharmal</span>, MD</div>
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/murtaza-bharmal-0822344b/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      Connect on LinkedIn
+    </a>
+  </div>
+  <div class="footer-copy">© 2026 · Interventional Cardiologist · Fullerton, CA</div>
+</footer>
+
+<script>
+  const hbg = document.getElementById('hbg');
+  const mob = document.getElementById('mobMenu');
+  hbg.addEventListener('click', () => {
+    const open = mob.classList.toggle('open');
+    hbg.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  function closeMob() {
+    mob.classList.remove('open');
+    hbg.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
