@@ -811,64 +811,16 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
       <p>Evidence-based insights on nutrition, lifestyle, and cardiovascular wellness — for patients and professionals.</p>
     </div>
 
-    <div class="blog-grid">
-
-      <div class="blog-card featured reveal">
-        <div class="blog-card-img">🚭</div>
-        <div class="blog-card-body">
-          <div>
-            <div class="blog-meta">
-              <span class="blog-cat">Lifestyle</span>
-              <span class="blog-date">February 19, 2026</span>
-            </div>
-            <div class="blog-title">Smoking and Your Heart — The Damage, the Recovery, and Quitting for Good</div>
-            <p class="blog-excerpt">Smoking is the single most modifiable cardiovascular risk factor. Here's what it does to your heart and the remarkable recovery that follows quitting.</p>
-          </div>
-          <button class="blog-read" onclick="openArticle('smoking')">Read Article →</button>
-        </div>
-      </div>
-
-      <div class="blog-card reveal">
-        <div class="blog-card-img" style="min-height:160px;font-size:2.5rem;">💊</div>
-        <div class="blog-card-body">
-          <div class="blog-meta"><span class="blog-cat">Nutrition</span><span class="blog-date">February 15, 2026</span></div>
-          <div class="blog-title">Heart Supplements — What Works, What Doesn't, and What's a Waste of Money</div>
-          <p class="blog-excerpt">From CoQ10 to magnesium to red yeast rice — a cardiologist's honest assessment of popular cardiovascular supplements.</p>
-          <button class="blog-read" onclick="openArticle('supplements')">Read Article →</button>
-        </div>
-      </div>
-
-      <div class="blog-card reveal">
-        <div class="blog-card-img" style="min-height:160px;font-size:2.5rem;">🏃</div>
-        <div class="blog-card-body">
-          <div class="blog-meta"><span class="blog-cat">Lifestyle</span><span class="blog-date">February 11, 2026</span></div>
-          <div class="blog-title">Exercise as Medicine — How Much Is Enough for Heart Health?</div>
-          <p class="blog-excerpt">The latest guidelines on exercise intensity, frequency, and type for cardiovascular disease prevention.</p>
-          <button class="blog-read" onclick="openArticle('exercise')">Read Article →</button>
-        </div>
-      </div>
-
+    <div class="blog-grid" id="blogGrid">
+      <!-- Dynamically populated from articles.json -->
     </div>
 
     <div style="text-align:center; margin-top:44px;">
-      <a href="pearls.html" class="btn btn-outline" style="font-size:0.8rem;letter-spacing:0.12em;">View All 33 Articles →</a>
+      <a href="pearls.html" class="btn btn-outline" style="font-size:0.8rem;letter-spacing:0.12em;">View All Articles →</a>
     </div>
 
   </div>
 </section>
-
-<!-- ARTICLE MODAL -->
-<div class="article-overlay" id="articleOverlay" onclick="closeArticleOutside(event)">
-  <div class="article-modal" id="articleModal">
-    <div class="article-modal-header">
-      <button class="article-close" onclick="closeArticle()">✕</button>
-      <div class="article-cat" id="articleCat"></div>
-      <div class="article-title" id="articleTitle"></div>
-      <div class="article-byline" id="articleByline"></div>
-    </div>
-    <div class="article-body" id="articleBody"></div>
-  </div>
-</div>
 
 <!-- MEDICAL-LEGAL -->
 <section id="legal">
@@ -1089,7 +1041,74 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
     } catch { err.style.display = 'block'; ok.style.display = 'none'; btn.textContent = 'Send Message →'; btn.disabled = false; }
   });
 
-  // ── ARTICLE DATA ──────────────────────────────────────────
+  // ── BLOG GRID: dynamically load 3 most recent articles from articles.json ──
+  (async function() {
+    try {
+      const res = await fetch('articles.json');
+      const data = await res.json();
+
+      // Sort by date descending, take top 3
+      const sorted = Object.entries(data)
+        .filter(([, a]) => a.date)
+        .sort(([, a], [, b]) => b.date.localeCompare(a.date))
+        .slice(0, 3);
+
+      const grid = document.getElementById('blogGrid');
+      if (!grid) return;
+
+      // Category → emoji map for visual variety
+      const emojiMap = {
+        'Lifestyle': '🏃', 'Medications': '💊', 'Nutrition': '🥗',
+        'Patient Guide': '🫀', 'Cardiovascular Health': '❤️‍🩹',
+        'default': '🫀'
+      };
+
+      function getEmoji(cat) {
+        for (const [k, v] of Object.entries(emojiMap)) {
+          if (cat && cat.includes(k)) return v;
+        }
+        return emojiMap.default;
+      }
+
+      function formatDate(iso) {
+        const d = new Date(iso + 'T12:00:00');
+        return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      }
+
+      // First card is featured, rest are regular
+      grid.innerHTML = sorted.map(([key, a], i) => {
+        const emoji = getEmoji(a.cat);
+        const dateStr = a.date ? formatDate(a.date) : '';
+        const excerpt = a.excerpt || '';
+        const cat = (a.cat || '').split(' · ')[0];
+        const featured = i === 0;
+        return `
+          <div class="blog-card${featured ? ' featured' : ''} reveal">
+            <div class="blog-card-img"${featured ? '' : ' style="min-height:160px;font-size:2.5rem;"'}>${emoji}</div>
+            <div class="blog-card-body">
+              <div>
+                <div class="blog-meta">
+                  <span class="blog-cat">${cat}</span>
+                  <span class="blog-date">${dateStr}</span>
+                </div>
+                <div class="blog-title">${a.title}</div>
+                ${excerpt ? `<p class="blog-excerpt">${excerpt}</p>` : ''}
+              </div>
+              <a href="article.html?id=${key}" class="blog-read">Read Article →</a>
+            </div>
+          </div>`;
+      }).join('');
+
+      // Re-observe newly added elements for scroll reveal
+      grid.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    } catch(e) {
+      console.warn('Could not load articles.json for blog grid', e);
+    }
+  })();
+  // ── END BLOG GRID ──────────────────────────────────────────
+
+  // ── ARTICLE DATA (legacy — kept for reference) ──────────────────────────────────────────
   const articles = {
     statins: {
       cat: 'Medications · Cardiology',
@@ -1255,27 +1274,9 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
   };
 
   function openArticle(id) {
-    const a = articles[id];
-    if (!a) return;
-    document.getElementById('articleCat').textContent = a.cat;
-    document.getElementById('articleTitle').textContent = a.title;
-    document.getElementById('articleByline').textContent = a.byline;
-    document.getElementById('articleBody').innerHTML = a.body;
-    document.getElementById('articleOverlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-    document.getElementById('articleModal').scrollTop = 0;
+    window.location.href = 'article.html?id=' + id;
   }
 
-  function closeArticle() {
-    document.getElementById('articleOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function closeArticleOutside(e) {
-    if (e.target === document.getElementById('articleOverlay')) closeArticle();
-  }
-
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeArticle(); });
   // ── END ARTICLE DATA ───────────────────────────────────────
 
 </script>

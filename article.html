@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title id="pageTitle">Clinical Pearl | Murtaza Bharmal, MD</title>
+<meta name="description" id="pageDesc" content="Evidence-based cardiovascular insights from Dr. Murtaza Bharmal, MD — Interventional Cardiologist in Fullerton, CA.">
+<meta name="author" content="Murtaza Bharmal, MD">
+<meta name="robots" content="index, follow">
+<link rel="canonical" id="pageCanonical" href="https://drbharmal.com/article.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Murtaza Bharmal, MD">
+<meta property="og:title" id="ogTitle" content="Clinical Pearl | Murtaza Bharmal, MD">
+<meta property="og:description" id="ogDesc" content="Evidence-based cardiovascular insights from Dr. Murtaza Bharmal, MD.">
+<meta property="og:url" id="ogUrl" content="https://drbharmal.com/article.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============ DESIGN TOKENS ============ */
+:root {
+  --crimson: #a8192e;
+  --crimson-dk: #7d1223;
+  --gold: #c8a96e;
+  --navy: #1d4e89;
+  --navy-dk: #0f2a4a;
+  --bg: #f7f3ef;
+  --bg2: #eee9e3;
+  --card: #e8e2da;
+  --border: rgba(100,75,65,0.13);
+  --text: #2a2018;
+  --muted: #7a6a60;
+  --head: #1a1208;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; padding-top: 62px; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+/* ============ TYPOGRAPHY ============ */
+.serif { font-family: 'Playfair Display', serif; }
+h1,h2,h3 { font-family: 'Playfair Display', serif; color: var(--head); line-height: 1.15; }
+
+/* ============ UTILITY ============ */
+.inner { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+.tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--crimson); margin-bottom: 16px;
+}
+.tag::before { content: ''; display: block; width: 24px; height: 1.5px; background: currentColor; flex-shrink: 0; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px 28px; border-radius: 3px; font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+  cursor: pointer; transition: all 0.22s; border: 1.5px solid transparent;
+}
+.btn-red { background: var(--crimson); color: #fff; border-color: var(--crimson); }
+.btn-red:hover { background: var(--crimson-dk); border-color: var(--crimson-dk); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(168,25,46,0.25); }
+.btn-outline { background: transparent; color: var(--text); border-color: rgba(100,75,65,0.25); }
+.btn-outline:hover { border-color: rgba(100,75,65,0.3); background: rgba(60,40,30,0.04); }
+
+/* ============ NAV ============ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px; height: 62px;
+  background: rgba(247,243,239,0.97); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--head); white-space: nowrap; text-decoration: none; }
+.nav-logo span { color: var(--crimson); }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--muted); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; padding: 4px 0; }
+.nav-links a:hover { color: var(--head); }
+.hbg { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; cursor: pointer; background: none; border: none; padding: 4px; flex-shrink: 0; }
+.hbg span { display: block; width: 22px; height: 2px; background: var(--head); border-radius: 2px; transition: all 0.28s; }
+.hbg.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hbg.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hbg.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mob-menu {
+  position: fixed; top: 62px; left: 0; right: 0; bottom: 0;
+  background: rgba(247,243,239,0.98); backdrop-filter: blur(20px);
+  z-index: 199; display: flex; flex-direction: column;
+  transform: translateY(-100%); opacity: 0;
+  transition: transform 0.32s ease, opacity 0.32s ease;
+  pointer-events: none; overflow-y: auto;
+}
+.mob-menu.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+.mob-menu a {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 28px; text-decoration: none; font-size: 1rem;
+  font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--head); border-bottom: 1px solid var(--border);
+  transition: background 0.15s, color 0.15s;
+}
+.mob-menu a::after { content: '→'; color: var(--crimson); font-size: 1rem; }
+.mob-menu a:hover { background: rgba(168,25,46,0.05); color: var(--crimson); }
+.mob-menu-cta { padding: 24px 28px; margin-top: auto; }
+.mob-menu-cta .btn { width: 100%; font-size: 0.85rem; }
+
+/* ============ ARTICLE HERO ============ */
+.article-hero {
+  background: linear-gradient(135deg, var(--navy-dk) 0%, #1a3a6a 100%);
+  padding: 72px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+.article-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.article-hero-inner { position: relative; z-index: 1; max-width: 800px; }
+.article-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(245,240,232,0.5);
+  text-decoration: none; margin-bottom: 32px;
+  transition: color 0.2s;
+}
+.article-back:hover { color: var(--gold); }
+.article-back::before { content: '←'; font-size: 0.9rem; }
+.article-hero-cat {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+}
+.article-hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  font-weight: 900; color: #f5f0e8; line-height: 1.15; margin-bottom: 20px;
+}
+.article-hero-byline { font-size: 0.8rem; color: rgba(245,240,232,0.55); }
+
+/* ============ ARTICLE BODY ============ */
+.article-wrap {
+  max-width: 800px; margin: 0 auto; padding: 60px 20px 80px;
+}
+.article-wrap h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem; font-weight: 700; color: var(--head);
+  margin: 36px 0 12px;
+}
+.article-wrap h3:first-child { margin-top: 0; }
+.article-wrap p {
+  font-size: 0.97rem; line-height: 1.9; color: rgba(42,32,24,0.82);
+  margin-bottom: 16px;
+}
+.article-wrap ul, .article-wrap ol {
+  margin: 0 0 18px 22px;
+}
+.article-wrap ul li, .article-wrap ol li {
+  font-size: 0.95rem; line-height: 1.85; color: rgba(42,32,24,0.8); margin-bottom: 8px;
+}
+.article-wrap strong { color: var(--head); font-weight: 600; }
+.article-wrap em { font-style: italic; }
+.article-callout {
+  background: linear-gradient(135deg, #f5ede3 0%, #ede6dc 100%);
+  border-left: 3px solid var(--gold);
+  padding: 20px 24px; margin: 28px 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem; font-style: italic;
+  color: var(--head); line-height: 1.55;
+}
+.article-refs {
+  margin-top: 44px; padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+.article-refs-title {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 14px;
+}
+.article-refs ol { margin-left: 18px; }
+.article-refs ol li {
+  font-size: 0.82rem; line-height: 1.6; color: var(--muted); margin-bottom: 8px;
+}
+.article-disclaimer {
+  margin-top: 28px; padding: 16px 20px;
+  background: var(--bg2); border-radius: 4px;
+  font-size: 0.8rem; line-height: 1.6; color: var(--muted);
+}
+.article-disclaimer strong { color: var(--text); }
+
+/* ============ CTA STRIP ============ */
+.article-cta {
+  background: var(--bg2); border-top: 1px solid var(--border);
+  padding: 48px 20px;
+  text-align: center;
+}
+.article-cta-inner { max-width: 600px; margin: 0 auto; }
+.article-cta h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; margin-bottom: 10px; color: var(--head);
+}
+.article-cta p { font-size: 0.95rem; color: var(--muted); margin-bottom: 24px; line-height: 1.6; }
+.article-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ============ LOADING / ERROR ============ */
+.article-loading {
+  min-height: 60vh; display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 16px; color: var(--muted);
+  font-size: 0.9rem;
+}
+.article-loading-spinner {
+  width: 36px; height: 36px; border: 3px solid var(--border);
+  border-top-color: var(--crimson); border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ============ FOOTER ============ */
+footer {
+  background: var(--bg); border-top: 1px solid var(--border);
+  padding: 32px 28px; display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap; gap: 16px;
+}
+.footer-logo { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--head); }
+.footer-logo span { color: var(--crimson); }
+.footer-social a {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.75rem; font-weight: 600; color: var(--muted);
+  text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.footer-social a:hover { color: var(--crimson); }
+.footer-social svg { width: 16px; height: 16px; fill: currentColor; }
+.footer-copy { font-size: 0.72rem; color: var(--muted); }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hbg { display: flex; }
+  .article-hero { padding: 48px 0 40px; }
+  footer { flex-direction: column; align-items: center; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Murtaza <span>Bharmal</span>, MD</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#expertise">Expertise</a></li>
+    <li><a href="index.html#content">Content</a></li>
+    <li><a href="index.html#legal">Medical-Legal</a></li>
+    <li><a href="index.html#research">Research</a></li>
+    <li><a href="about.html">CV</a></li>
+    <li><a href="pearls.html">Pearls</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html#about" onclick="closeMob()">About</a>
+  <a href="index.html#expertise" onclick="closeMob()">Expertise</a>
+  <a href="index.html#content" onclick="closeMob()">Content</a>
+  <a href="index.html#legal" onclick="closeMob()">Medical-Legal</a>
+  <a href="index.html#research" onclick="closeMob()">Research</a>
+  <a href="about.html" onclick="closeMob()">CV</a>
+  <a href="pearls.html" onclick="closeMob()">Pearls</a>
+  <a href="index.html#reviews" onclick="closeMob()">Reviews</a>
+  <a href="index.html#contact" onclick="closeMob()">Contact</a>
+  <div class="mob-menu-cta">
+    <a href="index.html#contact" onclick="closeMob()" class="btn btn-red">Get in Touch ↗</a>
+  </div>
+</div>
+
+<!-- ARTICLE HERO -->
+<section class="article-hero">
+  <div class="inner">
+    <div class="article-hero-inner">
+      <a href="pearls.html" class="article-back">All Clinical Pearls</a>
+      <div class="article-hero-cat" id="heroCat">Loading…</div>
+      <div class="article-hero-title" id="heroTitle"></div>
+      <div class="article-hero-byline" id="heroByline"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<div id="articleContainer">
+  <div class="article-loading">
+    <div class="article-loading-spinner"></div>
+    <span>Loading article…</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Murtaza <span>Bharmal</span>, MD</div>
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/murtaza-bharmal-0822344b/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      Connect on LinkedIn
+    </a>
+  </div>
+  <div class="footer-copy">© 2026 · Interventional Cardiologist · Fullerton, CA</div>
+</footer>
+
+<script>
+  // Hamburger menu
+  const hbg = document.getElementById('hbg');
+  const mob = document.getElementById('mobMenu');
+  hbg.addEventListener('click', () => {
+    const open = mob.classList.toggle('open');
+    hbg.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  function closeMob() {
+    mob.classList.remove('open');
+    hbg.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Load article from URL param ?id=KEY
+  (async function() {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const container = document.getElementById('articleContainer');
+
+    if (!id) {
+      showError('No article specified. <a href="pearls.html">Browse all articles →</a>');
+      return;
+    }
+
+    try {
+      const res = await fetch('articles.json');
+      if (!res.ok) throw new Error('Failed to load articles');
+      const articles = await res.json();
+      const article = articles[id];
+
+      if (!article) {
+        showError('Article not found. <a href="pearls.html">Browse all articles →</a>');
+        return;
+      }
+
+      // Update hero
+      document.getElementById('heroCat').textContent = article.cat || '';
+      document.getElementById('heroTitle').textContent = article.title || '';
+      document.getElementById('heroByline').textContent = article.byline || '';
+
+      // Update page meta
+      document.title = article.title + ' | Murtaza Bharmal, MD';
+      setMeta('pageDesc', article.excerpt || article.title);
+      setMeta('ogTitle', article.title + ' | Murtaza Bharmal, MD');
+      setMeta('ogDesc', article.excerpt || article.title);
+      const canonicalUrl = 'https://drbharmal.com/article.html?id=' + id;
+      document.getElementById('pageCanonical').setAttribute('href', canonicalUrl);
+      document.getElementById('ogUrl').setAttribute('content', canonicalUrl);
+
+      // Render article body
+      container.innerHTML = `
+        <div class="article-wrap">${article.body}</div>
+        <div class="article-cta">
+          <div class="article-cta-inner">
+            <div class="tag">Clinical Pearls</div>
+            <h3>More Evidence-Based Insights</h3>
+            <p>Dr. Bharmal writes regularly on cardiovascular health, preventive cardiology, and the evidence behind everyday decisions your heart depends on.</p>
+            <div class="article-cta-btns">
+              <a href="pearls.html" class="btn btn-outline">Browse All Articles →</a>
+              <a href="index.html#contact" class="btn btn-red">Get in Touch ↗</a>
+            </div>
+          </div>
+        </div>
+      `;
+
+    } catch (err) {
+      showError('Unable to load article. Please try again or <a href="pearls.html">browse all articles</a>.');
+    }
+  })();
+
+  function showError(msg) {
+    document.getElementById('heroCat').textContent = 'Error';
+    document.getElementById('heroTitle').textContent = 'Article Not Found';
+    document.getElementById('articleContainer').innerHTML = `
+      <div class="article-loading" style="color:var(--muted);">
+        <p>${msg}</p>
+      </div>`;
+  }
+
+  function setMeta(id, content) {
+    const el = document.getElementById(id);
+    if (el) {
+      if (el.tagName === 'META') el.setAttribute('content', content);
+      else el.textContent = content;
+    }
+  }
+</script>
+</body>
+</html>
