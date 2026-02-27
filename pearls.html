@@ -819,19 +819,6 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
   </div>
 </section>
 
-<!-- ARTICLE MODAL -->
-<div class="article-overlay" id="articleOverlay" onclick="closeArticleOutside(event)">
-  <div class="article-modal" id="articleModal">
-    <div class="article-modal-header">
-      <button class="article-close" onclick="closeArticle()">✕</button>
-      <div class="article-cat" id="articleCat"></div>
-      <div class="article-title" id="articleTitle"></div>
-      <div class="article-byline" id="articleByline"></div>
-    </div>
-    <div class="article-body" id="articleBody"></div>
-  </div>
-</div>
-
 <!-- FOOTER -->
 <footer>
   <div class="inner footer-inner">
@@ -861,15 +848,10 @@ function renderCards() {
   if (!grid) return;
   grid.innerHTML = '';
 
-  // Define display order — newest first
-  const order = [
-    'ramadan','smoking','supplements','exercise','omega3','statins','diabetes',
-    'heartattack','sleep','stress','diet','cholesterol','afib','bp',
-    'wearables','firstcardiovisit','lpa','cardiacdiet','heartfailure','youngathlete',
-    'widowmaker','aorticaneurysm','stroke','reverseheartdisease','stentvbypass',
-    'heartvalve','womenheart','cardiacarrestvsheartatack','pots','lowercholesterol',
-    'calciumscore','palpitations','chestpain','glp1'
-  ];
+  // Sort by date descending — newest first, auto-updates when new articles are added
+  const sorted = Object.entries(articles).sort(([, a], [, b]) => {
+    return (b.date || '').localeCompare(a.date || '');
+  });
 
   const icons = {
     ramadan:'🌙', firstcardiovisit:'🏥', cardiacdiet:'🥗', youngathlete:'⚡',
@@ -883,82 +865,29 @@ function renderCards() {
     afib:'📈', bp:'💊', exercise:'🏃', omega3:'🐟', statins:'💊'
   };
 
-  order.forEach(key => {
-    const a = articles[key];
-    if (!a) return;
+  sorted.forEach(([key, a]) => {
     const card = document.createElement('div');
     card.className = 'blog-card';
     card.dataset.cat = a.cat;
-    // parse date from byline for display
-    const dateParts = a.byline.split('·');
-    const dateStr = dateParts[dateParts.length - 1].trim();
+    let dateStr = '';
+    if (a.date) {
+      dateStr = new Date(a.date + 'T12:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    } else {
+      const dateParts = a.byline.split('·');
+      dateStr = dateParts[dateParts.length - 1].trim();
+    }
+    const excerpt = a.excerpt || a.body.replace(/<h3>[^<]*<\/h3>/g,'').replace(/<[^>]+>/g,'').trim().substring(0,160) + '…';
     card.innerHTML = `
       <div class="blog-card-img" style="min-height:160px;font-size:2.5rem;">${icons[key] || '❤️'}</div>
       <div class="blog-card-body">
         <div class="blog-meta"><span class="blog-cat">${a.cat.split(' · ')[0]}</span><span class="blog-date">${dateStr}</span></div>
         <div class="blog-title">${a.title}</div>
-        <p class="blog-excerpt">${a.body.replace(/<h3>[^<]*<\/h3>/g,'').replace(/<[^>]+>/g,'').trim().substring(0,160)}…</p>
-        <button class="blog-read" onclick="openArticle('${key}')">Read Article →</button>
+        <p class="blog-excerpt">${excerpt}</p>
+        <a href="article.html?id=${key}" class="blog-read">Read Article →</a>
       </div>`;
     grid.appendChild(card);
   });
 }
-
-function openArticle(key) {
-    const a = articles[key];
-    if (!a) return;
-    // Inject Article schema for SEO crawlers
-    const existingSchema = document.getElementById('article-schema');
-    if (existingSchema) existingSchema.remove();
-    const schema = document.createElement('script');
-    schema.id = 'article-schema';
-    schema.type = 'application/ld+json';
-    schema.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "MedicalWebPage",
-      "headline": a.title,
-      "description": (a.body.replace(/<[^>]*>/g,'').substring(0,200) + '...'),
-      "author": {"@type": "Person", "name": "Murtaza Bharmal", "honorificSuffix": "MD", "jobTitle": "Interventional Cardiologist", "url": "https://drbharmal.com"},
-      "publisher": {"@type": "Person", "name": "Murtaza Bharmal, MD", "url": "https://drbharmal.com"},
-      "medicalAudience": {"@type": "MedicalAudience", "audienceType": "Patient"},
-      "url": "https://drbharmal.com/pearls#" + key,
-      "mainContentOfPage": {"@type": "WebPageElement", "cssSelector": "#articleModal"}
-    });
-    document.head.appendChild(schema);
-    document.getElementById('articleCat').textContent = a.cat;
-    document.getElementById('articleTitle').textContent = a.title;
-    document.getElementById('articleByline').textContent = a.byline;
-    document.getElementById('articleBody').innerHTML = a.body;
-    document.getElementById('articleOverlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-    history.replaceState(null, '', '#' + key);
-  }
-
-  function closeArticle() {
-    document.getElementById('articleOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-    history.replaceState(null, '', window.location.pathname);
-  }
-
-  function closeArticleOutside(e) {
-    if (e.target.id === 'articleOverlay') closeArticle();
-  }
-
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeArticle(); });
-
-  // Deep-link: open article from URL hash e.g. drbharmal.com/pearls#ramadan
-  function checkHash() {
-    const hash = window.location.hash.replace('#', '');
-    if (hash && articles[hash]) openArticle(hash);
-  }
-  // Wait for articles.json to load, then check hash
-  const _origRender = renderCards;
-  renderCards = function() {
-    _origRender();
-    checkHash();
-  };
-  // Also handle back/forward browser navigation
-  window.addEventListener('hashchange', checkHash);
 
   // Mobile menu
   const hbg = document.getElementById('hbg');
