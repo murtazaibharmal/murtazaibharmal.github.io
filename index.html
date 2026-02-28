@@ -680,8 +680,8 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
     <li><a href="#about">About</a></li>
     <li><a href="#expertise">Expertise</a></li>
     <li><a href="#content">Content</a></li>
-    <li><a href="#legal">Medical-Legal</a></li>
-    <li><a href="#research">Research</a></li>
+    <li><a href="legal.html">Medical-Legal</a></li>
+    <li><a href="research.html">Research</a></li>
     <li><a href="about.html">CV</a></li>
     <li><a href="pearls.html">Pearls</a></li>
     <li><a href="#reviews">Reviews</a></li>
@@ -694,8 +694,8 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
   <a href="#about" onclick="closeMob()">About</a>
   <a href="#expertise" onclick="closeMob()">Expertise</a>
   <a href="#content" onclick="closeMob()">Content</a>
-  <a href="#legal" onclick="closeMob()">Medical-Legal</a>
-  <a href="#research" onclick="closeMob()">Research</a>
+  <a href="legal.html" onclick="closeMob()">Medical-Legal</a>
+  <a href="research.html" onclick="closeMob()">Research</a>
   <a href="about.html" onclick="closeMob()">CV</a>
   <a href="pearls.html" onclick="closeMob()">Pearls</a>
   <a href="#reviews" onclick="closeMob()">Reviews</a>
@@ -828,23 +828,19 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
     <div class="legal-intro reveal">
       <div class="tag">Medical-Legal Services</div>
       <h2 class="section-h">Cardiology Expert Witness &amp; Medical-Legal Consultant</h2>
-      <p class="legal-lead">Rigorous, objective expert witness and medical-legal consulting for attorneys and legal teams across Orange County and Southern California.</p>
+      <p class="legal-lead">Rigorous, objective expert witness and medical-legal consulting for attorneys and legal teams across Orange County and Southern California. Plaintiff &amp; defense. Complimentary initial consultation.</p>
     </div>
     <div class="legal-grid reveal">
-      <div class="legal-card"><div class="legal-card-icon">⚖️</div><div class="legal-card-title">Expert Witness Testimony</div><div class="legal-card-desc">Available for deposition and trial testimony. Plaintiff and defense. Actively practicing interventional cardiologist.</div></div>
-      <div class="legal-card"><div class="legal-card-icon">📋</div><div class="legal-card-title">Standard of Care Review</div><div class="legal-card-desc">Review of medical records and clinical data to assess whether care met the accepted standard. Detailed written reports.</div></div>
-      <div class="legal-card"><div class="legal-card-icon">🔍</div><div class="legal-card-title">Independent Medical Exam</div><div class="legal-card-desc">Objective cardiac evaluations for workers' comp, personal injury, and disability cases. Fast turnaround.</div></div>
-      <div class="legal-card"><div class="legal-card-icon">📊</div><div class="legal-card-title">Causation Analysis</div><div class="legal-card-desc">Linking cardiac events to alleged negligence, injury, or occupational exposure through evidence-based analysis.</div></div>
-      <div class="legal-card"><div class="legal-card-icon">📝</div><div class="legal-card-title">Affidavit of Merit</div><div class="legal-card-desc">Timely affidavits of merit for cardiology malpractice cases, with careful attention to the standard of care.</div></div>
-      <div class="legal-card"><div class="legal-card-icon">🤝</div><div class="legal-card-title">Case Consultation</div><div class="legal-card-desc">Early-stage merit and liability evaluation. Complimentary initial consultation. Plaintiff &amp; defense.</div></div>
-    </div>
-    <div class="legal-cases-ttl reveal">Case Types &amp; Conditions</div>
-    <div class="case-tags reveal">
-      <span class="case-tag">Acute Myocardial Infarction</span><span class="case-tag">Cardiac Arrest</span><span class="case-tag">Coronary Artery Disease</span><span class="case-tag">Stent Complications</span><span class="case-tag">Missed Diagnosis</span><span class="case-tag">Delayed Treatment</span><span class="case-tag">Heart Failure</span><span class="case-tag">Arrhythmia</span><span class="case-tag">Hypertension</span><span class="case-tag">Pericarditis / Myocarditis</span><span class="case-tag">Cardiac Catheterization Complications</span><span class="case-tag">Angioplasty &amp; Stent Malpractice</span><span class="case-tag">Drug-Induced Cardiac Injury</span><span class="case-tag">Wrongful Death</span><span class="case-tag">Workers' Compensation</span><span class="case-tag">Personal Injury</span>
+      <div class="legal-card"><div class="legal-card-icon">⚖️</div><div class="legal-card-title">Expert Witness Testimony</div><div class="legal-card-desc">Deposition and trial testimony. Actively practicing interventional cardiologist. Plaintiff and defense.</div></div>
+      <div class="legal-card"><div class="legal-card-icon">📋</div><div class="legal-card-title">Standard of Care Review</div><div class="legal-card-desc">Thorough record review with detailed written reports citing current guidelines and peer-reviewed literature.</div></div>
+      <div class="legal-card"><div class="legal-card-icon">🔍</div><div class="legal-card-title">Independent Medical Exam</div><div class="legal-card-desc">Objective cardiac evaluations for workers' comp, personal injury, and disability. Fast turnaround.</div></div>
     </div>
     <div class="cta-bar legal-cta-bar reveal">
       <div><div class="cta-heading">Retain Dr. Bharmal for Your Case</div><div class="cta-sub">Orange County · Los Angeles · Riverside · San Bernardino. Fast turnaround. Plaintiff &amp; defense.</div></div>
-      <a href="#contact" class="btn btn-gold">Request a Consultation ↗</a>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="legal.html" class="btn btn-gold">Learn More ↗</a>
+        <a href="#contact" class="btn" style="background:rgba(200,169,110,0.15);color:var(--gold);border:1px solid rgba(200,169,110,0.3);clip-path:none;">Request Consultation</a>
+      </div>
     </div>
   </div>
 </section>
@@ -857,43 +853,18 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32
       <h2 class="section-h">Where Clinical Cardiology Meets Engineering Innovation</h2>
       <p>Uniquely positioned at the intersection of biomedical engineering and interventional cardiology — with engineering training from UC San Diego, R&amp;D experience at Abbott Vascular, and a decade of clinical use of the devices he once helped build.</p>
     </div>
-    <div class="research-layout reveal">
-      <div>
-        <div class="tag">Consulting Services</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#0f2a4a;margin-bottom:16px;line-height:1.2;">Clinical Insight for Device Developers &amp; Research Teams</h3>
-        <p class="research-p">Before medicine, Dr. Bharmal was an <strong>R&amp;D engineer at Abbott Vascular</strong>, developing coronary intervention technologies. He then spent a decade as a clinician using those same devices in patients.</p>
-        <p class="research-p">This dual perspective — engineer and interventionalist — makes him a uniquely credible consultant for device companies, biotech startups, and research institutions.</p>
-        <ul class="research-svc">
-          <li>Cardiac device clinical evaluation</li>
-          <li>Coronary intervention device design</li>
-          <li>Clinical trial design & protocol</li>
-          <li>Physician advisory board</li>
-          <li>FDA regulatory input & IND support</li>
-          <li>Market research & clinical needs</li>
-          <li>Device usability & human factors</li>
-          <li>Post-market clinical follow-up</li>
-          <li>Peer-reviewed research collaboration</li>
-          <li>Academic research partnerships</li>
-          <li>Grant writing & research strategy</li>
-          <li>Startup & investor consulting</li>
-        </ul>
-      </div>
-      <div class="research-cards">
-        <div class="research-card"><div class="research-card-title">🏭 Medical Device Industry</div><div class="research-card-desc">Consulting for cardiac device manufacturers on clinical relevance, physician feedback, product iteration, and real-world performance. Former R&amp;D engineer at Abbott Vascular.</div></div>
-        <div class="research-card"><div class="research-card-title">🧪 Clinical Research & Trials</div><div class="research-card-desc">Expert input on cardiovascular clinical trial design, endpoint selection, protocol development, and IRB considerations. Published in Catheterization &amp; Cardiovascular Interventions and Personalized Medicine.</div></div>
-        <div class="research-card"><div class="research-card-title">🚀 Biotech & Startup Advisory</div><div class="research-card-desc">Physician advisory services for cardiovascular startups seeking clinical validation, investor pitch support, and go-to-market strategy grounded in real interventional practice.</div></div>
-        <div class="research-card"><div class="research-card-title">🎓 Academic Research Collaboration</div><div class="research-card-desc">Active research collaborator with expertise in coronary hemodynamics, nanosensor technology, digital health, and extracorporeal resuscitation.</div></div>
-      </div>
-    </div>
-    <div class="device-strip reveal">
-      <div class="device-item"><span class="device-icon">🫀</span><div class="device-title">Coronary Stents & Angioplasty</div><div class="device-desc">Design, evaluation & clinical performance of coronary intervention devices</div></div>
-      <div class="device-item"><span class="device-icon">📡</span><div class="device-title">Nanosensor & Digital Health</div><div class="device-desc">Published expertise in nanosensor technology and digital transformation of cardiology</div></div>
-      <div class="device-item"><span class="device-icon">🩺</span><div class="device-title">FFR & Hemodynamic Devices</div><div class="device-desc">Deep clinical expertise in pressure wire, OCT, and coronary physiology platforms</div></div>
-      <div class="device-item"><span class="device-icon">⚡</span><div class="device-title">ECPR & Resuscitation Tech</div><div class="device-desc">Research in extracorporeal CPR systems and cardiac arrest technology optimization</div></div>
+    <div class="research-cards reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:48px;">
+      <div class="research-card"><div class="research-card-title">🏭 Medical Device Industry</div><div class="research-card-desc">Consulting for cardiac device manufacturers on clinical relevance, physician feedback, and real-world performance.</div></div>
+      <div class="research-card"><div class="research-card-title">🧪 Clinical Research &amp; Trials</div><div class="research-card-desc">Expert input on cardiovascular clinical trial design, endpoint selection, and protocol development.</div></div>
+      <div class="research-card"><div class="research-card-title">🚀 Biotech &amp; Startup Advisory</div><div class="research-card-desc">Physician advisory services for cardiovascular startups seeking clinical validation and go-to-market strategy.</div></div>
+      <div class="research-card"><div class="research-card-title">🎓 Academic Research Collaboration</div><div class="research-card-desc">Active collaborator with expertise in coronary hemodynamics, nanosensor technology, and digital health.</div></div>
     </div>
     <div class="cta-bar research-cta-bar reveal">
       <div><div class="cta-heading">Partner on Your Next Project</div><div class="cta-sub">Device consulting · Advisory boards · Clinical trials · Research collaboration. Southern California and nationally.</div></div>
-      <a href="#contact" class="btn btn-white">Start a Conversation ↗</a>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="research.html" class="btn btn-white">Learn More ↗</a>
+        <a href="#contact" class="btn" style="background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.25);clip-path:none;">Start a Conversation</a>
+      </div>
     </div>
   </div>
 </section>
