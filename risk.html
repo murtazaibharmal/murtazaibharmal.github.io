@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>South Asian Heart Risk Check | Murtaza Bharmal, MD | Interventional Cardiologist</title>
+<meta name="description" content="Standard cholesterol tests don't always capture cardiovascular risk in South Asians. This educational tool highlights inherited, metabolic, and plaque-related risk factors worth discussing with your physician.">
+<meta name="keywords" content="South Asian heart disease risk, Indian heart attack risk, Pakistani cardiovascular risk, South Asian Lp(a), South Asian cholesterol risk, South Asian heart risk assessment, coronary calcium score South Asians, ApoB South Asians">
+<meta name="author" content="Murtaza Bharmal, MD">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://drbharmal.com/risk.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="South Asian Heart Risk Check | Dr. Murtaza Bharmal, MD">
+<meta property="og:description" content="An educational tool highlighting cardiovascular risk factors that standard calculators often miss in South Asian patients — including Lp(a), ApoB, and coronary calcium.">
+<meta property="og:url" content="https://drbharmal.com/risk.html">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MedicalWebPage","name":"South Asian Heart Risk Check","description":"An educational screening tool highlighting cardiovascular risk factors that standard calculators often miss in South Asian patients.","url":"https://drbharmal.com/risk.html","author":{"@type":"Person","name":"Murtaza Bharmal","honorificSuffix":"MD","jobTitle":"Interventional Cardiologist"},"dateModified":"2026-03-01","medicalAudience":{"@type":"MedicalAudience","audienceType":"Patient"},"about":{"@type":"MedicalCondition","name":"Cardiovascular Disease"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why do South Asians develop heart disease earlier?","acceptedAnswer":{"@type":"Answer","text":"South Asians have higher rates of insulin resistance, abdominal obesity at lower BMI, elevated Lp(a), and strong family clustering of premature coronary artery disease — patterns that standard risk calculators were not designed to capture."}},{"@type":"Question","name":"Should South Asians check lipoprotein(a)?","acceptedAnswer":{"@type":"Answer","text":"Yes. Lp(a) is more prevalent in South Asians and is not included on a standard lipid panel. Major cardiology societies recommend checking Lp(a) at least once in adulthood, particularly for those with a family history of early heart disease."}},{"@type":"Question","name":"What does a coronary calcium score mean?","acceptedAnswer":{"@type":"Answer","text":"A coronary artery calcium (CAC) scan measures calcified plaque in the heart arteries. A score of zero is highly reassuring. A non-zero score is direct evidence that plaque has formed and warrants more intensive risk factor management."}},{"@type":"Question","name":"Is LDL enough to assess heart risk in South Asians?","acceptedAnswer":{"@type":"Answer","text":"Often not. South Asians may have elevated ApoB even when LDL appears normal. Lp(a), ApoB, and coronary calcium scoring provide a more complete picture."}},{"@type":"Question","name":"What is ApoB and why does it matter?","acceptedAnswer":{"@type":"Answer","text":"ApoB measures the total number of atherogenic particles in the blood — a more precise cardiovascular risk marker than LDL alone, particularly in patients with metabolic syndrome or diabetes."}}]}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --crimson:#a8192e; --crimson-dk:#7d1223; --gold:#c8a96e; --gold-dk:#9a7a3e;
+  --navy:#1d4e89; --navy-dk:#0f2a4a; --bg:#f7f3ef; --bg2:#eee9e3;
+  --border:rgba(100,75,65,0.13); --text:#2a2018; --muted:#7a6a60; --head:#1a1208;
+  --green:#2a7a4a; --green-bg:#edf5f0; --amber:#9a6a10; --amber-bg:#fdf4e3; --red-bg:#fdf0f1;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;padding-top:62px}
+a{color:inherit}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;color:var(--head);line-height:1.15}
+.inner{width:100%;max-width:820px;margin:0 auto;padding:0 20px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:62px;background:rgba(247,243,239,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700;color:var(--head);white-space:nowrap;text-decoration:none}
+.nav-logo span{color:var(--crimson)}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:0.74rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--head)}
+.hbg{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;cursor:pointer;background:none;border:none;padding:4px;flex-shrink:0}
+.hbg span{display:block;width:22px;height:2px;background:var(--head);border-radius:2px;transition:all .28s}
+.hbg.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hbg.open span:nth-child(2){opacity:0}
+.hbg.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob-menu{position:fixed;top:62px;left:0;right:0;bottom:0;background:rgba(247,243,239,0.98);backdrop-filter:blur(20px);z-index:199;display:flex;flex-direction:column;transform:translateY(-100%);opacity:0;transition:transform .32s ease,opacity .32s ease;pointer-events:none;overflow-y:auto}
+.mob-menu.open{transform:translateY(0);opacity:1;pointer-events:all}
+.mob-menu a{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;text-decoration:none;font-size:1rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--head);border-bottom:1px solid var(--border)}
+.mob-menu a::after{content:'→';color:var(--crimson)}
+.mob-menu a:hover{background:rgba(168,25,46,0.05);color:var(--crimson)}
+
+/* HERO */
+.page-hero{background:linear-gradient(135deg,#edf2f8 0%,#e4ebf5 100%);padding:72px 0 56px;border-bottom:1px solid rgba(29,78,137,0.12)}
+.tag{display:inline-flex;align-items:center;gap:10px;font-size:0.65rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--navy);margin-bottom:16px}
+.tag::before{content:'';display:block;width:24px;height:1.5px;background:currentColor;flex-shrink:0}
+.page-hero h1{font-size:clamp(1.9rem,5vw,2.9rem);font-weight:900;color:var(--navy-dk);line-height:1.1;margin-bottom:8px}
+.hero-sub{font-size:0.97rem;line-height:1.85;color:rgba(15,42,74,0.7);max-width:600px;margin-bottom:16px}
+.hero-notice{display:flex;align-items:flex-start;gap:8px;background:rgba(168,25,46,0.06);border:1px solid rgba(168,25,46,0.16);padding:11px 16px;font-size:0.8rem;line-height:1.65;color:rgba(42,32,24,0.75);max-width:580px;margin-bottom:8px}
+.hero-notice strong{color:var(--crimson);flex-shrink:0}
+.hero-sub2{font-size:0.76rem;color:var(--muted);max-width:580px;margin-bottom:14px;line-height:1.6}
+.page-byline{font-size:0.78rem;color:rgba(15,42,74,0.6);margin-top:4px}
+.page-byline strong{color:var(--navy-dk)}
+.last-reviewed{font-size:0.7rem;color:var(--muted);margin-top:6px;letter-spacing:0.04em}
+
+/* GATE */
+.gate-section{padding:48px 0 0}
+.gate-card{background:#fff;border:1px solid var(--border);border-left:4px solid var(--gold);padding:26px 30px;margin-bottom:30px}
+.gate-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--head);margin-bottom:10px}
+.gate-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.gate-list li{display:flex;align-items:flex-start;gap:9px;font-size:0.87rem;line-height:1.6;color:rgba(42,32,24,0.78)}
+.gate-list li::before{content:'·';color:var(--crimson);font-weight:900;flex-shrink:0}
+.gate-opts{display:flex;flex-direction:column;gap:8px;margin:14px 0 0}
+#gateStop{display:none;background:var(--red-bg);border:1px solid rgba(168,25,46,0.2);border-left:4px solid var(--crimson);padding:18px 22px;margin-top:16px}
+#gateStop h3{font-size:0.95rem;color:var(--crimson);margin-bottom:7px}
+#gateStop p{font-size:0.86rem;line-height:1.7;color:rgba(42,32,24,0.75);margin-bottom:12px}
+
+/* STEP */
+.step-section{padding:38px 0 0}
+.step-header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.step-num{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;flex-shrink:0}
+.step-num.navy{background:var(--navy);color:#fff}
+.step-num.gold-c{background:var(--gold);color:#fff}
+.step-num.crimson{background:var(--crimson);color:#fff}
+.step-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--head)}
+.step-desc{font-size:0.83rem;color:var(--muted);line-height:1.65;margin-bottom:14px;margin-left:48px;margin-top:-6px}
+
+/* QUESTION */
+.q-block{background:#fff;border:1px solid var(--border);border-top:2px solid var(--navy);padding:20px 24px;margin-bottom:9px}
+.q-block.gold-q{border-top-color:var(--gold)}
+.q-block.crimson-q{border-top-color:var(--crimson)}
+.q-label{font-size:0.61rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--navy);margin-bottom:5px}
+.q-block.gold-q .q-label{color:var(--gold-dk)}
+.q-block.crimson-q .q-label{color:var(--crimson)}
+.q-text{font-family:'Playfair Display',serif;font-size:0.97rem;font-weight:700;color:var(--head);margin-bottom:4px;line-height:1.3}
+.q-hint{font-size:0.78rem;color:var(--muted);line-height:1.6;margin-bottom:14px}
+.options{display:flex;flex-direction:column;gap:7px}
+.opt{display:flex;align-items:center;gap:11px;padding:10px 14px;cursor:pointer;border:1.5px solid var(--border);background:var(--bg);transition:all .16s;font-size:0.87rem;font-weight:500;color:var(--text);user-select:none}
+.opt:hover{border-color:rgba(29,78,137,0.3);background:#edf2f8}
+.opt.selected{border-color:var(--navy);background:#edf2f8;color:var(--navy-dk);font-weight:600}
+.opt-radio{width:15px;height:15px;border-radius:50%;border:2px solid rgba(100,75,65,0.3);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .16s}
+.opt.selected .opt-radio{border-color:var(--navy);background:var(--navy)}
+.opt.selected .opt-radio::after{content:'';width:5px;height:5px;border-radius:50%;background:#fff}
+.q-block.error{border-left:3px solid var(--crimson)}
+.q-block.error .q-label::after{content:' — please select an answer';color:var(--crimson);font-style:italic;font-weight:400;letter-spacing:0;text-transform:none;font-size:0.74rem}
+
+/* SUBMIT */
+.submit-wrap{padding:28px 0 48px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 30px;font-size:0.79rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:all .22s;font-family:'DM Sans',sans-serif}
+.btn-navy{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-navy:hover{background:var(--navy-dk);transform:translateY(-2px);box-shadow:0 6px 20px rgba(29,78,137,0.28)}
+.btn-red{background:var(--crimson);color:#fff;border-color:var(--crimson)}
+.btn-red:hover{background:var(--crimson-dk);transform:translateY(-2px);box-shadow:0 6px 20px rgba(168,25,46,0.28)}
+.btn-outline{background:transparent;color:var(--muted);border-color:var(--border)}
+.btn-outline:hover{background:var(--bg2);color:var(--text)}
+.submit-sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(247,243,239,0.97);backdrop-filter:blur(12px);border-top:1px solid var(--border);padding:12px 20px}
+.submit-sticky .btn{width:100%}
+
+/* RESULTS */
+#resultsSection{display:none;padding:44px 0 68px;animation:fadeUp .4s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* CAC BANNER */
+.cac-banner{display:none;padding:16px 20px;margin-bottom:4px;border:1px solid rgba(168,25,46,0.22);border-left:4px solid var(--crimson);background:var(--red-bg)}
+.cac-banner.show{display:flex;align-items:flex-start;gap:12px}
+.cac-banner-icon{font-size:1.3rem;flex-shrink:0;line-height:1.2}
+.cac-banner-label{font-size:0.57rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--crimson);margin-bottom:3px}
+.cac-banner-title{font-family:'Playfair Display',serif;font-size:0.97rem;font-weight:700;color:var(--head);margin-bottom:3px}
+.cac-banner-text{font-size:0.82rem;color:rgba(42,32,24,0.7);line-height:1.6}
+
+/* RESULT INTRO */
+.result-intro{padding:26px 28px;margin-bottom:4px;border-top:4px solid var(--navy);background:#fff}
+.result-intro-label{font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--navy);margin-bottom:7px}
+.result-intro h2{font-size:1.35rem;font-weight:900;color:var(--head);margin-bottom:7px}
+.result-intro p{font-size:0.86rem;line-height:1.8;color:rgba(42,32,24,0.65)}
+
+/* DIAGRAM */
+.risk-diagram{background:var(--bg2);border:1px solid var(--border);padding:20px 24px;margin-bottom:4px}
+.risk-diagram h4{font-size:0.63rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.diag-flow{display:grid;grid-template-columns:1fr 26px 1fr 26px 1fr;align-items:center;gap:6px}
+.diag-box{border:1px solid var(--border);background:#fff;padding:12px 14px}
+.diag-box.navy{border-top:3px solid var(--navy)}
+.diag-box.gold{border-top:3px solid var(--gold)}
+.diag-box.red{border-top:3px solid var(--crimson)}
+.diag-box-label{font-size:0.55rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:3px}
+.diag-box.navy .diag-box-label{color:var(--navy)}
+.diag-box.gold .diag-box-label{color:var(--gold-dk)}
+.diag-box.red .diag-box-label{color:var(--crimson)}
+.diag-box-title{font-size:0.8rem;font-weight:700;color:var(--head);margin-bottom:2px}
+.diag-box-items{font-size:0.67rem;color:var(--muted);line-height:1.55}
+.diag-plus{color:var(--muted);font-size:1.1rem;text-align:center;font-weight:300}
+.diag-caption{font-size:0.74rem;color:var(--muted);margin-top:10px;line-height:1.6}
+
+/* DOMAINS */
+.domains{display:flex;flex-direction:column;gap:4px;margin-bottom:4px}
+.domain-card{background:#fff;border:1px solid var(--border);padding:20px 24px}
+.domain-card.inherited-card{border-top:3px solid var(--navy)}
+.domain-card.metabolic-card{border-top:3px solid var(--gold)}
+.domain-card.plaque-card{border-top:3px solid var(--crimson)}
+.domain-header{display:flex;align-items:center;gap:11px;margin-bottom:9px}
+.domain-icon{font-size:1.05rem}
+.domain-name{font-size:0.61rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase}
+.domain-name.inherited{color:var(--navy)}
+.domain-name.metabolic{color:var(--gold-dk)}
+.domain-name.plaque{color:var(--crimson)}
+.domain-signal{margin-left:auto;font-size:0.61rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:4px 9px;border:1px solid}
+.signal-low{color:var(--green);border-color:rgba(42,122,74,0.3);background:var(--green-bg)}
+.signal-moderate{color:var(--amber);border-color:rgba(154,106,16,0.3);background:var(--amber-bg)}
+.signal-elevated{color:var(--crimson);border-color:rgba(168,25,46,0.3);background:var(--red-bg)}
+.signal-unknown{color:var(--muted);border-color:var(--border);background:var(--bg2)}
+.domain-body{font-size:0.86rem;line-height:1.75;color:rgba(42,32,24,0.72)}
+.domain-flags{margin-top:10px;display:flex;flex-direction:column;gap:5px}
+.domain-flag{display:flex;align-items:flex-start;gap:9px;font-size:0.8rem;line-height:1.6;color:var(--text);padding:8px 11px;background:var(--bg2);border-left:2px solid var(--navy)}
+.domain-flag.amber{border-left-color:var(--amber)}
+.domain-flag.red{border-left-color:var(--crimson)}
+
+/* OVERALL */
+.overall-signal{padding:22px 26px;margin-bottom:4px}
+.overall-signal.few{background:var(--green-bg);border-top:3px solid var(--green)}
+.overall-signal.some{background:var(--amber-bg);border-top:3px solid var(--amber)}
+.overall-signal.multiple{background:var(--red-bg);border-top:3px solid var(--crimson)}
+.overall-label{font-size:0.59rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:5px}
+.few .overall-label{color:var(--green)}
+.some .overall-label{color:var(--amber)}
+.multiple .overall-label{color:var(--crimson)}
+.overall-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--head);margin-bottom:7px}
+.overall-text{font-size:0.88rem;line-height:1.85;color:rgba(42,32,24,0.72)}
+
+/* WHAT THIS DOESN'T MEAN */
+.doesnt-mean{background:#fff;border:1px solid var(--border);border-left:3px solid var(--gold);padding:16px 20px;margin-bottom:4px}
+.doesnt-mean h4{font-size:0.63rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:7px}
+.doesnt-mean p{font-size:0.83rem;color:rgba(42,32,24,0.68);line-height:1.7}
+
+/* TRANSPARENCY */
+.transparency-box{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--navy);padding:16px 20px;margin-bottom:4px}
+.transparency-box h4{font-size:0.63rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--navy);margin-bottom:7px}
+.transparency-box p{font-size:0.83rem;color:rgba(42,32,24,0.68);line-height:1.75}
+
+/* NEXT STEPS */
+.nextsteps-section{background:var(--navy-dk);padding:24px 26px;margin-bottom:4px}
+.nextsteps-section h3{font-size:0.97rem;color:#fff;margin-bottom:12px}
+.personal-steps{display:flex;flex-direction:column;gap:7px}
+.personal-step{display:flex;align-items:flex-start;gap:11px;padding:12px 15px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.13);text-decoration:none;transition:background .18s}
+.personal-step:hover{background:rgba(255,255,255,0.14)}
+.personal-step-icon{font-size:0.95rem;flex-shrink:0;margin-top:2px}
+.personal-step-text{font-size:0.85rem;font-weight:600;color:#fff;line-height:1.4;display:block;margin-bottom:2px}
+.personal-step-sub{font-size:0.71rem;color:rgba(255,255,255,0.5);line-height:1.5}
+
+/* LEARN MORE */
+.learn-section{background:var(--bg2);border:1px solid var(--border);padding:22px 24px;margin-bottom:4px}
+.learn-section h3{font-size:0.97rem;margin-bottom:12px}
+.learn-links{display:flex;flex-direction:column;gap:8px}
+.learn-link{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;background:#fff;border:1px solid var(--border);text-decoration:none;transition:all .18s;font-size:0.84rem;font-weight:500;color:var(--text)}
+.learn-link:hover{border-color:rgba(168,25,46,0.25);color:var(--crimson)}
+.learn-link span{color:var(--crimson);font-size:0.8rem;flex-shrink:0}
+.learn-link-cat{font-size:0.57rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+
+/* FAQ */
+.faq-section{background:#fff;border:1px solid var(--border);padding:22px 24px;margin-bottom:4px}
+.faq-section h3{font-size:0.97rem;margin-bottom:12px}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;font-size:0.87rem;font-weight:600;color:var(--head);cursor:pointer;user-select:none}
+.faq-toggle{color:var(--navy);font-size:1.1rem;flex-shrink:0;transition:transform .22s;line-height:1}
+.faq-item.open .faq-toggle{transform:rotate(45deg)}
+.faq-a{display:none;font-size:0.82rem;color:rgba(42,32,24,0.7);line-height:1.75;padding-bottom:12px}
+.faq-item.open .faq-a{display:block}
+
+/* REFS */
+.refs-section{background:#fff;border:1px solid var(--border);padding:18px 22px;margin-bottom:4px}
+.refs-title{font-size:0.59rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.refs-list{counter-reset:ref;list-style:none;display:flex;flex-direction:column;gap:6px}
+.refs-list li{font-size:0.76rem;line-height:1.6;color:var(--muted);padding-left:15px;position:relative}
+.refs-list li::before{content:counter(ref);counter-increment:ref;position:absolute;left:0;color:var(--navy);font-weight:700;font-size:0.68rem}
+
+/* DISCLAIMER */
+.disclaimer{padding:16px 20px;background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--gold);margin-bottom:4px;font-size:0.76rem;line-height:1.7;color:var(--muted)}
+.disclaimer strong{color:var(--text)}
+
+/* CTA */
+.cta-section{padding:36px 26px;text-align:center;background:#fff;border:1px solid var(--border)}
+.cta-section h3{font-size:1.15rem;margin-bottom:7px}
+.cta-section p{font-size:0.87rem;color:var(--muted);margin-bottom:20px;line-height:1.65;max-width:420px;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.restart-wrap{text-align:center;margin-top:18px}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.footer-logo{font-family:'Playfair Display',serif;font-size:0.9rem;color:var(--head)}
+.footer-logo span{color:var(--crimson)}
+.footer-copy{font-size:0.75rem;color:var(--muted)}
+.footer-social a{display:flex;align-items:center;gap:7px;padding:8px 14px;font-size:0.73rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;color:#0077b5;border:1.5px solid rgba(0,119,181,0.3);transition:all .2s;background:rgba(0,119,181,0.04)}
+.footer-social a svg{width:15px;height:15px;fill:#0077b5;flex-shrink:0}
+.footer-social a:hover{background:rgba(0,119,181,0.1)}
+
+@media(max-width:900px){.nav-links{display:none}.hbg{display:flex}}
+@media(max-width:600px){
+  .inner{padding:0 15px}
+  .gate-card,.q-block,.result-intro,.domain-card,.overall-signal,.nextsteps-section,
+  .learn-section,.refs-section,.disclaimer,.cta-section,.risk-diagram,
+  .transparency-box,.doesnt-mean,.faq-section{padding:16px 14px}
+  footer{flex-direction:column;text-align:center;align-items:center}
+  .submit-sticky{display:block}
+  .diag-flow{grid-template-columns:1fr}
+  .diag-plus{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Murtaza <span>Bharmal</span>, MD</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#expertise">Expertise</a></li>
+    <li><a href="pearls.html">Articles</a></li>
+    <li><a href="legal.html">Medical-Legal</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="about.html">CV</a></li>
+    <li><a href="risk.html" class="active">Risk Check</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html#about" onclick="closeMob()">About</a>
+  <a href="pearls.html" onclick="closeMob()">Articles</a>
+  <a href="legal.html" onclick="closeMob()">Medical-Legal</a>
+  <a href="research.html" onclick="closeMob()">Research</a>
+  <a href="risk.html" onclick="closeMob()">Risk Check</a>
+  <a href="index.html#contact" onclick="closeMob()">Contact</a>
+</div>
+
+<section class="page-hero">
+  <div class="inner">
+    <div class="tag">Educational Screening Tool</div>
+    <h1>South Asian Heart Risk Check</h1>
+    <p class="hero-sub">Understanding South Asian heart disease risk often requires looking beyond standard cholesterol tests. Heart disease occurs earlier in South Asian populations — and standard risk calculators were not designed to capture the patterns that drive it.</p>
+    <div class="hero-notice">
+      <strong>Educational only —</strong>&nbsp;does not calculate your exact risk of heart attack, does not diagnose heart disease, and is not a substitute for medical advice. Intended for adults without known cardiovascular disease.
+    </div>
+    <div class="page-byline"><strong>Murtaza Bharmal, MD</strong> · Interventional Cardiologist · Board Certified</div>
+    <div class="last-reviewed">Last reviewed: March 2026</div>
+  </div>
+</section>
+
+<div id="toolSection">
+<section class="gate-section">
+  <div class="inner">
+
+    <div class="gate-card">
+      <div class="gate-title">Before Using This Tool</div>
+      <p style="font-size:0.87rem;color:var(--muted);line-height:1.65;margin-bottom:12px;">This assessment is designed for adults without known cardiovascular disease. If any of the following apply, please discuss prevention directly with your physician rather than using this tool:</p>
+      <ul class="gate-list">
+        <li>Prior heart attack, coronary stent, or bypass surgery</li>
+        <li>Known coronary artery disease or prior stroke</li>
+        <li>Prior peripheral artery disease</li>
+        <li>High coronary calcium score (300+) already under active cardiology treatment</li>
+        <li>New or unexplained chest pain or shortness of breath</li>
+      </ul>
+      <div class="gate-opts">
+        <div class="opt" data-q="gate" data-val="yes" id="gateYes"><div class="opt-radio"></div>One or more of these apply to me</div>
+        <div class="opt" data-q="gate" data-val="no" id="gateNo"><div class="opt-radio"></div>None of these apply to me</div>
+      </div>
+      <div id="gateStop">
+        <h3>This tool is not the right starting point for you.</h3>
+        <p>Please discuss prevention and management directly with your cardiologist. If you have current symptoms, seek care promptly.</p>
+        <a href="index.html#contact" class="btn btn-red" style="display:inline-flex;margin-top:4px;">Contact Dr. Bharmal ↗</a>
+      </div>
+    </div>
+
+    <div id="questionsWrap" style="display:none;">
+
+      <div class="step-section">
+        <div class="step-header">
+          <div class="step-num navy">1</div>
+          <h2 class="step-title">Inherited Risk</h2>
+        </div>
+
+        <div class="q-block">
+          <div class="q-label">Family History</div>
+          <div class="q-text">Has a close relative had a heart attack at a young age?</div>
+          <div class="q-hint">Male relative before age 55, or female relative before age 65.</div>
+          <div class="options" id="q-family">
+            <div class="opt" data-q="family" data-val="yes"><div class="opt-radio"></div>Yes</div>
+            <div class="opt" data-q="family" data-val="no"><div class="opt-radio"></div>No</div>
+            <div class="opt" data-q="family" data-val="unsure"><div class="opt-radio"></div>Unsure</div>
+          </div>
+        </div>
+
+        <div class="q-block">
+          <div class="q-label">Lipoprotein(a) — Lp(a)</div>
+          <div class="q-text">Have you had your Lp(a) checked?</div>
+          <div class="q-hint">A genetic cholesterol particle not on standard lipid panels. Elevated Lp(a) is associated with increased lifetime risk of cardiovascular disease. More common in South Asians.</div>
+          <div class="options" id="q-lpa">
+            <div class="opt" data-q="lpa" data-val="elevated"><div class="opt-radio"></div>Yes — elevated</div>
+            <div class="opt" data-q="lpa" data-val="normal"><div class="opt-radio"></div>Yes — normal</div>
+            <div class="opt" data-q="lpa" data-val="unchecked"><div class="opt-radio"></div>Never checked</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-section">
+        <div class="step-header">
+          <div class="step-num gold-c">2</div>
+          <h2 class="step-title">Metabolic Risk</h2>
+        </div>
+
+        <div class="q-block gold-q">
+          <div class="q-label">Blood Sugar</div>
+          <div class="q-text">What is your blood sugar status?</div>
+          <div class="q-hint">South Asians develop diabetes at lower BMI thresholds than standard guidelines anticipate.</div>
+          <div class="options" id="q-diabetes">
+            <div class="opt" data-q="diabetes" data-val="none"><div class="opt-radio"></div>Normal</div>
+            <div class="opt" data-q="diabetes" data-val="pre"><div class="opt-radio"></div>Prediabetes (physician-diagnosed)</div>
+            <div class="opt" data-q="diabetes" data-val="yes"><div class="opt-radio"></div>Type 2 diabetes</div>
+            <div class="opt" data-q="diabetes" data-val="unknown"><div class="opt-radio"></div>Never checked</div>
+          </div>
+        </div>
+
+        <div class="q-block gold-q">
+          <div class="q-label">Blood Pressure</div>
+          <div class="q-text">What is your blood pressure status?</div>
+          <div class="q-hint">High blood pressure is 130/80 mmHg or above.</div>
+          <div class="options" id="q-bp">
+            <div class="opt" data-q="bp" data-val="normal"><div class="opt-radio"></div>Normal (below 130/80)</div>
+            <div class="opt" data-q="bp" data-val="elevated"><div class="opt-radio"></div>Elevated or on medication</div>
+            <div class="opt" data-q="bp" data-val="unknown"><div class="opt-radio"></div>Never checked</div>
+          </div>
+        </div>
+
+        <div class="q-block gold-q">
+          <div class="q-label">Abdominal Weight</div>
+          <div class="q-text">Do you carry significant weight around your midsection?</div>
+          <div class="q-hint">South Asian thresholds: waist above 35 inches (men) or 31 inches (women).</div>
+          <div class="options" id="q-waist">
+            <div class="opt" data-q="waist" data-val="normal"><div class="opt-radio"></div>No</div>
+            <div class="opt" data-q="waist" data-val="elevated"><div class="opt-radio"></div>Yes</div>
+            <div class="opt" data-q="waist" data-val="unsure"><div class="opt-radio"></div>Unsure</div>
+          </div>
+        </div>
+
+        <div class="q-block gold-q">
+          <div class="q-label">Cholesterol / ApoB</div>
+          <div class="q-text">What do you know about your cholesterol?</div>
+          <div class="q-hint">ApoB measures total plaque-forming particle count — more precise than LDL alone.</div>
+          <div class="options" id="q-apob">
+            <div class="opt" data-q="apob" data-val="never"><div class="opt-radio"></div>Never checked</div>
+            <div class="opt" data-q="apob" data-val="ldl-only"><div class="opt-radio"></div>LDL normal, ApoB never checked</div>
+            <div class="opt" data-q="apob" data-val="elevated"><div class="opt-radio"></div>LDL or ApoB elevated or on treatment</div>
+            <div class="opt" data-q="apob" data-val="controlled"><div class="opt-radio"></div>Both LDL and ApoB checked and at goal</div>
+          </div>
+        </div>
+
+        <div class="q-block gold-q">
+          <div class="q-label">Smoking</div>
+          <div class="q-text">What is your smoking status?</div>
+          <div class="q-hint">Smoking significantly accelerates plaque formation.</div>
+          <div class="options" id="q-smoking">
+            <div class="opt" data-q="smoking" data-val="never"><div class="opt-radio"></div>Never smoked</div>
+            <div class="opt" data-q="smoking" data-val="former"><div class="opt-radio"></div>Former — quit more than 5 years ago</div>
+            <div class="opt" data-q="smoking" data-val="recent"><div class="opt-radio"></div>Former — quit within the last 5 years</div>
+            <div class="opt" data-q="smoking" data-val="current"><div class="opt-radio"></div>Current smoker</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-section">
+        <div class="step-header">
+          <div class="step-num crimson">3</div>
+          <h2 class="step-title">Plaque Evidence</h2>
+        </div>
+        <div class="step-desc">If you have had a coronary calcium scan, enter your score. If not, select the first option.</div>
+
+        <div class="q-block crimson-q">
+          <div class="q-label">Coronary Artery Calcium (CAC) Score</div>
+          <div class="q-text">Have you had a coronary calcium scan?</div>
+          <div class="q-hint">Unlike other risk factors, a CAC score is direct evidence of plaque already present — not just a prediction of future risk.</div>
+          <div class="options" id="q-cac">
+            <div class="opt" data-q="cac" data-val="none"><div class="opt-radio"></div>I have not had a CAC scan</div>
+            <div class="opt" data-q="cac" data-val="zero"><div class="opt-radio"></div>CAC score of 0</div>
+            <div class="opt" data-q="cac" data-val="low"><div class="opt-radio"></div>CAC score 1–99</div>
+            <div class="opt" data-q="cac" data-val="moderate"><div class="opt-radio"></div>CAC score 100–299</div>
+            <div class="opt" data-q="cac" data-val="high"><div class="opt-radio"></div>CAC score 300 or higher</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="submit-wrap">
+        <button class="btn btn-navy" onclick="showResults()">See My Profile →</button>
+        <p style="font-size:0.75rem;color:var(--muted);margin-top:10px;line-height:1.6;">All questions must be answered before viewing results.</p>
+      </div>
+
+    </div><!-- /questionsWrap -->
+  </div>
+</section>
+
+<div class="submit-sticky" id="stickySubmit">
+  <button class="btn btn-navy" onclick="showResults()">See My Profile →</button>
+</div>
+</div><!-- /toolSection -->
+
+<div id="resultsSection">
+  <div class="inner">
+
+    <!-- CAC priority banner (shown conditionally) -->
+    <div class="cac-banner" id="cacBanner">
+      <div class="cac-banner-icon">🫀</div>
+      <div>
+        <div class="cac-banner-label">Plaque Evidence — Priority Finding</div>
+        <div class="cac-banner-title" id="cacBannerTitle"></div>
+        <div class="cac-banner-text" id="cacBannerText"></div>
+      </div>
+    </div>
+
+    <div class="result-intro">
+      <div class="result-intro-label">Your Profile Summary</div>
+      <h2>Here Is What Your Answers Suggest</h2>
+    </div>
+
+    <!-- Diagram -->
+    <div class="risk-diagram">
+      <h4>How Cardiovascular Risk Builds</h4>
+      <div class="diag-flow">
+        <div class="diag-box navy">
+          <div class="diag-box-label">Inherited Risk</div>
+          <div class="diag-box-title">Biology</div>
+          <div class="diag-box-items">Family history<br>Lp(a)</div>
+        </div>
+        <div class="diag-plus">+</div>
+        <div class="diag-box gold">
+          <div class="diag-box-label">Metabolic Risk</div>
+          <div class="diag-box-title">Metabolism</div>
+          <div class="diag-box-items">Diabetes · BP<br>Cholesterol · Smoking</div>
+        </div>
+        <div class="diag-plus">→</div>
+        <div class="diag-box red">
+          <div class="diag-box-label">Plaque Evidence</div>
+          <div class="diag-box-title">Disease</div>
+          <div class="diag-box-items">CAC score<br>(direct measurement)</div>
+        </div>
+      </div>
+      <div class="diag-caption">Risk factors on the left predict future disease. The CAC score on the right measures plaque already present.</div>
+    </div>
+
+    <div class="domains">
+      <div class="domain-card inherited-card">
+        <div class="domain-header">
+          <div class="domain-icon">🧬</div>
+          <div class="domain-name inherited">Inherited / Family Signals</div>
+          <div class="domain-signal" id="inheritedSignal"></div>
+        </div>
+        <div class="domain-body" id="inheritedBody"></div>
+        <div class="domain-flags" id="inheritedFlags"></div>
+      </div>
+      <div class="domain-card metabolic-card">
+        <div class="domain-header">
+          <div class="domain-icon">⚗️</div>
+          <div class="domain-name metabolic">Metabolic Signals</div>
+          <div class="domain-signal" id="metabolicSignal"></div>
+        </div>
+        <div class="domain-body" id="metabolicBody"></div>
+        <div class="domain-flags" id="metabolicFlags"></div>
+      </div>
+      <div class="domain-card plaque-card">
+        <div class="domain-header">
+          <div class="domain-icon">🫀</div>
+          <div class="domain-name plaque">Plaque Evidence</div>
+          <div class="domain-signal" id="plaqueSignal"></div>
+        </div>
+        <div class="domain-body" id="plaqueBody"></div>
+        <div class="domain-flags" id="plaqueFlags"></div>
+      </div>
+    </div>
+
+    <div class="overall-signal" id="overallSignal">
+      <div class="overall-label" id="overallLabel"></div>
+      <div class="overall-title" id="overallTitle"></div>
+      <div class="overall-text" id="overallText"></div>
+    </div>
+
+    <div class="doesnt-mean">
+      <h4>What This Result Does Not Mean</h4>
+      <p>This page provides general educational information about cardiovascular risk patterns. It is not a validated medical calculator, does not estimate your probability of heart disease, and should not replace evaluation by a qualified healthcare professional.</p>
+    </div>
+
+    <div class="nextsteps-section">
+      <h3>Possible Next Steps to Discuss With Your Physician</h3>
+      <div class="personal-steps" id="personalSteps"></div>
+    </div>
+
+    <div class="learn-section">
+      <h3>Related Articles</h3>
+      <div class="learn-links">
+        <a class="learn-link" href="article.html?id=cacscoresouthasian"><div><div class="learn-link-cat">Imaging · Prevention</div>Coronary Calcium Score in South Asians: Why a Low Score May Still Require Context</div><span>→</span></a>
+        <a class="learn-link" href="article.html?id=lpa"><div><div class="learn-link-cat">Genetics · Lipids</div>Lipoprotein(a): The Genetic Cholesterol Risk Most Tests Miss</div><span>→</span></a>
+        <a class="learn-link" href="article.html?id=apob"><div><div class="learn-link-cat">Advanced Lipids</div>ApoB: The Cholesterol Number That Matters More Than LDL</div><span>→</span></a>
+        <a class="learn-link" href="article.html?id=statins"><div><div class="learn-link-cat">Treatment</div>Statins Explained: Who Benefits and When They Are Needed</div><span>→</span></a>
+        <a class="learn-link" href="article.html?id=futuretherapies"><div><div class="learn-link-cat">Emerging Therapies</div>The Future of Cholesterol Treatment: RNA Drugs and Lp(a) Therapies</div><span>→</span></a>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h3>Common Questions</h3>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Why does heart disease often occur earlier in South Asian populations?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">Heart disease occurs earlier in South Asian populations partly because of biological patterns more common in this group: higher rates of insulin resistance and diabetes at lower BMI, greater abdominal fat despite normal weight, increased prevalence of lipoprotein(a), and strong family clustering of premature coronary disease — patterns that standard risk calculators were not designed to capture.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Should South Asians get their Lp(a) checked?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">Yes. Lp(a) is more prevalent in South Asians and is not included on a standard lipid panel. Major cardiology societies recommend checking Lp(a) at least once in adulthood, particularly for those with a family history of early heart disease.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What does a coronary calcium score mean?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">A CAC scan measures calcified plaque in the heart arteries. A score of zero is highly reassuring. A non-zero score is direct evidence that plaque has already formed — unlike other risk factors, which only predict future risk. In South Asians, a score of zero should still be interpreted alongside Lp(a) and family history.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is LDL enough to assess heart risk in South Asians?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">Often not. South Asians may have elevated ApoB — a measure of total plaque-forming particle count — even when LDL appears normal. Lp(a), ApoB, and coronary calcium scoring provide a more complete picture of cardiovascular risk in this population.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What is ApoB and why does it matter?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">ApoB measures the total number of atherogenic (plaque-forming) particles in the blood. It is a more precise cardiovascular risk marker than LDL alone, particularly in patients with metabolic syndrome, diabetes, or elevated triglycerides — all more common in South Asians.</div>
+      </div>
+    </div>
+
+    <div class="refs-section">
+      <div class="refs-title">References</div>
+      <ol class="refs-list">
+        <li>Joshi P, et al. Risk factors for early myocardial infarction in South Asians compared with individuals in other countries. <em>JAMA.</em> 2007;297(3):286–94.</li>
+        <li>Nordestgaard BG, Langsted A. Lipoprotein(a) and cardiovascular disease. <em>Lancet.</em> 2024;404:1255–64.</li>
+        <li>Tsimikas S. Lipoprotein(a): A test in context. <em>J Am Coll Cardiol.</em> 2017;69(6):692–711.</li>
+        <li>Detrano R, et al. Coronary calcium as a predictor of coronary events in four racial or ethnic groups. <em>N Engl J Med.</em> 2008;358(13):1336–45.</li>
+        <li>Blaha MJ, et al. The importance of coronary artery calcium scoring in cardiovascular risk assessment. <em>Circulation.</em> 2016;133(18):1799–806.</li>
+      </ol>
+    </div>
+
+    <div class="disclaimer">
+      <strong>Important Disclaimer:</strong> This page provides general educational information about cardiovascular risk patterns. It is not a validated medical calculator, does not estimate your probability of heart disease, and should not replace evaluation by a qualified healthcare professional.
+    </div>
+
+    <div class="cta-section">
+      <h3>Questions About Your Results?</h3>
+      <p>Dr. Bharmal specializes in South Asian cardiovascular risk and advanced lipid assessment. A preventive cardiology consultation can clarify your next steps.</p>
+      <div class="cta-btns">
+        <a href="index.html#contact" class="btn btn-red">Request a Consultation ↗</a>
+        <a href="pearls.html" class="btn btn-outline">Browse All Articles →</a>
+      </div>
+    </div>
+
+    <div class="restart-wrap">
+      <button class="btn btn-outline" onclick="restartTool()">↺ Retake Assessment</button>
+    </div>
+
+  </div>
+</div><!-- /resultsSection -->
+
+<footer>
+  <div class="footer-logo">Murtaza <span>Bharmal</span>, MD</div>
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/murtaza-bharmal-0822344b/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      Connect on LinkedIn
+    </a>
+  </div>
+  <div class="footer-copy">© 2026 · Interventional Cardiologist</div>
+</footer>
+
+<script>
+const answers = {};
+const REQUIRED = ['family','lpa','diabetes','bp','waist','apob','smoking','cac'];
+
+// GATE
+document.querySelectorAll('[data-q="gate"]').forEach(opt => {
+  opt.addEventListener('click', () => {
+    document.querySelectorAll('[data-q="gate"]').forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    answers['gate'] = opt.dataset.val;
+    const stop = document.getElementById('gateStop');
+    const qw = document.getElementById('questionsWrap');
+    const sticky = document.getElementById('stickySubmit');
+    if (opt.dataset.val === 'yes') {
+      stop.style.display = 'block'; qw.style.display = 'none'; sticky.style.display = 'none';
+    } else {
+      stop.style.display = 'none'; qw.style.display = 'block';
+      if (window.innerWidth <= 600) sticky.style.display = 'block';
+    }
+  });
+});
+
+// OPTIONS
+document.querySelectorAll('.opt:not([data-q="gate"])').forEach(opt => {
+  opt.addEventListener('click', () => {
+    const q = opt.dataset.q;
+    document.querySelectorAll(`[data-q="${q}"]`).forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    answers[q] = opt.dataset.val;
+    opt.closest('.q-block').classList.remove('error');
+  });
+});
+
+// VALIDATION
+function validateAll() {
+  let first = null, valid = true;
+  REQUIRED.forEach(q => {
+    const block = document.querySelector(`[data-q="${q}"]`)?.closest('.q-block');
+    if (!answers[q]) { valid = false; if (block) { block.classList.add('error'); if (!first) first = block; } }
+  });
+  if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  return valid;
+}
+
+// FAQ
+function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+
+// HELPERS
+function makeFlag(text, cls) {
+  const el = document.createElement('div');
+  el.className = 'domain-flag ' + cls;
+  el.innerHTML = `<span style="color:var(--navy);font-weight:700;flex-shrink:0;">→</span><span>${text}</span>`;
+  return el;
+}
+
+function showResults() {
+  if (answers['gate'] !== 'no') { document.getElementById('gateNo').scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
+  if (!validateAll()) return;
+
+  // CAC BANNER — CAC dominance over other domains
+  const banner = document.getElementById('cacBanner');
+  if (answers.cac === 'high') {
+    banner.classList.add('show');
+    document.getElementById('cacBannerTitle').textContent = 'High coronary plaque burden detected (CAC ≥ 300).';
+    document.getElementById('cacBannerText').textContent = 'A CAC score at this level takes priority over other risk factors in this profile. Please discuss this directly with a cardiologist — regardless of your other answers.';
+  } else if (answers.cac === 'moderate') {
+    banner.classList.add('show');
+    document.getElementById('cacBannerTitle').textContent = 'Evidence of coronary plaque is present (CAC 100–299).';
+    document.getElementById('cacBannerText').textContent = 'This is direct anatomical evidence — not a prediction — that plaque has formed in your coronary arteries. It warrants more intensive risk factor management.';
+  }
+
+  // DOMAIN 1: INHERITED
+  let iScore = 0; const iFlags = [];
+  if (answers.family === 'yes') { iScore += 2; iFlags.push({ text: 'Family history of early heart disease is one of the strongest independent cardiovascular risk predictors, particularly in South Asian families where premature coronary disease clusters.', cls: 'red' }); }
+  else if (answers.family === 'unsure') { iFlags.push({ text: 'Family history is unknown — gathering this from first-degree relatives is worth discussing with your physician.', cls: '' }); }
+  if (answers.lpa === 'elevated') { iScore += 2; iFlags.push({ text: 'Elevated Lp(a) is associated with increased lifetime risk of cardiovascular disease and aortic valve disease, independent of LDL. It is more prevalent in South Asians.', cls: 'red' }); }
+  else if (answers.lpa === 'unchecked') { iScore += 1; iFlags.push({ text: 'Lp(a) has never been checked — it is not on a standard lipid panel and should be ordered separately at least once in adulthood.', cls: 'amber' }); }
+
+  const iSig = document.getElementById('inheritedSignal');
+  const iBody = document.getElementById('inheritedBody');
+  const iFlagsEl = document.getElementById('inheritedFlags');
+  if (iScore === 0 && answers.lpa === 'normal') { iSig.className = 'domain-signal signal-low'; iSig.textContent = 'No major signals'; iBody.textContent = 'No major inherited risk signals identified. A normal Lp(a) is reassuring.'; }
+  else if (iScore <= 1) { iSig.className = 'domain-signal signal-moderate'; iSig.textContent = 'Some signals'; iBody.textContent = 'One or more inherited factors are present that may be worth discussing with your physician.'; }
+  else { iSig.className = 'domain-signal signal-elevated'; iSig.textContent = 'Notable signals'; iBody.textContent = 'Your profile includes inherited risk factors that warrant a more detailed discussion with a cardiologist.'; }
+  iFlags.forEach(f => iFlagsEl.appendChild(makeFlag(f.text, f.cls)));
+
+  // DOMAIN 2: METABOLIC
+  let mScore = 0; const mFlags = [];
+  if (answers.diabetes === 'yes') { mScore += 3; mFlags.push({ text: 'Type 2 diabetes significantly accelerates cardiovascular risk — in South Asians, this begins at lower BMI and earlier age than standard guidelines anticipate.', cls: 'red' }); }
+  else if (answers.diabetes === 'pre') { mScore += 1; mFlags.push({ text: 'Prediabetes is associated with higher cardiovascular risk and increased atherogenic particle burden, even before frank diabetes develops.', cls: 'amber' }); }
+  else if (answers.diabetes === 'unknown') { mScore += 1; mFlags.push({ text: 'Blood sugar has never been checked — a fasting glucose or HbA1c is a simple and important starting point for South Asian adults.', cls: 'amber' }); }
+  if (answers.bp === 'elevated') { mScore += 2; mFlags.push({ text: 'Elevated blood pressure accelerates arterial damage and plaque formation — one of the most impactful and modifiable cardiovascular risk factors.', cls: 'red' }); }
+  else if (answers.bp === 'unknown') { mScore += 1; mFlags.push({ text: 'Blood pressure has never been checked — this is one of the most basic cardiovascular parameters to know.', cls: 'amber' }); }
+  if (answers.waist === 'elevated') { mScore += 2; mFlags.push({ text: 'Abdominal obesity drives insulin resistance and elevated triglycerides — South Asians accumulate visceral fat at lower BMI thresholds than other groups.', cls: 'amber' }); }
+  if (answers.apob === 'elevated') { mScore += 2; mFlags.push({ text: 'Elevated LDL or ApoB indicates increased plaque-forming particle burden — the primary driver of atherosclerosis.', cls: 'red' }); }
+  else if (answers.apob === 'ldl-only') { mScore += 1; mFlags.push({ text: 'LDL appears normal, but ApoB has not been measured — in metabolic syndrome, ApoB can be elevated even when LDL looks fine.', cls: 'amber' }); }
+  else if (answers.apob === 'never') { mScore += 1; mFlags.push({ text: 'Cholesterol has never been checked — a baseline lipid panel is an important starting point for cardiovascular risk assessment.', cls: 'amber' }); }
+  if (answers.smoking === 'current') { mScore += 3; mFlags.push({ text: 'Current smoking is one of the most powerful modifiable cardiovascular risk factors — cessation support is effective and available.', cls: 'red' }); }
+  else if (answers.smoking === 'recent') { mScore += 1; mFlags.push({ text: 'Recent former smokers carry residual cardiovascular risk — the benefits of quitting continue to accumulate over time.', cls: 'amber' }); }
+
+  const mSig = document.getElementById('metabolicSignal');
+  const mBody = document.getElementById('metabolicBody');
+  const mFlagsEl = document.getElementById('metabolicFlags');
+  if (mScore === 0) { mSig.className = 'domain-signal signal-low'; mSig.textContent = 'No major signals'; mBody.textContent = 'No major metabolic risk signals identified. Routine monitoring remains important.'; }
+  else if (mScore <= 3) { mSig.className = 'domain-signal signal-moderate'; mSig.textContent = 'Some signals'; mBody.textContent = 'One or more metabolic risk factors are present — most are addressable with appropriate lifestyle and medical management.'; }
+  else { mSig.className = 'domain-signal signal-elevated'; mSig.textContent = 'Notable signals'; mBody.textContent = 'Several metabolic risk factors are present — a detailed lipid and metabolic evaluation would be appropriate.'; }
+  mFlags.forEach(f => mFlagsEl.appendChild(makeFlag(f.text, f.cls)));
+
+  // DOMAIN 3: PLAQUE
+  const cacData = {
+    none:     { sig:'signal-unknown', label:'Not assessed',          body:'No CAC scan on record. Depending on your risk profile, this may be worth discussing — particularly for South Asian adults in their 40s or older.' , flag:null },
+    zero:     { sig:'signal-low',     label:'Reassuring',            body:'A score of zero is highly reassuring. In South Asians, it should still be read alongside Lp(a) and family history.',                                  flag:null },
+    low:      { sig:'signal-moderate',label:'Early plaque present',  body:'A score of 1–99 is direct evidence that plaque formation has begun — preventive measures deserve careful attention.',                                  flag:{text:'A non-zero CAC score warrants review of all modifiable risk factors: LDL targets, blood pressure, Lp(a), and lifestyle.',cls:'amber'} },
+    moderate: { sig:'signal-elevated',label:'Plaque present',        body:'A score of 100–299 indicates meaningful plaque burden and supports more intensive risk factor management.',                                            flag:{text:'Discuss statin therapy, LDL targets, and Lp(a) assessment with a cardiologist.',cls:'red'} },
+    high:     { sig:'signal-elevated',label:'High plaque burden',    body:'A score of 300 or higher indicates significant coronary plaque — a cardiology evaluation is worth discussing with your physician.',                   flag:{text:'A CAC score above 300 supports a detailed review of treatment intensity across all risk domains with a cardiologist.',cls:'red'} }
+  };
+  const cac = cacData[answers.cac];
+  document.getElementById('plaqueSignal').className = 'domain-signal ' + cac.sig;
+  document.getElementById('plaqueSignal').textContent = cac.label;
+  document.getElementById('plaqueBody').textContent = cac.body;
+  if (cac.flag) document.getElementById('plaqueFlags').appendChild(makeFlag(cac.flag.text, cac.flag.cls));
+
+  // OVERALL
+  const cacBonus = {high:3,moderate:2,low:1,zero:0,none:0}[answers.cac]||0;
+  const total = iScore + mScore + cacBonus;
+  const ov = document.getElementById('overallSignal');
+  if (total <= 2) {
+    ov.className = 'overall-signal few';
+    document.getElementById('overallLabel').textContent = 'Overall · Few Current Warning Signals';
+    document.getElementById('overallTitle').textContent = 'Your Answers Do Not Suggest Many Major Warning Signals at This Time';
+    document.getElementById('overallText').textContent = 'Continue focusing on prevention — blood pressure control, healthy nutrition, regular exercise, and routine screening. Even with a reassuring profile, South Asian ancestry warrants ongoing awareness.';
+  } else if (total <= 6) {
+    ov.className = 'overall-signal some';
+    document.getElementById('overallLabel').textContent = 'Overall · Some Important Risk Signals';
+    document.getElementById('overallTitle').textContent = 'Your Answers Suggest Factors That May Increase Cardiovascular Risk';
+    document.getElementById('overallText').textContent = 'This may be a good time to discuss additional testing — such as Lp(a), ApoB, or CAC scanning — with your physician. Identifying these factors early is the most effective approach to prevention.';
+  } else {
+    ov.className = 'overall-signal multiple';
+    document.getElementById('overallLabel').textContent = 'Overall · Multiple Risk Signals Worth Discussing';
+    document.getElementById('overallTitle').textContent = 'Your Answers Suggest Several Factors Associated With Higher Cardiovascular Risk';
+    document.getElementById('overallText').textContent = 'A more detailed preventive cardiology evaluation may help clarify your risk and guide next steps. Most factors identified here are addressable with the right testing and management strategy.';
+  }
+
+  // PERSONALIZED NEXT STEPS
+  const steps = [];
+  if (answers.lpa === 'unchecked')
+    steps.push({icon:'🧬',text:'Consider one-time Lp(a) testing',sub:'Not on standard panels — must be ordered separately. Recommended at least once in adulthood for South Asians.',href:'article.html?id=lpa'});
+  if (answers.apob === 'never' || answers.apob === 'ldl-only')
+    steps.push({icon:'🩸',text:'Discuss ApoB measurement with your physician',sub:'LDL alone may underestimate true particle burden, especially with metabolic syndrome.',href:'article.html?id=apob'});
+  if (answers.cac === 'none' && (answers.family === 'yes' || iScore >= 2 || mScore >= 3))
+    steps.push({icon:'🫀',text:'Ask whether a CAC scan is appropriate for you',sub:'Your risk profile suggests a coronary calcium scan may help clarify plaque burden.',href:'article.html?id=cacscoresouthasian'});
+  if (answers.diabetes === 'yes' || answers.diabetes === 'pre')
+    steps.push({icon:'⚗️',text:'Prioritize metabolic control',sub:'Blood sugar management significantly reduces cardiovascular risk — discuss targets with your physician.',href:'article.html?id=statins'});
+  if (answers.bp === 'elevated' || answers.bp === 'unknown')
+    steps.push({icon:'💉',text:'Get your blood pressure checked or reviewed',sub:'Hypertension is one of the most impactful and modifiable cardiovascular risk factors.',href:'index.html#contact'});
+  if (answers.smoking === 'current')
+    steps.push({icon:'🚭',text:'Discuss smoking cessation support',sub:'Quitting is the single most impactful cardiovascular intervention for current smokers.',href:'index.html#contact'});
+  if (answers.cac === 'moderate' || answers.cac === 'high')
+    steps.push({icon:'🩺',text:'Request a preventive cardiology evaluation',sub:'Your CAC score warrants a comprehensive review of treatment intensity with a cardiologist.',href:'index.html#contact'});
+  if (steps.length === 0)
+    steps.push({icon:'✓',text:'Continue routine preventive screening',sub:'Annual visits, blood pressure checks, and periodic lipid panels are the foundation of prevention.',href:'pearls.html'});
+
+  const stepsEl = document.getElementById('personalSteps');
+  steps.forEach(s => {
+    const a = document.createElement('a');
+    a.className = 'personal-step'; a.href = s.href;
+    a.innerHTML = `<div class="personal-step-icon">${s.icon}</div><div><span class="personal-step-text">${s.text}</span><span class="personal-step-sub">${s.sub}</span></div>`;
+    stepsEl.appendChild(a);
+  });
+
+  document.getElementById('toolSection').style.display = 'none';
+  document.getElementById('stickySubmit').style.display = 'none';
+  document.getElementById('resultsSection').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function restartTool() {
+  Object.keys(answers).forEach(k => delete answers[k]);
+  document.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+  document.querySelectorAll('.q-block').forEach(b => b.classList.remove('error'));
+  document.getElementById('gateStop').style.display = 'none';
+  document.getElementById('questionsWrap').style.display = 'none';
+  document.getElementById('cacBanner').classList.remove('show');
+  ['inheritedFlags','metabolicFlags','plaqueFlags'].forEach(id => document.getElementById(id).innerHTML = '');
+  document.getElementById('personalSteps').innerHTML = '';
+  document.getElementById('toolSection').style.display = 'block';
+  document.getElementById('resultsSection').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+const hbg = document.getElementById('hbg');
+const mob = document.getElementById('mobMenu');
+hbg.addEventListener('click', () => { const o = mob.classList.toggle('open'); hbg.classList.toggle('open', o); });
+function closeMob() { mob.classList.remove('open'); hbg.classList.remove('open'); }
+</script>
+</body>
+</html>
