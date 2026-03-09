@@ -263,8 +263,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 22px
 @media(max-width:600px){
   .inner{padding:0 15px}
   .gate-card,.q-block,.result-intro,.domain-card,.overall-signal,.nextsteps-section,
-  .learn-section,.refs-section,.disclaimer,.cta-section,.risk-diagram,
-  .transparency-box,.doesnt-mean,.faq-section{padding:16px 14px}
+  .learn-section,.disclaimer,.cta-section,.risk-diagram{padding:16px 14px}
   footer{flex-direction:column;text-align:center;align-items:center}
   .submit-sticky{display:block}
   .diag-flow{grid-template-columns:1fr}
@@ -302,12 +301,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 22px
   <div class="inner">
     <div class="tag">Educational Screening Tool</div>
     <h1>South Asian Heart Risk Check</h1>
-    <p class="hero-sub">Understanding South Asian heart disease risk often requires looking beyond standard cholesterol tests. Heart disease occurs earlier in South Asian populations — and standard risk calculators were not designed to capture the patterns that drive it.</p>
+    <p class="hero-sub">Standard cholesterol tests and risk calculators often miss the patterns that drive heart disease in South Asian populations. This tool helps identify what to look for — and what to discuss with your physician.</p>
     <div class="hero-notice">
-      <strong>Educational only —</strong>&nbsp;does not calculate your exact risk of heart attack, does not diagnose heart disease, and is not a substitute for medical advice. Intended for adults without known cardiovascular disease.
+      <strong>Educational only —</strong>&nbsp;not a diagnostic tool, not a substitute for medical advice. Most relevant for South Asian adults 35 and older, or younger adults with a family history of premature heart disease.
     </div>
-    <div class="page-byline"><strong>Murtaza Bharmal, MD</strong> · Interventional Cardiologist · Board Certified</div>
-    <div class="last-reviewed">Last reviewed: March 2026</div>
+    <div class="page-byline"><strong>Murtaza Bharmal, MD</strong> · Interventional Cardiologist · Last reviewed March 2026</div>
   </div>
 </section>
 
@@ -316,13 +314,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 22px
   <div class="inner">
 
     <div class="gate-card">
-      <div class="gate-title">Before Using This Tool</div>
-      <p style="font-size:0.87rem;color:var(--muted);line-height:1.65;margin-bottom:12px;">This assessment is designed for adults without known cardiovascular disease. If any of the following apply, please discuss prevention directly with your physician rather than using this tool:</p>
+      <div class="gate-title">Does any of the following apply to you?</div>
       <ul class="gate-list">
-        <li>Prior heart attack, coronary stent, or bypass surgery</li>
-        <li>Known coronary artery disease or prior stroke</li>
-        <li>Prior peripheral artery disease</li>
-        <li>High coronary calcium score (300+) already under active cardiology treatment</li>
+        <li>Prior heart attack, stent, bypass surgery, or stroke</li>
+        <li>Known coronary artery disease or peripheral artery disease</li>
+        <li>CAC score above 300 already under active cardiology care</li>
         <li>New or unexplained chest pain or shortness of breath</li>
       </ul>
       <div class="gate-opts">
@@ -347,7 +343,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 22px
         <div class="q-block">
           <div class="q-label">Family History</div>
           <div class="q-text">Has a close relative had a heart attack at a young age?</div>
-          <div class="q-hint">Male relative before age 55, or female relative before age 65.</div>
+          <div class="q-hint">Father or brother before 55; mother or sister before 65.</div>
           <div class="options" id="q-family">
             <div class="opt" data-q="family" data-val="yes"><div class="opt-radio"></div>Yes</div>
             <div class="opt" data-q="family" data-val="no"><div class="opt-radio"></div>No</div>
@@ -358,7 +354,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 22px
         <div class="q-block">
           <div class="q-label">Lipoprotein(a) — Lp(a)</div>
           <div class="q-text">Have you had your Lp(a) checked?</div>
-          <div class="q-hint">A genetic cholesterol particle not on standard lipid panels. Elevated Lp(a) is associated with increased lifetime risk of cardiovascular disease. More common in South Asians.</div>
+          <div class="q-hint">A genetic cholesterol particle not on standard panels — more prevalent in South Asians.</div>
           <div class="options" id="q-lpa">
             <div class="opt" data-q="lpa" data-val="elevated"><div class="opt-radio"></div>Yes — elevated</div>
             <div class="opt" data-q="lpa" data-val="normal"><div class="opt-radio"></div>Yes — normal</div>
@@ -376,7 +372,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 22px
         <div class="q-block gold-q">
           <div class="q-label">Blood Sugar</div>
           <div class="q-text">What is your blood sugar status?</div>
-          <div class="q-hint">South Asians develop diabetes at lower BMI thresholds than standard guidelines anticipate.</div>
+          <div class="q-hint">South Asians develop diabetes at lower BMI thresholds than standard guidelines assume.</div>
           <div class="options" id="q-diabetes">
             <div class="opt" data-q="diabetes" data-val="none"><div class="opt-radio"></div>Normal</div>
             <div class="opt" data-q="diabetes" data-val="pre"><div class="opt-radio"></div>Prediabetes (physician-diagnosed)</div>
@@ -388,7 +384,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 22px
         <div class="q-block gold-q">
           <div class="q-label">Blood Pressure</div>
           <div class="q-text">What is your blood pressure status?</div>
-          <div class="q-hint">High blood pressure is 130/80 mmHg or above.</div>
+          <div class="q-hint">Elevated is 130/80 mmHg or above.</div>
           <div class="options" id="q-bp">
             <div class="opt" data-q="bp" data-val="normal"><div class="opt-radio"></div>Normal (below 130/80)</div>
             <div class="opt" data-q="bp" data-val="elevated"><div class="opt-radio"></div>Elevated or on medication</div>
@@ -507,7 +503,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 22px
           <div class="diag-box-items">CAC score<br>(direct measurement)</div>
         </div>
       </div>
-      <div class="diag-caption">Risk factors on the left predict future disease. The CAC score on the right measures plaque already present.</div>
+      <div class="diag-caption">Risk factors predict future disease. The CAC score measures what's already present.</div>
     </div>
 
     <div class="domains">
@@ -546,69 +542,27 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 22px
       <div class="overall-text" id="overallText"></div>
     </div>
 
-    <div class="doesnt-mean">
-      <h4>What This Result Does Not Mean</h4>
-      <p>This page provides general educational information about cardiovascular risk patterns. It is not a validated medical calculator, does not estimate your probability of heart disease, and should not replace evaluation by a qualified healthcare professional.</p>
-    </div>
-
     <div class="nextsteps-section">
       <h3>Possible Next Steps to Discuss With Your Physician</h3>
       <div class="personal-steps" id="personalSteps"></div>
     </div>
 
     <div class="learn-section">
-      <h3>Related Articles</h3>
+      <h3>Related Reading</h3>
       <div class="learn-links">
-        <a class="learn-link" href="article.html?id=cacscoresouthasian"><div><div class="learn-link-cat">Imaging · Prevention</div>Coronary Calcium Score in South Asians: Why a Low Score May Still Require Context</div><span>→</span></a>
-        <a class="learn-link" href="article.html?id=lpa"><div><div class="learn-link-cat">Genetics · Lipids</div>Lipoprotein(a): The Genetic Cholesterol Risk Most Tests Miss</div><span>→</span></a>
-        <a class="learn-link" href="article.html?id=apob"><div><div class="learn-link-cat">Advanced Lipids</div>ApoB: The Cholesterol Number That Matters More Than LDL</div><span>→</span></a>
-        <a class="learn-link" href="article.html?id=statins"><div><div class="learn-link-cat">Treatment</div>Statins Explained: Who Benefits and When They Are Needed</div><span>→</span></a>
-        <a class="learn-link" href="article.html?id=futuretherapies"><div><div class="learn-link-cat">Emerging Therapies</div>The Future of Cholesterol Treatment: RNA Drugs and Lp(a) Therapies</div><span>→</span></a>
+        <a class="learn-link" href="article.html?id=cacscoresouthasian"><div><div class="learn-link-cat">Imaging · Prevention</div>Coronary Calcium Score in South Asians</div><span>→</span></a>
+        <a class="learn-link" href="article.html?id=lpa"><div><div class="learn-link-cat">Genetics · Lipids</div>Lipoprotein(a): The Genetic Risk Most Tests Miss</div><span>→</span></a>
+        <a class="learn-link" href="article.html?id=apob"><div><div class="learn-link-cat">Advanced Lipids</div>ApoB: More Precise Than LDL</div><span>→</span></a>
       </div>
-    </div>
-
-    <div class="faq-section">
-      <h3>Common Questions</h3>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Why does heart disease often occur earlier in South Asian populations?<span class="faq-toggle">+</span></div>
-        <div class="faq-a">Heart disease occurs earlier in South Asian populations partly because of biological patterns more common in this group: higher rates of insulin resistance and diabetes at lower BMI, greater abdominal fat despite normal weight, increased prevalence of lipoprotein(a), and strong family clustering of premature coronary disease — patterns that standard risk calculators were not designed to capture.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Should South Asians get their Lp(a) checked?<span class="faq-toggle">+</span></div>
-        <div class="faq-a">Yes. Lp(a) is more prevalent in South Asians and is not included on a standard lipid panel. Major cardiology societies recommend checking Lp(a) at least once in adulthood, particularly for those with a family history of early heart disease.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">What does a coronary calcium score mean?<span class="faq-toggle">+</span></div>
-        <div class="faq-a">A CAC scan measures calcified plaque in the heart arteries. A score of zero is highly reassuring. A non-zero score is direct evidence that plaque has already formed — unlike other risk factors, which only predict future risk. In South Asians, a score of zero should still be interpreted alongside Lp(a) and family history.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Is LDL enough to assess heart risk in South Asians?<span class="faq-toggle">+</span></div>
-        <div class="faq-a">Often not. South Asians may have elevated ApoB — a measure of total plaque-forming particle count — even when LDL appears normal. Lp(a), ApoB, and coronary calcium scoring provide a more complete picture of cardiovascular risk in this population.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">What is ApoB and why does it matter?<span class="faq-toggle">+</span></div>
-        <div class="faq-a">ApoB measures the total number of atherogenic (plaque-forming) particles in the blood. It is a more precise cardiovascular risk marker than LDL alone, particularly in patients with metabolic syndrome, diabetes, or elevated triglycerides — all more common in South Asians.</div>
-      </div>
-    </div>
-
-    <div class="refs-section">
-      <div class="refs-title">References</div>
-      <ol class="refs-list">
-        <li>Joshi P, et al. Risk factors for early myocardial infarction in South Asians compared with individuals in other countries. <em>JAMA.</em> 2007;297(3):286–94.</li>
-        <li>Nordestgaard BG, Langsted A. Lipoprotein(a) and cardiovascular disease. <em>Lancet.</em> 2024;404:1255–64.</li>
-        <li>Tsimikas S. Lipoprotein(a): A test in context. <em>J Am Coll Cardiol.</em> 2017;69(6):692–711.</li>
-        <li>Detrano R, et al. Coronary calcium as a predictor of coronary events in four racial or ethnic groups. <em>N Engl J Med.</em> 2008;358(13):1336–45.</li>
-        <li>Blaha MJ, et al. The importance of coronary artery calcium scoring in cardiovascular risk assessment. <em>Circulation.</em> 2016;133(18):1799–806.</li>
-      </ol>
     </div>
 
     <div class="disclaimer">
-      <strong>Important Disclaimer:</strong> This page provides general educational information about cardiovascular risk patterns. It is not a validated medical calculator, does not estimate your probability of heart disease, and should not replace evaluation by a qualified healthcare professional.
+      <strong>Educational only.</strong> Not a validated medical calculator. Does not diagnose heart disease or estimate your exact probability of a cardiac event. Consult a qualified physician for individualized cardiovascular risk assessment.
     </div>
 
     <div class="cta-section">
       <h3>Questions About Your Results?</h3>
-      <p>Dr. Bharmal specializes in South Asian cardiovascular risk and advanced lipid assessment. A preventive cardiology consultation can clarify your next steps.</p>
+      <p>Dr. Bharmal specializes in South Asian cardiovascular risk and advanced lipid assessment.</p>
       <div class="cta-btns">
         <a href="index.html#contact" class="btn btn-red">Request a Consultation ↗</a>
         <a href="pearls.html" class="btn btn-outline">Browse All Articles →</a>
