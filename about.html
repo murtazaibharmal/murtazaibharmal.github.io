@@ -190,7 +190,35 @@ img, svg, video, canvas { max-width: 100%; height: auto; }
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Murtaza <span>Bharmal</span>, MD</div>
+  <a href="index.html" class="nav-logo">Murtaza <span>Bharmal</span>, MD</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="pearls.html">Articles</a></li>
+    <li><a href="legal.html">Medical-Legal</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="about.html" class="active">CV</a></li>
+    <li><a href="risk.html">Heart Health Tool</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html#about" onclick="closeMob()">About</a>
+  <a href="pearls.html" onclick="closeMob()">Articles</a>
+  <a href="legal.html" onclick="closeMob()">Medical-Legal</a>
+  <a href="research.html" onclick="closeMob()">Research</a>
+  <a href="about.html" onclick="closeMob()" class="active">CV</a>
+  <a href="risk.html" onclick="closeMob()">Heart Health Tool</a>
+  <a href="index.html#reviews" onclick="closeMob()">Reviews</a>
+  <a href="index.html#contact" onclick="closeMob()">Contact</a>
+  <div class="mob-menu-cta">
+    <a href="index.html#contact" onclick="closeMob()" class="btn btn-red">Get in Touch ↗</a>
+  </div>
+</div>
+
+
   <ul class="nav-links">
     <li><a href="index.html#about">About</a></li>
     <li><a href="index.html#expertise">Expertise</a></li>
