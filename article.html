@@ -71,7 +71,7 @@ nav {
   background: rgba(247,243,239,0.97); backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
 }
-.nav-logo { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--head); white-space: nowrap; text-decoration: none; }
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--head); white-space: nowrap; }
 .nav-logo span { color: var(--crimson); }
 .nav-links { display: flex; gap: 24px; list-style: none; }
 .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; padding: 4px 0; }
@@ -217,17 +217,19 @@ footer {
   padding: 32px 28px; display: flex; align-items: center;
   justify-content: space-between; flex-wrap: wrap; gap: 16px;
 }
-.footer-logo { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--head); }
+.footer-logo { font-family: 'Playfair Display', serif; font-size: 0.92rem; color: var(--head); }
 .footer-logo span { color: var(--crimson); }
+.footer-social { display: flex; align-items: center; gap: 12px; }
 .footer-social a {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 0.75rem; font-weight: 600; color: var(--muted);
-  text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase;
-  transition: color 0.2s;
+  display: flex; align-items: center; gap: 7px;
+  padding: 8px 16px; font-size: 0.74rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+  color: #0077b5; border: 1.5px solid rgba(0,119,181,0.3);
+  transition: all 0.2s; background: rgba(0,119,181,0.04);
 }
-.footer-social a:hover { color: var(--crimson); }
-.footer-social svg { width: 16px; height: 16px; fill: currentColor; }
-.footer-copy { font-size: 0.72rem; color: var(--muted); }
+.footer-social a:hover { background: rgba(0,119,181,0.1); border-color: rgba(0,119,181,0.6); transform: translateY(-1px); }
+.footer-social svg { width: 16px; height: 16px; fill: #0077b5; flex-shrink: 0; }
+.footer-copy { font-size: 0.76rem; color: var(--muted); }
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 768px) {
@@ -241,7 +243,7 @@ footer {
 <body>
 
 <nav>
-  <div class="nav-logo">Murtaza <span>Bharmal</span>, MD</div>
+  <a href="index.html" class="nav-logo">Murtaza <span>Bharmal</span>, MD</a>
   <ul class="nav-links">
     <li><a href="index.html#about">About</a></li>
     <li><a href="pearls.html">Articles</a></li>
